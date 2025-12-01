@@ -1,0 +1,3 @@
+C:/Users/Michael Watzek/Documents/Diplom_Arbeit/Software/cpp_PC_uC_usb_v01/cmake-build-debug/CMakeFiles/cpp_PC_uC_usb_v01.dir
+C:/Users/Michael Watzek/Documents/Diplom_Arbeit/Software/cpp_PC_uC_usb_v01/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Michael Watzek/Documents/Diplom_Arbeit/Software/cpp_PC_uC_usb_v01/cmake-build-debug/CMakeFiles/rebuild_cache.dir
