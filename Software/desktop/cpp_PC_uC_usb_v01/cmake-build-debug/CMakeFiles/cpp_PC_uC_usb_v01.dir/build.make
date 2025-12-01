@@ -52,10 +52,10 @@ RM = "C:\Program Files\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe"
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\Michael Watzek\Documents\Diplom_Arbeit\Software\cpp_PC_uC_usb_v01"
+CMAKE_SOURCE_DIR = "C:\Users\Michael Watzek\Documents\Diplom_Arbeit\Software\desktop\cpp_PC_uC_usb_v01"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\Michael Watzek\Documents\Diplom_Arbeit\Software\cpp_PC_uC_usb_v01\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\Michael Watzek\Documents\Diplom_Arbeit\Software\desktop\cpp_PC_uC_usb_v01\cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/cpp_PC_uC_usb_v01.dir/depend.make
@@ -69,18 +69,19 @@ include CMakeFiles/cpp_PC_uC_usb_v01.dir/progress.make
 include CMakeFiles/cpp_PC_uC_usb_v01.dir/flags.make
 
 CMakeFiles/cpp_PC_uC_usb_v01.dir/main.cpp.obj: CMakeFiles/cpp_PC_uC_usb_v01.dir/flags.make
-CMakeFiles/cpp_PC_uC_usb_v01.dir/main.cpp.obj: C:/Users/Michael\ Watzek/Documents/Diplom_Arbeit/Software/cpp_PC_uC_usb_v01/main.cpp
+CMakeFiles/cpp_PC_uC_usb_v01.dir/main.cpp.obj: CMakeFiles/cpp_PC_uC_usb_v01.dir/includes_CXX.rsp
+CMakeFiles/cpp_PC_uC_usb_v01.dir/main.cpp.obj: C:/Users/Michael\ Watzek/Documents/Diplom_Arbeit/Software/desktop/cpp_PC_uC_usb_v01/main.cpp
 CMakeFiles/cpp_PC_uC_usb_v01.dir/main.cpp.obj: CMakeFiles/cpp_PC_uC_usb_v01.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Watzek\Documents\Diplom_Arbeit\Software\cpp_PC_uC_usb_v01\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cpp_PC_uC_usb_v01.dir/main.cpp.obj"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cpp_PC_uC_usb_v01.dir/main.cpp.obj -MF CMakeFiles\cpp_PC_uC_usb_v01.dir\main.cpp.obj.d -o CMakeFiles\cpp_PC_uC_usb_v01.dir\main.cpp.obj -c "C:\Users\Michael Watzek\Documents\Diplom_Arbeit\Software\cpp_PC_uC_usb_v01\main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Michael Watzek\Documents\Diplom_Arbeit\Software\desktop\cpp_PC_uC_usb_v01\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/cpp_PC_uC_usb_v01.dir/main.cpp.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/cpp_PC_uC_usb_v01.dir/main.cpp.obj -MF CMakeFiles\cpp_PC_uC_usb_v01.dir\main.cpp.obj.d -o CMakeFiles\cpp_PC_uC_usb_v01.dir\main.cpp.obj -c "C:\Users\Michael Watzek\Documents\Diplom_Arbeit\Software\desktop\cpp_PC_uC_usb_v01\main.cpp"
 
 CMakeFiles/cpp_PC_uC_usb_v01.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cpp_PC_uC_usb_v01.dir/main.cpp.i"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Michael Watzek\Documents\Diplom_Arbeit\Software\cpp_PC_uC_usb_v01\main.cpp" > CMakeFiles\cpp_PC_uC_usb_v01.dir\main.cpp.i
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Michael Watzek\Documents\Diplom_Arbeit\Software\desktop\cpp_PC_uC_usb_v01\main.cpp" > CMakeFiles\cpp_PC_uC_usb_v01.dir\main.cpp.i
 
 CMakeFiles/cpp_PC_uC_usb_v01.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cpp_PC_uC_usb_v01.dir/main.cpp.s"
-	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Michael Watzek\Documents\Diplom_Arbeit\Software\cpp_PC_uC_usb_v01\main.cpp" -o CMakeFiles\cpp_PC_uC_usb_v01.dir\main.cpp.s
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Michael Watzek\Documents\Diplom_Arbeit\Software\desktop\cpp_PC_uC_usb_v01\main.cpp" -o CMakeFiles\cpp_PC_uC_usb_v01.dir\main.cpp.s
 
 # Object files for target cpp_PC_uC_usb_v01
 cpp_PC_uC_usb_v01_OBJECTS = \
@@ -94,7 +95,7 @@ cpp_PC_uC_usb_v01.exe: CMakeFiles/cpp_PC_uC_usb_v01.dir/build.make
 cpp_PC_uC_usb_v01.exe: CMakeFiles/cpp_PC_uC_usb_v01.dir/linkLibs.rsp
 cpp_PC_uC_usb_v01.exe: CMakeFiles/cpp_PC_uC_usb_v01.dir/objects1.rsp
 cpp_PC_uC_usb_v01.exe: CMakeFiles/cpp_PC_uC_usb_v01.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Michael Watzek\Documents\Diplom_Arbeit\Software\cpp_PC_uC_usb_v01\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable cpp_PC_uC_usb_v01.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Michael Watzek\Documents\Diplom_Arbeit\Software\desktop\cpp_PC_uC_usb_v01\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable cpp_PC_uC_usb_v01.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\cpp_PC_uC_usb_v01.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -106,6 +107,6 @@ CMakeFiles/cpp_PC_uC_usb_v01.dir/clean:
 .PHONY : CMakeFiles/cpp_PC_uC_usb_v01.dir/clean
 
 CMakeFiles/cpp_PC_uC_usb_v01.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\Michael Watzek\Documents\Diplom_Arbeit\Software\cpp_PC_uC_usb_v01" "C:\Users\Michael Watzek\Documents\Diplom_Arbeit\Software\cpp_PC_uC_usb_v01" "C:\Users\Michael Watzek\Documents\Diplom_Arbeit\Software\cpp_PC_uC_usb_v01\cmake-build-debug" "C:\Users\Michael Watzek\Documents\Diplom_Arbeit\Software\cpp_PC_uC_usb_v01\cmake-build-debug" "C:\Users\Michael Watzek\Documents\Diplom_Arbeit\Software\cpp_PC_uC_usb_v01\cmake-build-debug\CMakeFiles\cpp_PC_uC_usb_v01.dir\DependInfo.cmake" --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\Michael Watzek\Documents\Diplom_Arbeit\Software\desktop\cpp_PC_uC_usb_v01" "C:\Users\Michael Watzek\Documents\Diplom_Arbeit\Software\desktop\cpp_PC_uC_usb_v01" "C:\Users\Michael Watzek\Documents\Diplom_Arbeit\Software\desktop\cpp_PC_uC_usb_v01\cmake-build-debug" "C:\Users\Michael Watzek\Documents\Diplom_Arbeit\Software\desktop\cpp_PC_uC_usb_v01\cmake-build-debug" "C:\Users\Michael Watzek\Documents\Diplom_Arbeit\Software\desktop\cpp_PC_uC_usb_v01\cmake-build-debug\CMakeFiles\cpp_PC_uC_usb_v01.dir\DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/cpp_PC_uC_usb_v01.dir/depend
 
