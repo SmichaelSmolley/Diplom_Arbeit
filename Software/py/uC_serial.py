@@ -1,9 +1,7 @@
 import serial
 
 def serial_init(port, baudrate):
-    """Initialize the serial port with the given baudrate."""
-    ser = serial.Serial(port, baudrate)
-    return ser
+    return serial.Serial(port, baudrate, timeout=1)  # 1 Sekunde timeout
 
 def serial_send(ser, data):
     """Send data over the serial port."""
@@ -27,7 +25,7 @@ def serial_close(ser):
 # print("Received:", data)
 # serial_close(ser)
 
-ser = serial_init('/dev/ttyUSB0', 9600)
+ser = serial_init('COM8', 9600)
 serial_send(ser, 'Hello, uC!')
 data = serial_receive(ser, 100)
 print("Received:", data)
