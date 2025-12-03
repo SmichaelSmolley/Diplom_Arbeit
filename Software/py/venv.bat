@@ -1,7 +1,23 @@
 @echo off
-echo =Installing Python virtual environment and dependencies=
+echo ==============================================
+echo Installing Python virtual environment and dependencies
+echo ==============================================
+
 python -m venv .venv
-.venv\Scripts\activate
+
+echo Activating virtual environment...
+call .venv\Scripts\activate
+
+echo Upgrading pip...
 pip install --upgrade pip
+
+echo Installing requirements...
 pip install -r requirements.txt
-echo =Setup complete. To activate the virtual environment, run: .venv\Scripts\activate=
+
+echo ==============================================
+echo Setup complete!
+echo To activate the virtual environment later, run:
+echo     call .venv\Scripts\activate
+echo ==============================================
+
+pause
