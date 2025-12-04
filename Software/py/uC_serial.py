@@ -1,4 +1,7 @@
 import serial
+from ADC_class import SourceADCConfig
+
+test_adc = SourceADCConfig()
 
 def serial_init(port, baudrate):
     return serial.Serial(port, baudrate, timeout=1)  # 1 Sekunde timeout
@@ -25,8 +28,14 @@ def serial_close(ser):
 # print("Received:", data)
 # serial_close(ser)
 
+
+
 ser = serial_init('COM8', 9600)
 serial_send(ser, 'Hello, uC!')
 data = serial_receive(ser, 100)
 print("Received:", data)
 serial_close(ser)
+
+print("ADC Config Internal Ref:", test_adc.internal_ref)
+print("ADC Config Sample Rate:", test_adc.sample_rate)
+print("ADC Config Input Range:", test_adc.input_range_setting)
