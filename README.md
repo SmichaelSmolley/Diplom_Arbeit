@@ -1,3 +1,9 @@
+# VS Code Githubsetup
+
+aus github die noreply email heraus suchen dann **git config --global user.email [deine email]**                                      
+
+und auch den username einstellen: **git config --global user.name SmichaelSmolley**
+
 # Ordnerstruktur
 
 ## Bokumentation
