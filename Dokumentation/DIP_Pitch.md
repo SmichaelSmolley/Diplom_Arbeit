@@ -36,5 +36,22 @@ Auf diesem Auswerte gerät sollen die messdaten entgegengenommen werden und anal
 
 war cool und so
 
-### 
+## Arbeitsprogress
+
++ programmerstellung für die berechnung der TIA stufe
++ Block-Diagramm des Analog Messsystems
++ Auswahl des ADS8681
++ Besprechung mit TU-Kontakt
++ Programm lib erstellung für ADS8681 Kommunikation
++ Herstellung einer Test Kommunikations Platine
++ Entwicklung eines entwurfes für ein Modulares Messsystems
+
+## To-Do Liste
+
++ Zeichnen des Blockdiagramms
++ Blockdiagramm für ein Modulares Messsystems
++ erklärung Diff-Leitungen Stecker Systems
+
+## Markdown Ideen
+
 

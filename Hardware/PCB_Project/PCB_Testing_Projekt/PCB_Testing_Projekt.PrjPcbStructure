@@ -1,5 +1,5 @@
 Record=TopLevelDocument|FileName=TOP_Sheet.SchDoc|SheetNumber= 
 Record=SheetSymbol|SourceDocument=TOP_Sheet.SchDoc|Designator=U_Drain_Diver_OPV|SchDesignator=U_Drain_Diver_OPV|FileName=DAC_Diver_OPV.SchDoc|SheetNumber= |SymbolType=Normal|RawFileName=DAC_Diver_OPV.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
 Record=SheetSymbol|SourceDocument=TOP_Sheet.SchDoc|Designator=U_Drain_Diver_OPV|SchDesignator=U_Drain_Diver_OPV|FileName=DAC_Diver_OPV.SchDoc|SheetNumber= |SymbolType=Normal|RawFileName=DAC_Diver_OPV.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=TOP_Sheet.SchDoc|Designator=U_OPV_Psu|SchDesignator=U_OPV_Psu|FileName=OPV_Psu.SchDoc|SheetNumber= |SymbolType=Normal|RawFileName=OPV_Psu.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
 Record=SheetSymbol|SourceDocument=TOP_Sheet.SchDoc|Designator=U_Source_OPV_ADC|SchDesignator=U_Source_OPV_ADC|FileName=Source_OPV_ADC.SchDoc|SheetNumber=1|SymbolType=Normal|RawFileName=Source_OPV_ADC.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
-Record=NoMainPathDocument|SourceDocument=TOP_Sheet.SchDoc|FileName=OPV_Psu.SchDoc|SheetNumber= 
