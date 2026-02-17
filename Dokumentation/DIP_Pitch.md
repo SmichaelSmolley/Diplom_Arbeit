@@ -46,12 +46,17 @@ war cool und so
 + Herstellung einer Test Kommunikations Platine
 + Entwicklung eines entwurfes für ein Modulares Messsystems
 
-## To-Do Liste
+## Blockdiagramm Basic Idee
 
-+ Zeichnen des Blockdiagramms
-+ Blockdiagramm für ein Modulares Messsystems
-+ erklärung Diff-Leitungen Stecker Systems
+![Modulares Messsystem Block](./DIP_Blockdiagramm.png)
 
-## Markdown Ideen
+#### DF12:
+![DF12 Conn](./DF12.png)
+#### Board Edge Conn
+![Board Edge Conn](./Board_Edge.png)
+villeicht tausche ich die DF12 noch mit "Board Edge Connector" ist besser für frequentes ein und ausstecken. 
 
+## Diff-Leitung Stecker Systems
+
+Es sollten Diff-Leitungen verwendet werden um EMV zu verbessern und um das EM abstralen zu minmieren und da es sich um eine leitung über 20cm handelt sollte wegen der leitungslänge eine LVD (Low Voltage Diff) Driver und reciver verwedent werden. bei diesen Diff Drivern und Recivern handelt es sich um 100 Ohm systeme, die leitungen mussen entweder mit 100 Ohm abgeschlossen werden bevor die driver und reciver angeschalten werden, es muss eine logik her welche das eichschalten verbitet wenn kein reciver da ist.
 
