@@ -60,3 +60,6 @@ villeicht tausche ich die DF12 noch mit "Board Edge Connector" ist besser für f
 
 Es sollten Diff-Leitungen verwendet werden um EMV zu verbessern und um das EM abstralen zu minmieren und da es sich um eine leitung über 20cm handelt sollte wegen der leitungslänge eine LVD (Low Voltage Diff) Driver und reciver verwedent werden. bei diesen Diff Drivern und Recivern handelt es sich um 100 Ohm systeme, die leitungen mussen entweder mit 100 Ohm abgeschlossen werden bevor die driver und reciver angeschalten werden, es muss eine logik her welche das eichschalten verbitet wenn kein reciver da ist.
 
+## Spannungs Versorgung
+
+Es werden die einzelnen LDO's auf die zuversorgenden Bereiche zu platzieren wenn es sich um spannungs Kritische Bauteile handelt,um Leitungs Wiederstand zu minimieren. Weiters soll auf die Rauschunterdrückung geachtetwerden um dadurch entstehenden Störungen zu minmieren 
