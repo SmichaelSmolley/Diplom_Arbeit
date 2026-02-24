@@ -51,9 +51,13 @@ war cool und so
 ![Modulares Messsystem Block](./DIP_Blockdiagramm.png)
 
 #### DF12:
+
 ![DF12 Conn](./DF12.png)
+
 #### Board Edge Conn
+
 ![Board Edge Conn](./Board_Edge.png)
+
 villeicht tausche ich die DF12 noch mit "Board Edge Connector" ist besser für frequentes ein und ausstecken. 
 
 ## Diff-Leitung Stecker Systems

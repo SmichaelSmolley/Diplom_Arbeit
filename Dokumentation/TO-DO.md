@@ -4,7 +4,16 @@
 + Blockdiagramm für ein Modulares Messsystems (done)
 + erklärung Diff-Leitungen Stecker Systems(done)
 + peter Quälen
++ Programm ssd zustand
 
+## To-Dos alsnächstes
+
+- [ ] Esp Footprint
+- [ ] dev board
+- [ ] messure with board
+- [ ] 
+
+## To-Dos allgemein
 **Versorgung**
 - [ ] Eigangsspannung auf Platinen Definieren(Drop out berücksichtigen)
 - [ ] Verlustleitung der LDO's berechnen
@@ -39,16 +48,12 @@
 - [ ] Masseanschlüsse lokal bündeln
 - [ ] Datenblatt-Layout-Empfehlungen umsetzen
 
----
-
 ### Impedanzkontrolle
 - [ ] Zielimpedanz definieren (100 Ω differentiell)
 - [ ] PCB-Stackup festlegen (2-Layer oder 4-Layer)
 - [ ] Leiterbahnbreite und Abstand berechnen
 - [ ] Hersteller-Stackup-Daten einholen
 - [ ] Impedanzsimulation durchführen (falls möglich)
-
----
 
 ### Routing-Regeln
 - [ ] Beide Leitungen gleich lang führen
@@ -58,15 +63,11 @@
 - [ ] Keine 90°-Winkel
 - [ ] GND nahe am Diff-Pair platzieren
 
----
-
 ### Stecksystem
 - [ ] Board-to-Board oder Edge-Connector festlegen
 - [ ] Mechanische Führung berücksichtigen
 - [ ] GND-Pins um jedes LVDS-Paar anordnen
 - [ ] Kontaktanzahl für Erweiterung prüfen
-
----
 
 ### Mechanik
 - [ ] Steckzyklen abschätzen
@@ -76,8 +77,6 @@
 - [ ] Verriegelung oder Verschraubung einplanen
 - [ ] EMV-Schirmkonzept berücksichtigen
 
----
-
 ### 5. Digitale Integration
 
 - [ ] LVDS-Pegel prüfen
@@ -86,8 +85,6 @@
 - [ ] Clock-Verteilung bewerten
 - [ ] Übersprechen zwischen LVDS und Analogbereich analysieren
 
----
-
 ### 6. Test- und Debug-Konzept
 
 - [ ] Messpunkte einplanen (LDO, Sternpunkt, TIA-Ausgang)
@@ -95,8 +92,6 @@
 - [ ] LVDS-Testpattern-Einspeisung vorsehen
 - [ ] Versorgung getrennt messbar machen
 - [ ] Optionale Serienwiderstände oder Jumper für Debug einplanen
-
----
 
 ### 7. Dokumentation
 
@@ -108,8 +103,6 @@
 - [ ] Layoutentscheidungen begründen
 - [ ] Alternativen vergleichen
 - [ ] TIA berechnungen dokumentieren
-
----
 
 ### Themen zur Vertiefung
 
