@@ -4,8 +4,8 @@ so einteilung in tehemen und die dann in pools und so das sich jeder eines aussu
 
 ## Digital
 
-- [ ] LVDS Trancivers
-- [ ] LVDS Impedanz berechnung
+- [ ] LVDS Trancivers -Peter
+- [ ] LVDS Impedanz berechnung -Peter
 - [ ] MCU auswahl
 - [ ] USB - Uart
 - [ ] Rs232
@@ -13,7 +13,7 @@ so einteilung in tehemen und die dann in pools und so das sich jeder eines aussu
 - [ ] DMA
 - [ ] DAC auswahl
 - [ ] ADC auswahl
-- [ ] SPI Hintergrund
+- [ ] SPI Hintergrund -Peter
 
 ## Analog
 
