@@ -13,6 +13,7 @@ so einteilung in tehemen und die dann in pools und so das sich jeder eines aussu
 - [ ] DMA
 - [ ] DAC auswahl
 - [ ] ADC auswahl
+- [ ] SPI Hintergrund
 
 ## Analog
 
@@ -45,6 +46,7 @@ so einteilung in tehemen und die dann in pools und so das sich jeder eines aussu
 - [ ] System init
 - [ ] System tests
 - [ ] System stability
+- [ ] SPI Hs
 
 ## EMV
 
