@@ -48,15 +48,15 @@ war cool und so
 
 ## Blockdiagramm Basic Idee
 
-![Modulares Messsystem Block](./DIP_Blockdiagramm.png)
+![Modulares Messsystem Block](./dokumentation_bilder/DIP_Blockdiagramm.png)
 
 #### DF12:
 
-![DF12 Conn](./DF12.png)
+![DF12 Conn](./dokumentation_bilder/DF12.png)
 
 #### Board Edge Conn
 
-![Board Edge Conn](./Board_Edge.png)
+![Board Edge Conn](./dokumentation_bilder/Board_Edge.png)
 
 villeicht tausche ich die DF12 noch mit "Board Edge Connector" ist besser für frequentes ein und ausstecken. 
 
@@ -86,6 +86,10 @@ wir sollten einen dma verwenden um die CPU zu entlasten da die mit der controlle
 
 ein cycle buffer oder ringbuffer oder einefach zwei buffer, wärend der eine buffer beschreiben wurde wird der andere z.b. auf die Flash zelle speicher, wenn der erste voll ist wird es wieder gecycled
 
+![buffer cycle](./dokumentation_bilder/Software_messure_dma.png)
+
+![Buffer Cycle](./dokumentation_bilder/Buffer_DMA_Diagramm.png)
+
 ## Software Calibrate
 
 einmal nach dem start up der analog platine soll die option eines callibireirn begeben sein, einmal den ADC einlesen, eingang auf null legen offset merken, rausch messung zur bestimmung des signal noise distance temperatur messung und psu kontrolle.
@@ -98,9 +102,9 @@ der uC muss die anforderungen erfüllen: genug dma, SPI speed, genug ram für di
 
 ich hätte mir so was vorgestellt keine ahnung wie das heist bitte herausfinden.
 
-![Board Edge Conn](./Messbox.png)
+![Board Edge Conn](./dokumentation_bilder/Messbox.png)
 
-![Board Edge Conn](./Messbox_modi.png)
+![Board Edge Conn](./dokumentation_bilder/Messbox_modi.png)
 
 
 

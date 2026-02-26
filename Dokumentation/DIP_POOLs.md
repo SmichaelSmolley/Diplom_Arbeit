@@ -35,7 +35,7 @@ so einteilung in tehemen und die dann in pools und so das sich jeder eines aussu
 
 ## Software
 
-- [ ] Software Blockdiagramm
+- [ ] Software Blockdiagramm -Michael
 - [ ] DMA Support
 - [ ] Callibrate
 - [ ] Software ADC
