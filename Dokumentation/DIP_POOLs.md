@@ -17,21 +17,21 @@ so einteilung in tehemen und die dann in pools und so das sich jeder eines aussu
 
 ## Analog
 
-- [ ] TIA Schaltung -Michael
+- [x] TIA Schaltung -Michael
 - [ ] Gate Schaltung -Michael
 - [ ] Drain Schaltung -Michael
 - [ ] LDO Auswahl
 - [ ] Rauschberechnung
 - [ ] PSRR
-- [ ] Bandbreitenanalyse
+- [x] Bandbreitenanalyse -Michael
 - [ ] OPV Supply -Michael
 - [ ] 1/f rauschen
-- [ ] Rauschdichte
-- [ ] 50Hz Filter
-- [ ] Guard-Rings
+- [ ] Rauschdichte 
+- [ ] 50Hz Filter 
+- [ ] Guard-Rings 
 - [ ] PCB Oberfläche
 - [ ] Leckströme
-- [ ] Messungs Blockdiagramm
+- [ ] Messungs Blockdiagramm -Michael
 
 ## Software
 

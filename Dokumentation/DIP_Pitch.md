@@ -93,3 +93,14 @@ einmal nach dem start up der analog platine soll die option eines callibireirn b
 ## MCU Auswahl
 
 der uC muss die anforderungen erfüllen: genug dma, SPI speed, genug ram für die buffer, und funktionalität der usb und rs232  verbindung. ambesten einen stm m4 oder einen esp. bei einem stm können wir schon leichter programmieren und einen esp nicht aber der ist bisschen leistungsfähiiger und leichter of board(auf eine eigene platine bringen) bringen.
+
+## Messbox
+
+ich hätte mir so was vorgestellt keine ahnung wie das heist bitte herausfinden.
+
+![Board Edge Conn](./Messbox.png)
+
+![Board Edge Conn](./Messbox_modi.png)
+
+
+
