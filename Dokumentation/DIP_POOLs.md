@@ -11,6 +11,7 @@ so einteilung in tehemen und die dann in pools und so das sich jeder eines aussu
 - [ ] Rs232
 - [ ] Speicher (Massenspeicher)
 - [ ] DMA
+- [ ] DMA Trigger
 - [ ] DAC auswahl
 - [ ] ADC auswahl -Michael
 - [ ] SPI Hintergrund -Peter
