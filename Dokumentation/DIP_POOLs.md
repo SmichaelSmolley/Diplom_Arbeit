@@ -36,6 +36,7 @@ so einteilung in tehemen und die dann in pools und so das sich jeder eines aussu
 
 ## Software
 
+- [x] Software Parameter -> uC -Michael
 - [ ] Software Blockdiagramm -Michael
 - [ ] DMA Support
 - [ ] Callibrate
