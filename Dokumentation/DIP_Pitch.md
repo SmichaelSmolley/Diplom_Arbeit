@@ -106,5 +106,10 @@ ich hätte mir so was vorgestellt keine ahnung wie das heist bitte herausfinden.
 
 ![Board Edge Conn](./dokumentation_bilder/Messbox_modi.png)
 
+## Software
+### Software Data Structure Messure
+
+![Software Data Structure Messure](./dokumentation_bilder/Structure_soft_conf.png)
+
 
 

@@ -13,7 +13,7 @@ so einteilung in tehemen und die dann in pools und so das sich jeder eines aussu
 - [ ] DMA
 - [ ] DMA Trigger
 - [ ] DAC auswahl
-- [ ] ADC auswahl -Michael
+- [x] ADC auswahl -Michael
 - [ ] SPI Hintergrund -Peter
 
 ## Analog
