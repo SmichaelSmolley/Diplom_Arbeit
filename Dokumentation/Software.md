@@ -26,6 +26,7 @@ Parameter einer Messung:
         - Source Current
 - Stressing
     - Cycles
+    - Count
     - Stress Spannung
     - Stress Dauer
 
