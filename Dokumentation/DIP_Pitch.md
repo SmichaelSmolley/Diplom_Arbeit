@@ -20,6 +20,12 @@ ADC ADS8681 16Bit, variable Input range, low glitch adc
 LDO LT3094EMSE#TRPBF low noise, low DropOut, Negative LDO
 LDO LT3042EMSE#TRPBF low noise, low Dropout, Positive LDO
 
+### BOX
+
+Modulares Messgeräte-Chassis
+https://www.metcase.de/de/Metallgeh%C3%A4use/Technomet-19-Zoll.html
+so in der art etwas
+
 ## Dokumentation
 
 ### Idee der Arbeit
