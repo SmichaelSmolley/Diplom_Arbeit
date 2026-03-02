@@ -6,6 +6,7 @@ Entwicklung eines modularen, rauschar­men Messsystems zur:
 * Untersuchung von RTN-Effekten
 * Analyse von Stress-induzierten Degradationen
 * Erfassung von Leakage-Strömen im nA-Bereich
+
 ## Funktions Angaben
 
 - IDVG messung
@@ -36,7 +37,7 @@ Entwicklung eines modularen, rauschar­men Messsystems zur:
 - Frequenzanalyse
     - FFT Analyse der Rohdaten
     - bestimmung der Noise peaks + begründung
-    - bestimmung  Noise foor
+    - bestimmung Noise foor
 - effektive auflösung
     - Enob = (SNR - 1.76) / 6.02
 - Linearität
