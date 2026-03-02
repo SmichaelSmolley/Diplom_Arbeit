@@ -1,58 +1,63 @@
-# Stressing-Messure
+# Stressing-Measure
 
 ## Stressing
+- TDDB .. Time-Dependent Dielectric Breakdown (zeitabhängiger dielektrischer Durchschlag)
+- DIP .. Diplomarbeit
+- FG .. Floating-Gate MOSFET
+- DUT .. Device under Test
+- ID-VG .. Drain-Strom über Gate-Spannung
 
-das Stresen ist eine der Haupt analysen der DIPA, in der DIP sollen 2 Arten von MOSFET's gestresst werden ein "Normaler" und ein FG.
-Stressen heist das GAte mit hohen spannungen (je nach MOSFET) zu versoregen(natürlich ohne das auf drain einespannung liegt also 0V um einen zu hohen Drain Strom zu verhindern, welcher den Source TIA und den Drain Dirver zerstören könnte). Normaler nMOS TDDB, Floating-Gate Endurance das vermessen des TDDB(Time-Dependent Dielectric Breakdown) und der Endurence eines FG kann auskunft geben auf die Lebensdauer und auswirkungen des Übersteuerungs faktor bei der Klassischen ansteuerung eines Mosfet. 
+Das Stressen ist eine der Hauptanalysen der DIP, wobei in der DIP 2 Arten von MOSFET's gestresst werden, ein "Normaler" und ein Floating-Gate.
+Stressen heißt, dass das Gate mit hohen Spannungen (je nach MOSFET) zu versorgen ist. Während der Messung darf am Drain keine Spannung anliegen, da diese zu hohen Drain-Strom führt, welcher den Source TIA und den Drain Driver zerstören könnte. Bei einem normalen MOSFET soll das TDDB vermeseen werde, bei einem FG soll die Endurance vermessen werden. Die Messungen geben auskunft über die Lebensdauer und über das Verhalten des DUT
 
-Das stressen wird in cyclen aufgebaut, z.b. es sollen 100 Stresscyclen vorgenommen werden, danach eine IDVG messung vorgenommen werden,und weider 100 Stresscyclen…
-durch das Stressen ist erwartet volgende effekte in der Messung der IDVG zu erkennen:
+Das Stressen wird in Zyklen aufgebaut, z.b. es sollen 100 Stresszyklen durchgeführt werden, danach eine IDVG-Messung vorgenommen werden und anschließend weitere 100 Stresszyklen.
+Durch das Stressen erwartet man sich folgenden Effekte in der Messung der ID-VG Kennlinie zu erkennen:
 
-- Verschiebung der Threshold spannung
-    - Das Aufladen von Traps(Fallen Oxid) TDDB
+- Verschiebung der Threshold-Spannung
+    - Das Aufladen von Traps (Fallen Oxid) beim TDDB. Traps sind Defekte in der Oxidschicht.
  
 ![traps](./dokumentation_bilder/12_e12_e01.png)
 
-- Verschiebt die Kurve nach rechts bei einem Nkanal.
+- Verschiebung der Kurve nach rechts bei einem N-Kanal.
 
 ![IDVG](./dokumentation_bilder/IdVg_dVth.png)
 
-- LEckstrüme durch das Oxid
-    - Durch das Stressen können lokale schwachstellen enstehen-> leakage steigt
-    - kann im Subthreshold bereich den Strom steigern
+- Leakage Current durch das Oxid
+    - Durch das Stressen können lokale Schwachstellen enstehen-> Leakage steigt
+    - kann im Subthreshold-Bereich den Strom steigern
 - Reduzierung des Kanalstromes
-    - wenn fallen aufgeladen sind kann es zu Mobility beeinträchtigung kommen
+    - wenn die Fallen aufgeladen sind, kann es zur Mobility Beeinträchtigung der Elektronen kommen
     - IDVG wird flacher
 
 Messung eines FG
 
-- Tunneloxid abbau
-    - jedes schreiben oder löschen erzeugt Traps und lokale defektr
-    - dann zu th verscheibung führen auch im nicht beschreiebenen zustand oder zum ladungsverlsuut am FG
-- Ladung auf dem Floating Gate kann sich auch ohne Strom langsam ändern.
-- Vth-Drift:Der gleiche Program/Erase-Befehl führt nach 100 Zyklen **zu einer anderen V\<sub>th\</sub>**, weil sich Fallen im Oxid angesammelt haben.
-- Subthreshold-Leck: Leichte Erhöhung durch Oxiddefekte.
-- Programmier-/Lösch-Effizienz sinkt: Die Zelle benötigt evtl. **höhere Spannung oder längere Zeit**, um denselben V\<sub>th\</sub> zu erreichen.
-- Langzeit-Ausfallrisiko:Nach sehr vielen Zyklen (10⁴–10⁶) kann das Oxid durchbrechen → permanente Datenverluste.
-- durch das nallysiern der th verscheibung und durch das steigen des RTN aufkommen lassen sich rückschlusse auf die lebenszeit schliesen
+- Abbau des Tunneloxids
+    - Jedes schreiben oder löschen erzeugt Traps und lokale Defekte
+    - Diese Führen zur Threshold-Verschiebung im nicht beschriebenen Zustand, bzw. zum Ladungsverlust am FG
+- Die Ladung am FG kann sich auch ohne Strom langsam ändern
+- Vth-Drift: Der gleiche Program/Erase-Befehl führt nach 100 Zyklen zu einer anderen Threshold-Spannung, weil sich Fallen im Oxid angesammelt haben.
+- Subthreshold-Leak: Leichte Erhöhung durch Oxid-Defekte.
+- Programmier-/Lösch-Effizienz sinkt: Die Zelle benötigt evtl. höhere Spannung oder längere Zeit, um dieselbe Threshold-Spannung zu erreichen.
+- Langzeit-Ausfallrisiko: Nach sehr vielen Zyklen (10⁴–10⁶) kann das Oxid durchbrechen → permanente Datenverluste.
+- Durch das Analysiern der Threshold-Verschiebung und durch das steigen des RTN lassen sich Rückschlüsse auf die Lebenszeit schließen
 
-## Messure
+## Measure
 
-Die Grösen die Vermessen werden sollen sind das RTN, IDVG, leak currend. 
+Die Größen welche vermessen werden sollen sind das RTN, IDVG und leak current. 
 
 ### RTN
 
-Bei RTN handelt es sich um Random Telegrapf noise, bei diesen handelt ews sich um rauschen in nA grßen ordnung. Es ahndelt sich um ein Digital ähnliches raushcen(deswegen Telegrapf). dieses tritt auf beim laden und entladen von Fallen im oxid. die heufigkeit von diesem Rauschen kann rückschlusse liefern auf den zusaqnde dees Oxides, und damit auf die auswirkungen des Stressens. bei einem langen stressen eine FG kann das Tunnel oxid beschädigt werden und so kann es zu höheren RTN vorkommen kommen. 
+Bei RTN handelt es sich um Random Telegraph Noise, bei diesen handelt es sich um Rauschen im nA Bereich. Es handelt sich um ein digital ähnliches Rauschen(deswegen Telegrapf). Dieses tritt auf beim Laden und Entladen von Fallen im Oxid. Die Häufigkeit von diesem Rauschen kann Rückschlüsse auf den Zustand des Oxides liefern, und damit auf die Auswirkungen des Stressens. Bei einem langen Stressen eines FG kann das Tunnel Oxid beschädigt werden und so kann vermehrt RTN vorkommen. 
 
 ![RTN](./dokumentation_bilder/Popcorn_noise_graph.png)
 
 ### IDVG
 
-Bei der IDVG handelt es sich um die kennlinie eines MOSFET(der Drain strom über die Gate spannung).
+Bei der IDVG handelt es sich um die Kennlinie eines MOSFET (der Drain-Strom über die Gate-Spannung).
 
 ![IDVG](./dokumentation_bilder/IdVg-curves.png)
 
-diese Können durch einen sweep über die gain spannung erstellt werden. Bei dieser kennliene kann sich verändren durch verschiedeneste Stresseffecte. die Vth kann durch das stessen geladene Ladungs fallen nach oben verschoben werden was die gesammte kennliene nach rechts verschiebt. die steil heist kann ebenfalls durch das Stressen beeinflusst werden. Ebenfals der Subth Strom kann durch beschädigungen im oxid welche leakigcurrent zulassen beeinflusst werdn.
+Diese können durch einen Sweep über die Gain-Spannung erstellt werden. Bei dieser Kennlinie kann es zu Veränderungen durch verschiedenste Stresseffekte kommen. Die Threshold-Spannung kann durch das Stressen von geladenen Ladungsfallen erhöht werden, was die gesammte Kennlinie nach rechts verschiebt. Die Steigung kann ebenfalls durch das Stressen beeinflusst werden. Ebenfalls kann der Subthreshold-Strom durch Beschädigungen im Oxid, welche Leakage-Current zulassen, beeinflusst werden.
 
 
 
