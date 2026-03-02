@@ -23,7 +23,8 @@ LDO LT3042EMSE#TRPBF low noise, low Dropout, Positive LDO
 ### BOX
 
 Modulares Messgeräte-Chassis
-https://www.metcase.de/de/Metallgeh%C3%A4use/Technomet-19-Zoll.html
+https://www.metcase.de/
+Instromenten gehäuse
 so in der art etwas
 
 ## Dokumentation

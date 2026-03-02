@@ -1,5 +1,7 @@
 ## Software
 
+Anzudenken ist eine funktion die Stresst (n cycles-mit den itgegebenen parametern), dann misst, und wieder stresst,( es sollen einfach ein programm ablauf vorgenommen werden, die die mitgegebenen parameter nimmt)
+
 Parameter einer Messung:
 
 **Allgemein:**
