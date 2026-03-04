@@ -26,7 +26,7 @@ so einteilung in tehemen und die dann in pools und so das sich jeder eines aussu
 - [ ] PSRR
 - [x] Bandbreitenanalyse -Michael
 - [x] OPV Supply -Michael (Vorrübergehend)
-- [ ] 1/f rauschen
+- [ ] 1/f rauschen -Felix
 - [ ] Rauschdichte 
 - [ ] 50Hz Filter 
 - [ ] Guard-Rings 
