@@ -133,6 +133,10 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=KALKJBRQ
 
+[GeneratedDocument1]
+DocumentPath=Project Outputs for PCB_Testing_Projekt\Design Rule Check - PCB1.html
+DItemRevisionGUID=
+
 [Configuration1]
 Name=Sources
 ParameterCount=0

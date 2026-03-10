@@ -26,6 +26,7 @@ Modulares Messgeräte-Chassis
 https://www.metcase.de/
 Instromenten gehäuse
 so in der art etwas
+Eigentlich ein euro card case und die platienen werden sich an die euro card halten
 
 ## Dokumentation
 
