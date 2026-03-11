@@ -119,4 +119,3 @@ ich hätte mir so was vorgestellt keine ahnung wie das heist bitte herausfinden.
 
 ![Software Data Structure Messure](./dokumentation_bilder/Structure_soft_conf.png)
 
-
