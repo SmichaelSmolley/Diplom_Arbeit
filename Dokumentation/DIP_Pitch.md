@@ -27,6 +27,7 @@ https://www.metcase.de/
 Instromenten gehäuse
 so in der art etwas
 Eigentlich ein euro card case und die platienen werden sich an die euro card halten
+https://subrack.eu/120-subracks-frames/74183-1-x-3u-84hp-x-178-module-holder-subrack-p160
 
 ## Dokumentation
 

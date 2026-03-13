@@ -83,7 +83,7 @@ GenerateClassCluster=0
 DocumentUniqueId=BIRIWKQP
 
 [Document3]
-DocumentPath=DAC_Diver_OPV.SchDoc
+DocumentPath=DAC_Diver.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
