@@ -37,7 +37,10 @@ so einteilung in tehemen und die dann in pools und so das sich jeder eines aussu
 ## Software
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 - [x] Software Parameter -> uC -Michael
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 - [ ] Software Blockdiagramm -Michael
