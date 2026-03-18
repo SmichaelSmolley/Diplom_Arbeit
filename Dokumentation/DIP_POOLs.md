@@ -36,10 +36,7 @@ so einteilung in tehemen und die dann in pools und so das sich jeder eines aussu
 
 ## Software
 
-<<<<<<< Updated upstream
 - [x] Software Parameter -> uC -Michael
-=======
->>>>>>> Stashed changes
 - [ ] Software Blockdiagramm -Michael
 - [ ] DMA Support
 - [ ] Callibrate
