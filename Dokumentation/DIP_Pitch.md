@@ -2,6 +2,11 @@
 
 ## Bauteile
 
+### Wiederstände
+
+USF340-1.00M-0.1%-5PPM
+USF340-10.0M-0.1%-5PPM
+
 ### Digital
 MPU ESP32 Wroom dev board
 LVTTL Diff. Sender SN65LVDS1
