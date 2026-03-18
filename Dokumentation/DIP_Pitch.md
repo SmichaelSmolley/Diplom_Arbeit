@@ -118,5 +118,8 @@ ich hätte mir so was vorgestellt keine ahnung wie das heist bitte herausfinden.
 ## Software
 ### Software Data Structure Messure
 
+<<<<<<< Updated upstream
 ![Software Data Structure Messure](./dokumentation_bilder/Structure_soft_conf.png)
 
+=======
+>>>>>>> Stashed changes
