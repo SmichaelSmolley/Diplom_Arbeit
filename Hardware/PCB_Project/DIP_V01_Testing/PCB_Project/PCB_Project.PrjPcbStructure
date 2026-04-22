@@ -1,6 +1,7 @@
-Record=TopLevelDocument|FileName=AD_5689_DAC.SchDoc|SheetNumber=05
-Record=NoMainPathDocument|SourceDocument=AD_5689_DAC.SchDoc|FileName=ADC_8681.SchDoc|SheetNumber=04
-Record=NoMainPathDocument|SourceDocument=AD_5689_DAC.SchDoc|FileName=CortexM3_dev.SchDoc|SheetNumber= 
-Record=NoMainPathDocument|SourceDocument=AD_5689_DAC.SchDoc|FileName=OPV_psu.SchDoc|SheetNumber=03
-Record=NoMainPathDocument|SourceDocument=AD_5689_DAC.SchDoc|FileName=Source_TIA.SchDoc|SheetNumber=02
-Record=NoMainPathDocument|SourceDocument=AD_5689_DAC.SchDoc|FileName=Top_Sheet.SchDoc|SheetNumber=01
+Record=TopLevelDocument|FileName=Top_Sheet.SchDoc|SheetNumber=01
+Record=SheetSymbol|SourceDocument=Top_Sheet.SchDoc|Designator=U_AD_5689_DAC|SchDesignator=U_AD_5689_DAC|FileName=AD_5689_DAC.SchDoc|SheetNumber=05|SymbolType=Normal|RawFileName=AD_5689_DAC.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Top_Sheet.SchDoc|Designator=U_ADC_8681|SchDesignator=U_ADC_8681|FileName=ADC_8681.SchDoc|SheetNumber=04|SymbolType=Normal|RawFileName=ADC_8681.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Top_Sheet.SchDoc|Designator=U_CortexM3_dev|SchDesignator=U_CortexM3_dev|FileName=CortexM3_dev.SchDoc|SheetNumber=06|SymbolType=Normal|RawFileName=CortexM3_dev.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Top_Sheet.SchDoc|Designator=U_OPV_psu|SchDesignator=U_OPV_psu|FileName=OPV_psu.SchDoc|SheetNumber=03|SymbolType=Normal|RawFileName=OPV_psu.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=SheetSymbol|SourceDocument=Top_Sheet.SchDoc|Designator=U_Source_TIA|SchDesignator=U_Source_TIA|FileName=Source_TIA.SchDoc|SheetNumber=02|SymbolType=Normal|RawFileName=Source_TIA.SchDoc|DesignItemId= |SourceLibraryName= |ObjectKind=Sheet Symbol|RevisionGUID= |ItemGUID= |VaultGUID= 
+Record=NoMainPathDocument|SourceDocument=Top_Sheet.SchDoc|FileName=Digital_Psu.SchDoc|SheetNumber= 
