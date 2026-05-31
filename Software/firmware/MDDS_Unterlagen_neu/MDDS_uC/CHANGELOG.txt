@@ -1,0 +1,58 @@
+Rev 9 [2020-06-29]:
+===================
+ * Automatische Stückliste fertig gemacht (Stueckliste.BomDoc)
+ * PMOD Pins entsprechend der PMOD Spezifikation nummeriert und beschriftet:
+   https://reference.digilentinc.com/_media/reference/pmod/pmod-interface-specification-1_1_0.pdf
+ * Target.SchDoc: Grafik/Screenshot von MDDS uC PCB getauscht
+
+Rev. 8 [2019-12-09]:
+====================
+ * Der Debugger "DAPLink" wird nun ist nun als Modul ausgeführt, um
+   ein einfacheres Bestücken für Schüler des 3. Jahrgangs zu ermöglichen
+ * Alle Vias auf "tented" umgestellt
+ * Die PMOD-Buchse ist nun 2-reihig
+   -> zusätzliche Leitungen PC6 und PC10 (+zwei andere rausführen)
+      (werden für Audio-Modul benötigt)
+   -> USB_DP, USB_DM sind nun ebenfalls bei dieser Buchse verfügbar
+ * Auf kompaktere P-Channel-Mosfets bei Stromversorgung gewechselt:
+   FDS9933A -> TT8J11 (Rohm)
+ * Vorwiderstand bei Power-LED (Power_Supply.SchDoc) erhöht: 560 Ohm -> 2.7 kOhm
+ * Footprint bei Power-LED (Power_Supply.SchDoc) geändert: 0603 -> 0805
+ * USB-Schnittstelle (Stiftleiste) entfernt, USB_DP/USB_DM stattdessen auf PMOD
+ * PowerSupply: LDO ersetzt - LMS8117ADT_3.3 -> TLV1117LV33DCYR (kleinerer Footprint)
+ * PowerSupply: Mosfets ersetzt: FDS9933A (SO-8) ->
+ * Resettaster ersetzt: Randschalter ersetzt
+
+
+Rev. 7 [2018-11-12]:
+====================
+ * HTL-Template (A4) aktualisiert
+ * PcbDoc umbenannt: "DIL-28.PcbDoc" -> "MDDC_uC_103.PcbDoc"
+ * Beschriftungsbereich unter PMOD (Bottom) hinzugefügt
+ * Samtec Buchsenleisten-Footprint gesetzt und gedreht
+   (Stiftleiste war unten)
+ * PCB-Grafik in Target-Schematic eingefügt
+ * Cortex Pin-Nummer Beschriftung bei Buchsenleiste hinzugefügt
+ * GND-Pin bei USB-Stiftleiste beschriftet
+
+Rev. 6 [2018-10-08]:
+====================
+ * Abstand der Leiterbahnen zum Rand muss >= 0.25mm sein
+
+Rev. 5 [2018-10-08]:
+====================
+ * Holesize auf >= 0.3 mm erhöht, damit günstiger produziert werden kann
+   (Footprint angepasst: LPC11U35FHI33_501_Rev2.IntLib)
+
+Rev. 4 [2018-10-07]:
+====================
+ * Clearance angepasst (>= 6 mil) damit günstiger
+   produziert werden kann
+ * USB-Device 3-PIN Header für Kabel hinzugefügt
+ * Neues HTL-Logo
+ * Reset Taster bei Target entfernt
+ * SWD-Leitungen von Target auf Stecker geführt
+   (ermöglicht zukünftig auch ein Bestücken ohne Debugger)
+ * Reset des Targets wurde auch auf Steckerleiste geführt
+ * Versorgungsleitungen teilweise verbreitert
+

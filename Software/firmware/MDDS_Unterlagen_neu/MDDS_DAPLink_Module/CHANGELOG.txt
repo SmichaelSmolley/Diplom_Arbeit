@@ -1,0 +1,7 @@
+Rev. 2 [2020-06-07]:
+====================
+ o Vorwiderstände bei LEDs auf von 560 Ohm -> 1k geändert
+
+Rev. 1 [2019-12-09]:
+====================
+ o Initiales Release
