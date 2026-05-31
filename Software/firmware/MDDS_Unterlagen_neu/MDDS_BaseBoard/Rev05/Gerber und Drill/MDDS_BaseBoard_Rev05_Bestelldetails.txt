@@ -1,0 +1,3 @@
+Abmessungen (x,y): 65,00 mm x 56,50mm
+
+Layeranzahl:       2

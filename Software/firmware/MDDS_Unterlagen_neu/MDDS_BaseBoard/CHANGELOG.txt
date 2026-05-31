@@ -1,0 +1,54 @@
+Rev. 5 [2020-01-30]:
+==================== 
+ * Doppelten Spannungsversorgungs-Umschalter eingebaut:
+   33V_R/50_R <-> 33V_M/50V_M
+ * Bestueckungsplan aktualisiert
+ * Schaltplan-Template aktualisiert
+ * Alle Vias sind nun "tented"
+ * PMOD Pins entsprechend der PMOD Spezifikation nummeriert und beschriftet:
+   https://reference.digilentinc.com/_media/reference/pmod/pmod-interface-specification-1_1_0.pdf
+
+Rev. 4 [2019-01-14]:
+====================
+ * LED V1 durch SMD 0805 ersetzt
+ * Schalter S1 durch SMD-Taster ersetzt
+ * Stecker X13 hinzugefügt, um das Display mit 5V versorgen zu können
+ * Beschriftung: "DIL" und "RPi" bei Stecker X8 war vertauscht
+ * Bei Stecker X9 den PIN für den Schreibschutz beschriftet ("nWP")
+ * Umstellung auf Versionierung mit GIT
+
+Rev. 3 [2018-10-07]:
+====================
+ * Teardrops überall hinzugefügt
+ * Neues HTL-Logo verwendet
+ * I2C Pull-Up (Jumperbar)
+ * GND-Jumper hinzugefügt
+ * Temperaturfühler DS18B20 hinzugefügt
+ * Active BOM Stückliste erstellt (ermöglich einfache Bestellung)
+ * PMOD1 angepasst: PMOD Spec. konform UART, SPI (STM32F103RB)
+ * PMOD2 angepasst: PMOD Spec. konform I2C (STM32F103RB)
+ * PMOD3 angepasst: PMOD Spec. konform UART (STM32F103RB)
+ * DIL-Reset-PIN mit Raspberry GPIO20 verbunden
+ * RPI SPI0 auf 103 SPI1 korrigiert (auf RPI 40 polig)
+ * EEPROM auf V33 (statt V33_R) gehängt, damit es auch ohne
+   Raspberry Pi versorgt ist und von DIL angesprochen werden kann
+
+Rev. 2 [2017-10-22]:
+====================
+ * Abmessungen exakt auf die Raspberry Pi HAT-Specification angepasst:
+   https://github.com/raspberrypi/hats/blob/master/hat-board-mechanical.pdf
+   (Platine wurde dadurch etwas kleiner)
+ * Verzinnung bei Befestigungsbohrungen entfernt
+ * Ursprung versetzt
+ * Bemaßung verbessert
+ * Fertigungsdokumenteinstellungen
+ * Beschriftungen "BS" und "LS" hinzugefügt (Silkscreen)
+ * Teardrops bei PMODs und Stiftleisten hinzugefügt
+ * Leiterbahnen weiter vom Rand entfernt platziert
+ * Gerberdateien und Drilldaten für PcbWay erzeugt:
+   MAX1000BaseBoard_Gerber_Rev_2.zip
+
+Rev. 1 [2017-09-12]:
+====================
+ * Initiales Release
+ * Produktion von 20 Stück bei pcbway.com
