@@ -1,7 +1,27 @@
 Protel Design System Design Rule Check
 PCB File : C:\Users\micha\Documents\Messung_von_Quanteneffecten_in_MOSFETs\Diplom_Arbeit\Hardware\PCB_Project\DIP_V01_Testing\PCB_Project\PCB1.PcbDoc
-Date     : 25.05.2026
-Time     : 14:34:55
+Date     : 30.05.2026
+Time     : 21:33:47
+
+WARNING: Zero hole size multi-layer pad(s) detected
+   Pad Free-16(5567.993mil,876.89mil) on Multi-Layer on Net GND
+   Pad Free-16(5567.993mil,719.41mil) on Multi-Layer on Net DVDD
+   Pad Free-16(1712.598mil,3149.606mil) on Multi-Layer on Net AVDD
+   Pad Free-16(1870.079mil,3149.606mil) on Multi-Layer on Net GND
+   Pad Free-16(2713.661mil,879.016mil) on Multi-Layer on Net GND
+   Pad Free-16(2713.661mil,721.535mil) on Multi-Layer on Net pos_out
+   Pad Free-16(687.913mil,591.614mil) on Multi-Layer on Net neg_out
+   Pad Free-16(687.913mil,749.094mil) on Multi-Layer on Net GND
+
+WARNING: Multilayer Pads with 0 size Hole found
+   Pad Free-16(5567.993mil,876.89mil) on Multi-Layer
+   Pad Free-16(5567.993mil,719.41mil) on Multi-Layer
+   Pad Free-16(1712.598mil,3149.606mil) on Multi-Layer
+   Pad Free-16(1870.079mil,3149.606mil) on Multi-Layer
+   Pad Free-16(2713.661mil,879.016mil) on Multi-Layer
+   Pad Free-16(2713.661mil,721.535mil) on Multi-Layer
+   Pad Free-16(687.913mil,591.614mil) on Multi-Layer
+   Pad Free-16(687.913mil,749.094mil) on Multi-Layer
 
 Processing Rule : Clearance Constraint (Gap=5mil) (All),(All)
 Rule Violations :0
@@ -55,4 +75,4 @@ Rule Violations :0
 Violations Detected : 0
 Waived Violations : 0
 PCB Health Issues : 0
-Time Elapsed        : 00:00:01
+Time Elapsed        : 00:00:02

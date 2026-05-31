@@ -1,0 +1,159 @@
+(ExpressProject "LMC6001B Test Circuit"
+  (ProjectVersion "19981106")
+  (SoftwareVersion "17.4-2019 S006 (3859078) [4/21/2020]-[07/05/20]")
+  (ProjectType "Analog or A/D Mixed Mode")
+  (Folder "Design Resources"
+    (Folder "Library"
+      (File ".\lmc6001b.olb"
+        (Type "Schematic Library")))
+    (NoModify)
+    (File "lmc6001b test circuit.dsn"
+      (Type "Schematic Design"))
+    (BuildFileAddedOrDeleted "x")
+    (CompileFileAddedOrDeleted "x")
+    (PSPICE_Regenerate_Netlist_Flag "FALSE")
+    (DOCKED "TRUE")
+    (DOCKING_POSITION "61215"))
+  (Folder "Layout")
+  (Folder "Outputs")
+  (Folder "PSpice Resources"
+    (Folder "Simulation Profiles"
+      (ActiveProfile ".\lmc6001b test circuit-pspicefiles\schematic\trans.sim")
+      (File.PSpice.{09528990-3187-11D2-BC7B-00A0C90CBF91}
+         ".\lmc6001b test circuit-pspicefiles\schematic\trans.sim"
+        (DisplayName "SCHEMATIC-TRANS")
+        (Type "PSpice Profile")))
+    (Folder "Model Libraries"
+      (Sort User)
+      (File ".\lmc6001b.lib"
+        (Type "PSpiceLibrary")))
+    (Folder "Stimulus Files"
+      (Sort User))
+    (Folder "Include Files"
+      (Sort User)))
+  (DefaultLibraryBrowseDirectory "library\PSpice")
+  (PartMRUSelector
+    (LMC6001B
+      (FullPartName "LMC6001B.Normal")
+      (LibraryName
+         "C:\ELABTRANS_WS\ELABTRANS_DS\PART NUMBERS\CADENCE_SYMBOL_LIST\1.PRECISION OPAMPS\LMC6001\LMC6001B_TEST\PSPICE_TEST1\LMC6001B.OLB")
+      (DeviceIndex "0"))
+    (TLV2262
+      (FullPartName "TLV2262.Normal")
+      (LibraryName
+         "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBER\CADENCE_SYMBOL_LIST\1.PRECISION OPAMPS\TLV2262\TLV2262_TEST\PSPICE_TEST1\TLV2262.OLB")
+      (DeviceIndex "0"))
+    (TLV2254A_3V
+      (FullPartName "TLV2254A_3V.Normal")
+      (LibraryName
+         "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBER\CADENCE_SYMBOL_LIST\1.PRECISION OPAMPS\TLV2254A\TLV2254A_3V\TLV2254A_3V_TEST\PSPICE_TEST1\TLV2254A_3V.OLB")
+      (DeviceIndex "0"))
+    (TLV2254_3V
+      (FullPartName "TLV2254_3V.Normal")
+      (LibraryName
+         "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBER\CADENCE_SYMBOL_LIST\1.PRECISION OPAMPS\TLV2254\TLV2254_3V\TLV2254_3V_TEST\PSPICE_TEST1\TLV2254_3V.OLB")
+      (DeviceIndex "0"))
+    (TLV2252_3V
+      (FullPartName "TLV2252_3V.Normal")
+      (LibraryName
+         "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBER\CADENCE_SYMBOL_LIST\1.PRECISION OPAMPS\TLV2252\TLV2252_3V\TLV2252_3V_TEST\PSPICE_TEST1\TLV2252_3V.OLB")
+      (DeviceIndex "0"))
+    (TLC2654A
+      (FullPartName "TLC2654A.Normal")
+      (LibraryName
+         "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBER\CADENCE_SYMBOL_LIST\1.PRECISION OPAMPS\TLC2654A\TLC2654_TEST\PSPICE_TEST1\TLC2654A.OLB")
+      (DeviceIndex "0"))
+    (TLC2654
+      (FullPartName "TLC2654.Normal")
+      (LibraryName
+         "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBER\CADENCE_SYMBOL_LIST\1.PRECISION OPAMPS\TLC2654\TLC2654_TEST\PSPICE_TEST1\TLC2654.OLB")
+      (DeviceIndex "0"))
+    (TLC2652
+      (FullPartName "TLC2652.Normal")
+      (LibraryName
+         "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBER\CADENCE_SYMBOL_LIST\1.PRECISION OPAMPS\TLC2652\TLC2652_TEST\PSPICE_TEST1\TLC2652.OLB")
+      (DeviceIndex "0"))
+    (TLC1078_10V
+      (FullPartName "TLC1078_10V.Normal")
+      (LibraryName
+         "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBER\CADENCE_SYMBOL_LIST\1.PRECISION OPAMPS\TLC1078\TLC1078_10V\TLC1078_10V_TEST\PSPICE_TEST1\TLC1078_10V.OLB")
+      (DeviceIndex "0"))
+    (TLC1078_5V
+      (FullPartName "TLC1078_5V.Normal")
+      (LibraryName
+         "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBER\CADENCE_SYMBOL_LIST\1.PRECISION OPAMPS\TLC1078\TLC1078_5V\TLC1078_5V_TEST\PSPICE_TEST1\TLC1078_5V.OLB")
+      (DeviceIndex "0"))
+    (TLC27M9_5V
+      (FullPartName "TLC27M9_5V.Normal")
+      (LibraryName
+         "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBER\CADENCE_SYMBOL_LIST\1.PRECISION OPAMPS\TLC27M9\TLC27M9\TLC27M9_5V\TLC27M9_5V_TEST\PSPICE_TEST1\TLC27M9_5V.OLB")
+      (DeviceIndex "0"))
+    (TLC27M7_5V
+      (FullPartName "TLC27M7_5V.Normal")
+      (LibraryName
+         "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBER\CADENCE_SYMBOL_LIST\1.PRECISION OPAMPS\TLC27M7\TLC27M7_5V\TLC27M7_5V_TEST\PSPICE_TEST1\TLC27M7_5V.OLB")
+      (DeviceIndex "0"))
+    (TLC27L9_5V
+      (FullPartName "TLC27L9_5V.Normal")
+      (LibraryName
+         "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBER\CADENCE_SYMBOL_LIST\1.PRECISION OPAMPS\TLC27L9\TLC27L9_5V\TLC27L9_5V_TEST\PSPICE_TEST1\TLC27L9_5V.OLB")
+      (DeviceIndex "0"))
+    (TLC27L7_5V
+      (FullPartName "TLC27L7_5V.Normal")
+      (LibraryName
+         "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBER\CADENCE_SYMBOL_LIST\1.PRECISION OPAMPS\TLC27L7\TLC27L7_5V\TLC27L7_5V_TEST\PSPICE_TEST1\TLC27L7_5V.OLB")
+      (DeviceIndex "0"))
+    (TLC279_5V
+      (FullPartName "TLC279_5V.Normal")
+      (LibraryName
+         "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBER\CADENCE_SYMBOL_LIST\1.PRECISION OPAMPS\TLC279\TLC279_5V\TLC279_5V_TEST\PSPICE_TEST1\TLC279_5V.OLB")
+      (DeviceIndex "0"))
+    (TLC277_5V
+      (FullPartName "TLC277_5V.Normal")
+      (LibraryName
+         "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBER\CADENCE_SYMBOL_LIST\1.PRECISION OPAMPS\TLC277\TLC277_5V\TLC277_5V_TEST\PSPICE_TEST1\TLC277_5V.OLB")
+      (DeviceIndex "0"))
+    (LMP7707
+      (FullPartName "LMP7707.Normal")
+      (LibraryName
+         "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBER\CADENCE_SYMBOL_LIST\1.PRECISION OPAMPS\LMP7707\LMP7707_TEST\PSPICE_TEST2\LMP7707.OLB")
+      (DeviceIndex "0"))
+    (OP07C
+      (FullPartName "OP07C.Normal")
+      (LibraryName
+         "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBER\CADENCE_SYMBOL_LIST\OP07C\OP07C_TEST\PSPICE\OP07C.OLB")
+      (DeviceIndex "0"))
+    (TLV6003_15V
+      (FullPartName "TLV6003_15V.Normal")
+      (LibraryName
+         "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBER\CADENCE_SYMBOL_LIST\TLV6003\TLV6003_15\TLV6003_15V_QC\RELEASE SANKALP\TLV6003_15V_PSPICE_AIO\TLV6003_15V.OLB")
+      (DeviceIndex "0"))
+    (TLV6003_5V
+      (FullPartName "TLV6003_5V.Normal")
+      (LibraryName
+         "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBER\CADENCE_SYMBOL_LIST\TLV6003\TLV6003_5\TLV6003_5V_QC\TLV6003_15V_PSPICE_AIO\TLV6003_5V.OLB")
+      (DeviceIndex "0"))
+    (TLV6003_2P7V
+      (FullPartName "TLV6003_2P7V.Normal")
+      (LibraryName
+         "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBER\CADENCE_SYMBOL_LIST\TLV6003\TLV6003_2.7\TLV6003_2P7V_TEST\PSPICE\TLV6003_2P7V.OLB")
+      (DeviceIndex "0"))
+    (LMP201x
+      (FullPartName "LMP201x.Normal")
+      (LibraryName
+         "C:\ELABTRANS_WS\ELABTRANS_DS\PART_NUMBER\LMP201X\LMP201X_TEST\PSICE\LMP201X.OLB")
+      (DeviceIndex "0")))
+  (MPSSessionName "x1057702")
+  (LastUsedLibraryBrowseDirectory
+     "C:\ELABTRANS_WS\ELABTRANS_DS\Part numbers\CADENCE_symbol_list\1.Precision Opamps\LMC6001\LMC6001B_TEST\PSPICE_TEST1")
+  (Folder "Logs")
+  (GlobalState
+    (FileView
+      (Path "Design Resources")
+      (Path "Outputs"))
+    (HierarchyView)
+    (Doc
+      (Type "COrCapturePMDoc")
+      (Frame
+        (Placement "44 0 1 -1 -1 -1 -1 0 1231 0 444"))
+      (Tab 0))))
