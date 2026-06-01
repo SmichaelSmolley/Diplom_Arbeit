@@ -1,29 +1,29 @@
 Protel Design System Design Rule Check
-PCB File : C:\Users\micha\Documents\Messung_von_Quanteneffecten_in_MOSFETs\Diplom_Arbeit\Hardware\PCB_Project\DIP_V01_Testing\PCB_Project\PCB1.PcbDoc
-Date     : 30.05.2026
-Time     : 21:33:47
+PCB File : C:\Users\Michael Watzek\Documents\Diplom_Arbeit\Hardware\PCB_Project\DIP_V01_Testing\PCB_Project\PCB1.PcbDoc
+Date     : 01.06.2026
+Time     : 08:15:23
 
 WARNING: Zero hole size multi-layer pad(s) detected
-   Pad Free-16(5567.993mil,876.89mil) on Multi-Layer on Net GND
-   Pad Free-16(5567.993mil,719.41mil) on Multi-Layer on Net DVDD
-   Pad Free-16(1712.598mil,3149.606mil) on Multi-Layer on Net AVDD
-   Pad Free-16(1870.079mil,3149.606mil) on Multi-Layer on Net GND
-   Pad Free-16(2713.661mil,879.016mil) on Multi-Layer on Net GND
-   Pad Free-16(2713.661mil,721.535mil) on Multi-Layer on Net pos_out
-   Pad Free-16(687.913mil,591.614mil) on Multi-Layer on Net neg_out
-   Pad Free-16(687.913mil,749.094mil) on Multi-Layer on Net GND
+   Pad Free-16(141.427mm,22.273mm) on Multi-Layer on Net GND
+   Pad Free-16(141.427mm,18.273mm) on Multi-Layer on Net DVDD
+   Pad Free-16(43.5mm,80mm) on Multi-Layer on Net AVDD
+   Pad Free-16(47.5mm,80mm) on Multi-Layer on Net GND
+   Pad Free-16(68.927mm,22.327mm) on Multi-Layer on Net GND
+   Pad Free-16(68.927mm,18.327mm) on Multi-Layer on Net pos_out
+   Pad Free-16(17.473mm,15.027mm) on Multi-Layer on Net neg_out
+   Pad Free-16(17.473mm,19.027mm) on Multi-Layer on Net GND
 
 WARNING: Multilayer Pads with 0 size Hole found
-   Pad Free-16(5567.993mil,876.89mil) on Multi-Layer
-   Pad Free-16(5567.993mil,719.41mil) on Multi-Layer
-   Pad Free-16(1712.598mil,3149.606mil) on Multi-Layer
-   Pad Free-16(1870.079mil,3149.606mil) on Multi-Layer
-   Pad Free-16(2713.661mil,879.016mil) on Multi-Layer
-   Pad Free-16(2713.661mil,721.535mil) on Multi-Layer
-   Pad Free-16(687.913mil,591.614mil) on Multi-Layer
-   Pad Free-16(687.913mil,749.094mil) on Multi-Layer
+   Pad Free-16(141.427mm,22.273mm) on Multi-Layer
+   Pad Free-16(141.427mm,18.273mm) on Multi-Layer
+   Pad Free-16(43.5mm,80mm) on Multi-Layer
+   Pad Free-16(47.5mm,80mm) on Multi-Layer
+   Pad Free-16(68.927mm,22.327mm) on Multi-Layer
+   Pad Free-16(68.927mm,18.327mm) on Multi-Layer
+   Pad Free-16(17.473mm,15.027mm) on Multi-Layer
+   Pad Free-16(17.473mm,19.027mm) on Multi-Layer
 
-Processing Rule : Clearance Constraint (Gap=5mil) (All),(All)
+Processing Rule : Clearance Constraint (Gap=0.127mm) (All),(All)
 Rule Violations :0
 
 Processing Rule : Short-Circuit Constraint (Allowed=No) (All),(All)
@@ -35,44 +35,44 @@ Rule Violations :0
 Processing Rule : Modified Polygon (Allow modified: No), (Allow shelved: No)
 Rule Violations :0
 
-Processing Rule : Width Constraint (Min=10mil) (Max=100mil) (Preferred=30mil) (InNet('M_source'))
+Processing Rule : Width Constraint (Min=0.254mm) (Max=2.54mm) (Preferred=0.762mm) (InNet('M_source'))
 Rule Violations :0
 
-Processing Rule : Width Constraint (Min=10mil) (Max=30mil) (Preferred=30mil) (All)
+Processing Rule : Width Constraint (Min=0.254mm) (Max=0.762mm) (Preferred=0.762mm) (All)
 Rule Violations :0
 
-Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (All)
+Processing Rule : Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)
 Rule Violations :0
 
-Processing Rule : Hole Size Constraint (Min=1mil) (Max=100mil) (All)
+Processing Rule : Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)
 Rule Violations :0
 
-Processing Rule : Hole To Hole Clearance (Gap=10mil) (All),(All)
+Processing Rule : Hole To Hole Clearance (Gap=0.254mm) (All),(All)
 Rule Violations :0
 
-Processing Rule : Minimum Solder Mask Sliver (Gap=5mil) (All),(All)
+Processing Rule : Minimum Solder Mask Sliver (Gap=0.127mm) (All),(All)
 Rule Violations :0
 
-Processing Rule : Minimum Solder Mask Sliver (Gap=0mil) (HasFootprint('21-0248A_Q3-1_MXM')),(All)
+Processing Rule : Minimum Solder Mask Sliver (Gap=0mm) (HasFootprint('21-0248A_Q3-1_MXM')),(All)
 Rule Violations :0
 
-Processing Rule : Silk To Solder Mask (Clearance=0mil) (HasFootprint('BNC_RA CON')),(All)
+Processing Rule : Silk To Solder Mask (Clearance=0mm) (HasFootprint('BNC_RA CON')),(All)
 Rule Violations :0
 
-Processing Rule : Silk To Solder Mask (Clearance=5mil) (IsPad),(All)
+Processing Rule : Silk To Solder Mask (Clearance=0.127mm) (IsPad),(All)
 Rule Violations :0
 
-Processing Rule : Silk to Silk (Clearance=10mil) (All),(All)
+Processing Rule : Silk to Silk (Clearance=0.254mm) (All),(All)
 Rule Violations :0
 
-Processing Rule : Net Antennae (Tolerance=0mil) (All)
+Processing Rule : Net Antennae (Tolerance=0mm) (All)
 Rule Violations :0
 
-Processing Rule : Height Constraint (Min=0mil) (Max=1000mil) (Prefered=500mil) (All)
+Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)
 Rule Violations :0
 
 
 Violations Detected : 0
 Waived Violations : 0
 PCB Health Issues : 0
-Time Elapsed        : 00:00:02
+Time Elapsed        : 00:00:01

@@ -185,23 +185,6 @@ GenerateClassCluster=0
 DocumentUniqueId=AWIPVUZH
 
 [Document9]
-DocumentPath=PSRAM_SPI.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=7
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=KLVIFSCJ
-
-[Document10]
 DocumentPath=DAC_Buffer_Filter.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -218,7 +201,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=DRLOHMHD
 
-[Document11]
+[Document10]
 DocumentPath=Temp_Sensors.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -235,7 +218,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=NWEGDQQF
 
-[Document12]
+[Document11]
 DocumentPath=Analog_PSU_5.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -252,7 +235,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=RYPOANGS
 
-[Document13]
+[Document12]
 DocumentPath=Cal.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -269,7 +252,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=HPMMQRUM
 
-[Document14]
+[Document13]
 DocumentPath=PCB_Project.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -286,7 +269,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document15]
+[Document14]
 DocumentPath=CAMtastic1.Cam
 AnnotationEnabled=1
 AnnotateStartValue=1
