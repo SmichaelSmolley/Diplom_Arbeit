@@ -10,6 +10,7 @@
       <TargetName>Target 1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
+      <pCCUsed>6190000::V6.19::ARMCLANG</pCCUsed>
       <uAC6>1</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -397,6 +398,21 @@
               <FileName>ads8681_lib.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\ads8681_lib.h</FilePath>
+            </File>
+            <File>
+              <FileName>AD5689_lib.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\AD5689_lib.h</FilePath>
+            </File>
+            <File>
+              <FileName>Pin_def_lib.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Pin_def_lib.h</FilePath>
+            </File>
+            <File>
+              <FileName>SPI.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SPI.h</FilePath>
             </File>
           </Files>
         </Group>

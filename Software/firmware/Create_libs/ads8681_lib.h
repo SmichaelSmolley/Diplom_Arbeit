@@ -1,6 +1,5 @@
 #include <stdint.h>
 
-
 enum ads868x_register_address
 {
     ADS868X_REGISTER_ADDRESS_DEVICE_ID      = 0x00,
@@ -124,7 +123,7 @@ ADS8681(int cs_pin);
 ADS8681_send(enum ads868x_spi_command command, enum ads868x_register_address reg, uint16_t data);
 ADS8681_read();
 
-ADS8681(int cs_pin)
+ADS8681()
 {
 	
 }
