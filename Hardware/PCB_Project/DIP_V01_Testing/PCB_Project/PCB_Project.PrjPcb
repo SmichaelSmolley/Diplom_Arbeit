@@ -270,23 +270,6 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document14]
-DocumentPath=CAMtastic1.Cam
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document15]
 DocumentPath=CAMtastic2.Cam
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -303,7 +286,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document16]
+[Document15]
 DocumentPath=CAMtastic3.Cam
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -337,122 +320,66 @@ DocumentPath=Project Outputs for PCB_Project\PCB1.EXTREP
 DItemRevisionGUID=
 
 [GeneratedDocument5]
-DocumentPath=Project Outputs for PCB_Project\PCB1.G1
-DItemRevisionGUID=
-
-[GeneratedDocument6]
-DocumentPath=Project Outputs for PCB_Project\PCB1.G2
-DItemRevisionGUID=
-
-[GeneratedDocument7]
-DocumentPath=Project Outputs for PCB_Project\PCB1.GBL
-DItemRevisionGUID=
-
-[GeneratedDocument8]
-DocumentPath=Project Outputs for PCB_Project\PCB1.GBO
-DItemRevisionGUID=
-
-[GeneratedDocument9]
-DocumentPath=Project Outputs for PCB_Project\PCB1.GBP
-DItemRevisionGUID=
-
-[GeneratedDocument10]
-DocumentPath=Project Outputs for PCB_Project\PCB1.GBS
-DItemRevisionGUID=
-
-[GeneratedDocument11]
-DocumentPath=Project Outputs for PCB_Project\PCB1.GD1
-DItemRevisionGUID=
-
-[GeneratedDocument12]
-DocumentPath=Project Outputs for PCB_Project\PCB1.GG1
-DItemRevisionGUID=
-
-[GeneratedDocument13]
-DocumentPath=Project Outputs for PCB_Project\PCB1.GPB
-DItemRevisionGUID=
-
-[GeneratedDocument14]
-DocumentPath=Project Outputs for PCB_Project\PCB1.GPT
-DItemRevisionGUID=
-
-[GeneratedDocument15]
-DocumentPath=Project Outputs for PCB_Project\PCB1.GTL
-DItemRevisionGUID=
-
-[GeneratedDocument16]
-DocumentPath=Project Outputs for PCB_Project\PCB1.GTO
-DItemRevisionGUID=
-
-[GeneratedDocument17]
-DocumentPath=Project Outputs for PCB_Project\PCB1.GTP
-DItemRevisionGUID=
-
-[GeneratedDocument18]
-DocumentPath=Project Outputs for PCB_Project\PCB1.GTS
-DItemRevisionGUID=
-
-[GeneratedDocument19]
 DocumentPath=Project Outputs for PCB_Project\PCB1.LDP
 DItemRevisionGUID=
 
-[GeneratedDocument20]
+[GeneratedDocument6]
 DocumentPath=Project Outputs for PCB_Project\PCB1.REP
 DItemRevisionGUID=
 
-[GeneratedDocument21]
+[GeneratedDocument7]
 DocumentPath=Project Outputs for PCB_Project\PCB1.RUL
 DItemRevisionGUID=
 
-[GeneratedDocument22]
+[GeneratedDocument8]
 DocumentPath=Project Outputs for PCB_Project\PCB1_Copper_Signal_1.gbr
 DItemRevisionGUID=
 
-[GeneratedDocument23]
+[GeneratedDocument9]
 DocumentPath=Project Outputs for PCB_Project\PCB1_Copper_Signal_2.gbr
 DItemRevisionGUID=
 
-[GeneratedDocument24]
+[GeneratedDocument10]
 DocumentPath=Project Outputs for PCB_Project\PCB1_Copper_Signal_Bot.gbr
 DItemRevisionGUID=
 
-[GeneratedDocument25]
+[GeneratedDocument11]
 DocumentPath=Project Outputs for PCB_Project\PCB1_Copper_Signal_Top.gbr
 DItemRevisionGUID=
 
-[GeneratedDocument26]
+[GeneratedDocument12]
 DocumentPath=Project Outputs for PCB_Project\PCB1_Legend_Bot.gbr
 DItemRevisionGUID=
 
-[GeneratedDocument27]
+[GeneratedDocument13]
 DocumentPath=Project Outputs for PCB_Project\PCB1_Legend_Top.gbr
 DItemRevisionGUID=
 
-[GeneratedDocument28]
+[GeneratedDocument14]
 DocumentPath=Project Outputs for PCB_Project\PCB1_Mechanical_1.gbr
 DItemRevisionGUID=
 
-[GeneratedDocument29]
+[GeneratedDocument15]
 DocumentPath=Project Outputs for PCB_Project\PCB1_Paste_Bot.gbr
 DItemRevisionGUID=
 
-[GeneratedDocument30]
+[GeneratedDocument16]
 DocumentPath=Project Outputs for PCB_Project\PCB1_Paste_Top.gbr
 DItemRevisionGUID=
 
-[GeneratedDocument31]
+[GeneratedDocument17]
 DocumentPath=Project Outputs for PCB_Project\PCB1_Profile.gbr
 DItemRevisionGUID=
 
-[GeneratedDocument32]
+[GeneratedDocument18]
 DocumentPath=Project Outputs for PCB_Project\PCB1_Soldermask_Bot.gbr
 DItemRevisionGUID=
 
-[GeneratedDocument33]
+[GeneratedDocument19]
 DocumentPath=Project Outputs for PCB_Project\PCB1_Soldermask_Top.gbr
 DItemRevisionGUID=
 
-[GeneratedDocument34]
+[GeneratedDocument20]
 DocumentPath=Project Outputs for PCB_Project\PCB_Project.xlsx
 DItemRevisionGUID=
 

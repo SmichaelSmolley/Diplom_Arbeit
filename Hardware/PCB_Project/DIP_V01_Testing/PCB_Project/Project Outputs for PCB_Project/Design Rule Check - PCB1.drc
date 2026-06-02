@@ -1,7 +1,7 @@
 Protel Design System Design Rule Check
-PCB File : C:\Users\Michael Watzek\Documents\Diplom_Arbeit\Hardware\PCB_Project\DIP_V01_Testing\PCB_Project\PCB1.PcbDoc
+PCB File : C:\Users\micha\Documents\Messung_von_Quanteneffecten_in_MOSFETs\Diplom_Arbeit\Hardware\PCB_Project\DIP_V01_Testing\PCB_Project\PCB1.PcbDoc
 Date     : 02.06.2026
-Time     : 14:33:12
+Time     : 21:31:02
 
 WARNING: Zero hole size multi-layer pad(s) detected
    Pad Free-16(141.427mm,22.273mm) on Multi-Layer on Net GND
@@ -63,8 +63,7 @@ Processing Rule : Silk To Solder Mask (Clearance=0.127mm) (IsPad),(All)
 Rule Violations :0
 
 Processing Rule : Silk to Silk (Clearance=0.254mm) (All),(All)
-   Violation between Silk To Silk Clearance Constraint: (0.176mm < 0.254mm) Between Text "C7" (65.23mm,6.938mm) on Top Overlay And Text "R5" (65.23mm,8.938mm) on Top Overlay Silk Text to Silk Clearance [0.176mm]
-Rule Violations :1
+Rule Violations :0
 
 Processing Rule : Net Antennae (Tolerance=0mm) (All)
 Rule Violations :0
@@ -73,7 +72,7 @@ Processing Rule : Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (Al
 Rule Violations :0
 
 
-Violations Detected : 1
+Violations Detected : 0
 Waived Violations : 0
 PCB Health Issues : 0
 Time Elapsed        : 00:00:02
