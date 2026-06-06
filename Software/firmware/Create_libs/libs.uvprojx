@@ -414,6 +414,16 @@
               <FileType>5</FileType>
               <FilePath>.\SPI.h</FilePath>
             </File>
+            <File>
+              <FileName>Timer_DMA.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Timer_DMA.h</FilePath>
+            </File>
+            <File>
+              <FileName>Command_decode.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Command_decode.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

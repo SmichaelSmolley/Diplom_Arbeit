@@ -41,7 +41,9 @@ void spi1_init()
 	SPI1->CR1 |= (1 << 9);   // SSM = 1
 	SPI1->CR1 |= (1 << 8);   // SSI = 1
 	
-	SPI1->CR1 &= ~(1 << 11);  // DFF = 0 (8-bit mode)
+	SPI1->CR1 |= (1 << 11);  // DFF = 1 (8-bit mode)
+	
+	SPI1->CR2 |= SPI_CR2_RXDMAEN;   // RX DMA aktivieren
 	
 	SPI1->CR1 |= (1 << 6);   // SPE = SPI enable
 }
@@ -62,7 +64,7 @@ void spi1_set_baud(uint8_t br)
 	SPI1->CR1 |= (1 << 6);     // SPE = 1
 }
 
-void spi1_send_blocking(uint8_t data)
+void spi1_send_blocking(uint16_t data)
 {
     // warten bis TXE (Transmit buffer empty)
     while (!(SPI1->SR & (1 << 1)));
