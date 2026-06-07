@@ -6,14 +6,14 @@
 
 //==========KANÄLE==========
 
-#define drain_voltage "SOURce1"
-#define gate_voltage "SOURce2"
-#define TIA "SENSe1"
+#define drain_voltage 									"SOURce1"
+#define gate_voltage 										"SOURce2"
+#define TIA 														"SENSe1"
 
 //==========FUNKTIONEN==========
 
-#define voltage "VOLTage"
-#define current "CURRent"
+#define voltage 												"VOLTage"
+#define current 												"CURRent"
 
 //==========RANGE==========
 
