@@ -20,6 +20,8 @@
 #define messure_range 									"RANGe"
 #define Feadback_resisitor_10MEG 				"RANGe 100e-9"
 #define Feadback_resisitor_100k 				"RANGe 10e-6"
+#define DAC_Gain_off										"RANGe 25V"
+#define DAC_Gain_on											"RANGe 50V"
 #define range_mode_Auto_on 							"AUTO ON"
 #define range_mode_Auto_off 						"AUTO OFF"
 
@@ -61,6 +63,13 @@
 #define COMMAND_READ 										"READ?"
 #define COMMAND_MEASURE_CURR 						"MEASure:CURRent?"
 
+//==========CALLIBRATE==========
+
+#define call_1nA												
+#define call_10nA
+#define call_100nA
+#define call_Voltage_1V
+#define call_Voltage_4_7V
 
 /*
 ===================================================================================================
@@ -111,4 +120,52 @@
   - COMMAND_READ                : Startet eine Messung und überträgt die Daten sofort in einem Schritt.
   - COMMAND_MEASURE_CURR        : Führt eine direkte, unkonfigurierte Einzelstrommessung durch.
 ===================================================================================================
+*/
+
+
+/*
+
+[SORCE1]:[VOLTAGE]:[?/x/SWEEP START/SWEEP STOP/SWEEP STEP] [x]
+[SORCE2]:[VOLTAGE]:[?/x/SWEEP START/SWEEP STOP/SWEEP STEP] [x]
+
+[SORCE1]:[?/OUTPUT/PROT/RANGE/AUTORANGE] [OUTPUT,AUTORANGE{?/ON/OFF}/PROT{?/x}/RANGE{?/25/50}]
+[SORCE2]:[?/OUTPUT/PROT/RANGE/AUTORANGE] [OUTPUT,AUTORANGE{?/ON/OFF}/PROT{?/x}/RANGE{?/25/50}]
+
+[SENSE1]:[?/CURRENT/PROT/RANGE/AUTORANGE] [CURRENT,PROT{?/x}/RANGE{?/100n/10u}/AUTORANGE{?/ON/OFF}]
+[SENSE1]:[MODE]:[/?GND/AZERO/ZCORRECT/AVERAGE] [GND,AZERO{?/ON/OFF}/ZCORRECT{?/AQUIRRE}/AVERAGE{?/COUNT}] [AQUIRRE,COUNT{?/x}]
+
+[SENSE2]:[?/CURRENT/PROT/RANGE/AUTORA7NGE] [CURRENT,PROT{?/x}/RANGE{?/100n/10u}/AUTORANGE{?/ON/OFF}]
+[SENSE2]:[MODE]:[/?GND/AZERO/ZCORRECT/AVERAGE] [GND,AZERO{?/ON/OFF}/ZCORRECT{?/AQUIRRE}/AVERAGE{?/COUNT}] [AQUIRRE,COUNT{?/x}]
+
+[STATUS]:[?/SYSTEM/SOURCE/SENSE/CAL]:[SOURCE,SENSE{1/2}]
+
+[SYSTEM]:[?/DATE/VERSION/LAST_UPDATE/RESI_HS]:[DATE,LAST_UPDATE{?/x(datum)}/VERSION{?/x}/RESI_HS{?/ja}]
+[SYSTEM]:[COMMAND]:[?/RESET/READ?]
+
+[CAL]:[SENSE1]:[?/CURRENT/GAIN/OFFSET/RANGE]
+							[CURRENT]:[?/x/CAL_1nA/CAL_10nA/CAL_100nA]
+							[GAIN]:[?/x/VALUE]
+							[OFFSET]:[?/x/ACQUIRE/CLEAR/VALUE]
+							[RANGE]:[?/100n/10u/CAL_VALUE]
+			
+			[SOURCE2]:[?/VOLTAGE/CURRENT/GAIN/OFFSET/DAC_RANGE]
+							[VOLTAGE]:[?/x/CAL_1V/CAL_4_7V]
+							[GAIN]:[?/x/LOW/HIGH/25V/50V]
+							[OFFSET]:[?/x/ACQUIRE/CLEAR/VALUE]
+							[DAC_RANGE]:[?/25/50/VALUE]
+							
+			[SOURCE2]:[?/VOLTAGE/CURRENT/GAIN/OFFSET/DAC_RANGE]
+							[VOLTAGE]:[?/x/CAL_1V/CAL_4_7V]
+							[GAIN]:[?/x/LOW/HIGH/25V/50V]
+							[OFFSET]:[?/x/ACQUIRE/CLEAR/VALUE]
+							[DAC_RANGE]:[?/25/50/VALUE]				
+							
+			[GLOBAL]:
+							[SAVE]:[?]
+							[LOAD]:[?]
+							[FACTORY]:[?]
+
+			[STATCAL]:
+							[?/ON/OFF/STATUS]				
+
 */

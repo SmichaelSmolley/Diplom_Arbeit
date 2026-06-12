@@ -1,0 +1,9 @@
+Document Id,Document Version,Document Project Id,Title,Status,Creation date,Author,Document type,Document type Id,Doc. attributes,External reference,Modification date,File names
+3234434,1,,HPM7177 ADC Mezzanine Schematics,Released,2025-02-13,,Schematics,300,,,"2025-02-20, 15:29",EDA-04061-V4-2_project.zip; EDA-04061-V4-2_sch.pdf
+3234336,1,,HPM7177 ADC Mezzanine Specification,Released,2025-02-12,,Engineering Specification,32,,,"2025-02-20, 15:29",
+3234437,1,,HPM7177 ADC Mezzanine PCB-Layout,Released,2025-02-13,,PCB-Layout,301,,,"2025-02-20, 15:29",EDA-04061-V4-2_pcb.pcbdoc; EDA-04061-V4-2_pcb.pdf
+2663362,1,,HPM7177 ADC Mezzanine Board Manufacturing Data,Released,2021-11-16,,Fabrication General,49,,,"2021-11-18, 13:46",EDA-04061-V4_mfg.zip; EDA-04061-V4_mfg.pdf; EDA-04061-V4_specif.pdf
+3234337,1,,HPM7177 ADC Mezzanine Assembly Data,Released,2025-02-12,,Fabrication General,49,,,"2025-02-20, 15:29",EDA-04061-V4-2_pcb-mat.xls; EDA-04061-V4-2_pcb-mat.pdf; EDA-04061-V4-2_SMD-top.pdf; EDA-04061-V4-2_SMD-bot.pdf; [has 4 file(s) more...]
+3234338,1,,HPM7177 ADC Mezzanine Mechanical Parts,Released,2025-02-12,,Fabrication General,49,,,"2025-02-20, 15:30",
+3234339,1,,HPM7177 ADC Mezzanine Picture,Released,2025-02-12,,Illustration,38,,,"2025-02-20, 15:30",EDA-04061-V4-2_3D.pdf; EDA-04061-V4-2_3D-top.jpg; EDA-04061-V4-2_3D-bot.jpg
+3234340,1,,HPM7177 ADC Mezzanine Supplier Info,Released,2025-02-12,,Management Cost,70,,,"2025-02-20, 15:30",
