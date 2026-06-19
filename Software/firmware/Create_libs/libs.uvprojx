@@ -424,6 +424,21 @@
               <FileType>5</FileType>
               <FilePath>.\Command_decode.h</FilePath>
             </File>
+            <File>
+              <FileName>SCPI_Defines.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SCPI_Defines.h</FilePath>
+            </File>
+            <File>
+              <FileName>UART1_com.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\UART1_com.h</FilePath>
+            </File>
+            <File>
+              <FileName>NVIC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\NVIC.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

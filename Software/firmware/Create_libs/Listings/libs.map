@@ -4,11 +4,28 @@ Component: Arm Compiler for Embedded 6.19 Tool: armlink [5e73cb00]
 
 Section Cross References
 
+    main.o(.ARM.exidx.text.spi1_init) refers to main.o(.text.spi1_init) for [Anonymous Symbol]
+    main.o(.ARM.exidx.text.spi1_set_baud) refers to main.o(.text.spi1_set_baud) for [Anonymous Symbol]
+    main.o(.ARM.exidx.text.spi1_send_blocking) refers to main.o(.text.spi1_send_blocking) for [Anonymous Symbol]
+    main.o(.ARM.exidx.text.Tim2_setup) refers to main.o(.text.Tim2_setup) for [Anonymous Symbol]
+    main.o(.ARM.exidx.text.DMA_rx_setup_SPI1_to_Mem) refers to main.o(.text.DMA_rx_setup_SPI1_to_Mem) for [Anonymous Symbol]
+    main.o(.ARM.exidx.text.DMA_tx_setup_SPI1_to_Mem) refers to main.o(.text.DMA_tx_setup_SPI1_to_Mem) for [Anonymous Symbol]
+    main.o(.ARM.exidx.text.TIM2_IRQHandler) refers to main.o(.text.TIM2_IRQHandler) for [Anonymous Symbol]
+    main.o(.ARM.exidx.text.DMA1_Channel2_IRQHandler) refers to main.o(.text.DMA1_Channel2_IRQHandler) for [Anonymous Symbol]
+    main.o(.ARM.exidx.text.ADS8681_transfer_frame) refers to main.o(.text.ADS8681_transfer_frame) for [Anonymous Symbol]
+    main.o(.text.ADS8681_send_Command_blocking) refers to main.o(.text.ADS8681_transfer_frame) for ADS8681_transfer_frame
+    main.o(.ARM.exidx.text.ADS8681_send_Command_blocking) refers to main.o(.text.ADS8681_send_Command_blocking) for [Anonymous Symbol]
+    main.o(.text.ADS8681_beginn_read_tramsmit) refers to main.o(.text.Tim2_setup) for Tim2_setup
+    main.o(.text.ADS8681_beginn_read_tramsmit) refers to main.o(.text.DMA_rx_setup_SPI1_to_Mem) for DMA_rx_setup_SPI1_to_Mem
+    main.o(.ARM.exidx.text.ADS8681_beginn_read_tramsmit) refers to main.o(.text.ADS8681_beginn_read_tramsmit) for [Anonymous Symbol]
+    main.o(.ARM.exidx.text.main) refers to main.o(.text.main) for [Anonymous Symbol]
     startup_stm32f10x_md.o(STACK) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_stm32f10x_md.o(HEAP) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_stm32f10x_md.o(RESET) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_stm32f10x_md.o(RESET) refers to startup_stm32f10x_md.o(STACK) for __initial_sp
     startup_stm32f10x_md.o(RESET) refers to startup_stm32f10x_md.o(.text) for Reset_Handler
+    startup_stm32f10x_md.o(RESET) refers to main.o(.text.DMA1_Channel2_IRQHandler) for DMA1_Channel2_IRQHandler
+    startup_stm32f10x_md.o(RESET) refers to main.o(.text.TIM2_IRQHandler) for TIM2_IRQHandler
     startup_stm32f10x_md.o(.text) refers (Special) to heapauxi.o(.text) for __use_two_region_memory
     startup_stm32f10x_md.o(.text) refers to system_stm32f10x.o(.text.SystemInit) for SystemInit
     startup_stm32f10x_md.o(.text) refers to __main.o(!!!main) for __main
@@ -32,6 +49,7 @@ Section Cross References
     __rtentry2.o(.ARM.Collect$$rtentry$$00000008) refers to boardinit2.o(.text) for _platform_post_stackheap_init
     __rtentry2.o(.ARM.Collect$$rtentry$$0000000A) refers to libinit.o(.ARM.Collect$$libinit$$00000000) for __rt_lib_init
     __rtentry2.o(.ARM.Collect$$rtentry$$0000000B) refers to boardinit3.o(.text) for _platform_post_lib_init
+    __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) refers to main.o(.text.main) for main
     __rtentry2.o(.ARM.Collect$$rtentry$$0000000D) refers to exit.o(.text) for exit
     __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$00000001) for .ARM.Collect$$rtentry$$00000001
     __rtentry2.o(.ARM.exidx) refers to __rtentry2.o(.ARM.Collect$$rtentry$$00000008) for .ARM.Collect$$rtentry$$00000008
@@ -44,7 +62,7 @@ Section Cross References
     sys_stackheap_outer.o(.text) refers to startup_stm32f10x_md.o(.text) for __user_initial_stackheap
     exit.o(.text) refers to rtexit.o(.ARM.Collect$$rtexit$$00000000) for __rt_exit
     libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000030) for __rt_lib_init_alloca_1
-    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000029) for __rt_lib_init_argv_1
+    libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000002E) for __rt_lib_init_argv_1
     libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$0000001D) for __rt_lib_init_atexit_1
     libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000023) for __rt_lib_init_clock_1
     libinit.o(.ARM.Collect$$libinit$$00000000) refers (Special) to libinit2.o(.ARM.Collect$$libinit$$00000034) for __rt_lib_init_cpp_1
@@ -85,7 +103,7 @@ Section Cross References
     rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000001) for .ARM.Collect$$rtexit$$00000001
     rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000003) for .ARM.Collect$$rtexit$$00000003
     rtexit2.o(.ARM.exidx) refers to rtexit2.o(.ARM.Collect$$rtexit$$00000004) for .ARM.Collect$$rtexit$$00000004
-    argv_veneer.o(.emb_text) refers to _get_argv_nomalloc.o(.text) for __ARM_get_argv
+    argv_veneer.o(.emb_text) refers to no_argv.o(.text) for __ARM_get_argv
     sys_exit.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
     sys_exit.o(.text) refers (Special) to indicate_semi.o(.text) for __semihosting_library_function
     sys_exit_hlt.o(.text) refers (Special) to use_no_semi.o(.text) for __I$use$semihosting
@@ -133,6 +151,28 @@ Section Cross References
 Removing Unused input sections from the image.
 
     Removing main.o(.text), (0 bytes).
+    Removing main.o(.text.spi1_init), (118 bytes).
+    Removing main.o(.ARM.exidx.text.spi1_init), (8 bytes).
+    Removing main.o(.text.spi1_set_baud), (84 bytes).
+    Removing main.o(.ARM.exidx.text.spi1_set_baud), (8 bytes).
+    Removing main.o(.text.spi1_send_blocking), (68 bytes).
+    Removing main.o(.ARM.exidx.text.spi1_send_blocking), (8 bytes).
+    Removing main.o(.text.Tim2_setup), (164 bytes).
+    Removing main.o(.ARM.exidx.text.Tim2_setup), (8 bytes).
+    Removing main.o(.text.DMA_rx_setup_SPI1_to_Mem), (82 bytes).
+    Removing main.o(.ARM.exidx.text.DMA_rx_setup_SPI1_to_Mem), (8 bytes).
+    Removing main.o(.text.DMA_tx_setup_SPI1_to_Mem), (74 bytes).
+    Removing main.o(.ARM.exidx.text.DMA_tx_setup_SPI1_to_Mem), (8 bytes).
+    Removing main.o(.ARM.exidx.text.TIM2_IRQHandler), (8 bytes).
+    Removing main.o(.ARM.exidx.text.DMA1_Channel2_IRQHandler), (8 bytes).
+    Removing main.o(.text.ADS8681_transfer_frame), (64 bytes).
+    Removing main.o(.ARM.exidx.text.ADS8681_transfer_frame), (8 bytes).
+    Removing main.o(.text.ADS8681_send_Command_blocking), (64 bytes).
+    Removing main.o(.ARM.exidx.text.ADS8681_send_Command_blocking), (8 bytes).
+    Removing main.o(.text.ADS8681_beginn_read_tramsmit), (32 bytes).
+    Removing main.o(.ARM.exidx.text.ADS8681_beginn_read_tramsmit), (8 bytes).
+    Removing main.o(.ARM.exidx.text.main), (8 bytes).
+    Removing main.o(.ARM.use_no_argv), (4 bytes).
     Removing system_stm32f10x.o(.text), (0 bytes).
     Removing system_stm32f10x.o(.ARM.exidx.text.SystemInit), (8 bytes).
     Removing system_stm32f10x.o(.ARM.exidx.text.SetSysClock), (8 bytes).
@@ -142,4 +182,4 @@ Removing Unused input sections from the image.
     Removing system_stm32f10x.o(.data.SystemCoreClock), (4 bytes).
     Removing system_stm32f10x.o(.rodata.AHBPrescTable), (16 bytes).
 
-9 unused section(s) (total 342 bytes) removed from the image.
+31 unused section(s) (total 1192 bytes) removed from the image.
