@@ -3,14 +3,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-//NVIC INIT
-static void NVIC_init (char position, char priority)
-{
-	NVIC->IP[position]=(priority<<4); // setzt interrupt priorität
-	NVIC->ICPR[position/32] |= (0x01<<(position%32)); // verhindert interupt wenn ausgelöst
-	NVIC->ISER[position/32] |= (0x01<<(position%32)); // Enable Interrupt
-}
-
 void Tim2_setup(uint16_t int_frequ)
 {
 	RCC->APB1ENR |= RCC_APB1ENR_TIM2EN; // TIM2 CLK EN
