@@ -410,6 +410,29 @@
               <FilePath>.\Pin_def_lib.h</FilePath>
             </File>
             <File>
+              <FileName>Command_decode.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Command_decode.h</FilePath>
+            </File>
+            <File>
+              <FileName>SCPI_Defines.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SCPI_Defines.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>own_libs</GroupName>
+        </Group>
+        <Group>
+          <GroupName>Drivers</GroupName>
+          <Files>
+            <File>
+              <FileName>UART1_com.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\UART1_com.h</FilePath>
+            </File>
+            <File>
               <FileName>SPI.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\SPI.h</FilePath>
@@ -420,29 +443,11 @@
               <FilePath>.\Timer_DMA.h</FilePath>
             </File>
             <File>
-              <FileName>Command_decode.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Command_decode.h</FilePath>
-            </File>
-            <File>
-              <FileName>SCPI_Defines.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\SCPI_Defines.h</FilePath>
-            </File>
-            <File>
-              <FileName>UART1_com.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\UART1_com.h</FilePath>
-            </File>
-            <File>
               <FileName>NVIC.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\NVIC.h</FilePath>
             </File>
           </Files>
-        </Group>
-        <Group>
-          <GroupName>own_libs</GroupName>
         </Group>
         <Group>
           <GroupName>::CMSIS</GroupName>

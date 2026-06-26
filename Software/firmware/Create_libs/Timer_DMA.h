@@ -28,6 +28,16 @@ void Tim2_setup(uint16_t int_frequ)
 	TIM2->CR1 |= TIM_CR1_CEN; // Timer aktivieren
 }
 
+void Tim2_enable()
+{
+
+}
+	
+void Tim2_diable()
+{
+
+}
+
 void DMA_rx_setup_SPI1_to_Mem(uint16_t* buffer, uint32_t numm_of_words)
 {
 	RCC->AHBENR |= RCC_AHBENR_DMA1EN; //clock für dma
@@ -62,4 +72,14 @@ void DMA_tx_setup_SPI1_to_Mem(uint16_t* buffer, uint32_t numm_of_words)
 		| DMA_CCR1_EN// DMA enable
 		| DMA_CCR1_TCIE; // interrupt after end
 	
+}
+
+void DMA_tx_disable()
+{
+	DMA1_Channel2->CCR = ~DMA_CCR1_EN; // DMA enable
+}
+
+void DMA_tx_enable()
+{
+	DMA1_Channel2->CCR = DMA_CCR1_EN; // DMA enable
 }
