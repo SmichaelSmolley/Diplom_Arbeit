@@ -1,3 +1,6 @@
+#ifndef ADS5689_LIB_H
+#define ADS5689_LIB_H
+
 #include <stdint.h>
 
 
@@ -14,3 +17,5 @@
 #define ADDR_DAC_A                      0b0001
 #define ADDR_DAC_B                      0b1000
 #define ADDR_DAC_AB                     0b1001
+
+#endif

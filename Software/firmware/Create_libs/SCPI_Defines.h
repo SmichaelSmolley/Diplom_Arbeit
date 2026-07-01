@@ -1,3 +1,6 @@
+#ifndef SCPI_DEFINES_H
+#define SCPI_DEFINES_H
+
 #include <stdio.h>
 
 /*
@@ -173,3 +176,6 @@ typedef enum {
 
 #define CAL_GLOBAL_TEMP(SAVE_LOAD)								"CAL_GLOBAL_TEMP= " #SAVE_LOAD			//Kallibration speicher oder
 #define CAL_GLOBAL_FACTORY(SAVE_LOAD)							"CAL_GLOBAL_FACTORY= " #SAVE_LOAD   //Factory Code laden oder speichern
+	
+	
+#endif	

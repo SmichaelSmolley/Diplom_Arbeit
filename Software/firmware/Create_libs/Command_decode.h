@@ -1,3 +1,6 @@
+#ifndef COMMAND_DECODE_H
+#define COMMAND_DECODE_H
+
 #include <stm32f10x.h>
 #include <stdint.h>
 #include <stdlib.h>
@@ -30,3 +33,4 @@ typedef struct
 
 } messurment_param_t;
 
+#endif

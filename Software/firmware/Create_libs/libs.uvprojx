@@ -419,10 +419,12 @@
               <FileType>5</FileType>
               <FilePath>.\SCPI_Defines.h</FilePath>
             </File>
+            <File>
+              <FileName>ads8681.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\ads8681.c</FilePath>
+            </File>
           </Files>
-        </Group>
-        <Group>
-          <GroupName>own_libs</GroupName>
         </Group>
         <Group>
           <GroupName>Drivers</GroupName>
@@ -446,6 +448,26 @@
               <FileName>NVIC.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\NVIC.h</FilePath>
+            </File>
+            <File>
+              <FileName>UART1_com.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\UART1_com.c</FilePath>
+            </File>
+            <File>
+              <FileName>NVIC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\NVIC.c</FilePath>
+            </File>
+            <File>
+              <FileName>Timer_DMA.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Timer_DMA.c</FilePath>
+            </File>
+            <File>
+              <FileName>SPI.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SPI.c</FilePath>
             </File>
           </Files>
         </Group>
