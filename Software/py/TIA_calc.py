@@ -145,7 +145,7 @@ def update(event=None):
                    f"fp = {fp/1e6:.2f} MHz\n"
                    f"f_cross = {f_cross/1e6:.2f} MHz\n"
                    f"PM = {phase_margin:.1f}°")
-    info_box.set_val(result_text)
+    #info_box.set_val(result_text)
 
     fig.canvas.draw_idle()
 
