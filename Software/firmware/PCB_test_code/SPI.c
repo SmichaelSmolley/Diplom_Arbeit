@@ -4,6 +4,7 @@
 
 void spi1_init()
 {
+	RCC->APB2ENR |= RCC_APB2ENR_SPI1EN;
 	SPI1->CR1 = 0;  // reset config
 	SPI1->CR1 |= (1 << 2);      // MSTR = Master mode
 	SPI1->CR1 &= ~(1 << 7);     // MSB first (LSBFIRST = 0)
@@ -71,7 +72,7 @@ uint16_t spi1_transfer16(uint16_t tx_data)
 	SPI1->DR = tx_data;
 
 	// Warten bis Daten empfangen wurden
-	while (!(SPI1->SR & SPI_SR_RXNE));
+	//while (!(SPI1->SR & SPI_SR_RXNE));
 
 	// Empfangene Daten lesen
 	uint16_t rx_data = (uint16_t)SPI1->DR;

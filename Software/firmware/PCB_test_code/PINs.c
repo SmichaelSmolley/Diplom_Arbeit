@@ -11,8 +11,15 @@ void PIN_init()
 	temp = GPIOA->CRL;
 	temp &= 0xFFF0F00F;
 	temp |= 0x00030300;
-	GPIOC->CRL = temp;
+	GPIOA->CRL = temp;
 	
+	temp = GPIOA->CRL;
+	temp &= ~(0xFFF << 20);   // PA5-PA7 löschen
+	temp |=  (0xB << 20);     // PA5 AF PP 50MHz
+	temp |=  (0x4 << 24);     // PA6 Input Floating
+	temp |=  (0xB << 28);     // PA7 AF PP 50MHz
+	GPIOA->CRL = temp;
+
 	//PB1, PB4, PB7 = Output PushPull 50MHz (0x3)
 	//PB0 = Output OpenDrain 50MHz (0x7)
 	temp = GPIOB->CRL;

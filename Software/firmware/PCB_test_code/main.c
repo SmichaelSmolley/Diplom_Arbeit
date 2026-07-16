@@ -40,9 +40,23 @@ enum ads868x_spi_command
 int main()
 {
 	PIN_init();
+	cal_Select_Reset = 0;
+	cal_Select_set = 0;
+	Range_Select_Reset = 0;
+	Range_Select_set = 0;
+	LED_GREEN = 1;
+	LED_RED = 1;
+	DAC_SPI_NCS = 1;
+	ADC_NRESET = 0;
+for(volatile int i=0;i<10000;i++);
+ADC_NRESET = 1;
+	
+	PER_33V_PSU_EN = 1;
+	ANALOG_5V_PSU_EN = 1;
+	
 	set_up_uart1();
 	spi1_init();
-	spi1_set_baud(16);
+	spi1_set_baud(32);
 	
 	char buffer[128];
 	
@@ -50,14 +64,14 @@ int main()
 	sprintf(buffer, "hallo, DAUMEN, Defektanalyse- und Mess-Einheit mit Nutzerschnittstelle\n\r");
 	
 	uart_put_string(buffer);
-	
-	ADC_SPI_NCS = 0;
-	spi1_transfer16((ADS868X_SPI_COMMAND_READ << 9) | (ADS868X_REGISTER_ADDRESS_DEVICE_ID));
-	uint16_t spi_test = spi1_transfer16(0x00);
 	ADC_SPI_NCS = 1;
-	
-	if(spi_test == 
+	while(1){
+	ADC_SPI_NCS = 0;
+	//spi1_transfer16((ADS868X_SPI_COMMAND_READ << 9) | (ADS868X_REGISTER_ADDRESS_DEVICE_ID));
+	uint16_t spi_test = spi1_transfer16(0x00);
+	spi_test = spi1_transfer16(0x00);
+	int i;
 
-
-0){LED_GREEN = 1;}
+	ADC_SPI_NCS = 1;
+	sprintf(buffer, "spi_test = 0x%04X", spi_test);}
 }

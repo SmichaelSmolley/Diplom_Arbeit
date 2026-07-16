@@ -21,22 +21,26 @@ Target DLL:      CMSIS_AGDI.dll V1.33.15.0
 Dialog DLL:      TARMSTM.DLL V1.67.1.0
  
 <h2>Project:</h2>
-C:\Users\micha\Documents\Messung_von_Quanteneffecten_in_MOSFETs\Diplom_Arbeit\Software\firmware\PCB_test_code\PCB_test.uvprojx
-Project File Date:  07/11/2026
+C:\Users\Michael Watzek\Documents\Diplom_Arbeit\Software\firmware\PCB_test_code\PCB_test.uvprojx
+Project File Date:  07/13/2026
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'PCB_test'
-compiling PINs.c...
-compiling SPI.c...
-compiling NVIC.c...
-compiling UART.c...
-assembling startup_stm32f10x_md.s...
-compiling main.c...
 compiling system_stm32f10x.c...
+compiling SPI.c...
+compiling PINs.c...
+compiling UART.c...
+compiling NVIC.c...
+assembling startup_stm32f10x_md.s...
+main.c(51): warning: GCC does not allow variable declarations in for loop initializers before C99 [-Wgcc-compat]
+for(volatile int i=0;i<10000;i++);
+    ^
+1 warning generated.
+compiling main.c...
 linking...
-Program Size: Code=8004 RO-data=880 RW-data=0 ZI-data=1632  
-".\Objects\PCB_test.axf" - 0 Error(s), 0 Warning(s).
+Program Size: Code=8188 RO-data=896 RW-data=0 ZI-data=1632  
+".\Objects\PCB_test.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -55,19 +59,19 @@ Package Vendor: Keil
 <h2>Collection of Component include folders:</h2>
   ./RTE/Device/STM32F103RB
   ./RTE/_PCB_test
-  C:/Users/micha/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
-  C:/Users/micha/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include
+  C:/Users/Michael Watzek/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  C:/Users/Michael Watzek/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include
 
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.6.0
 
    * Component: Keil::Device:Startup:1.0.0
-      Source file:   Device/Source/ARM/STM32F1xx_OPT.s
-      Source file:   Device/Source/system_stm32f10x.c
-      Include file:  RTE_Driver/Config/RTE_Device.h
       Source file:   Device/Source/ARM/startup_stm32f10x_md.s
-Build Time Elapsed:  00:00:00
+      Source file:   Device/Source/system_stm32f10x.c
+      Source file:   Device/Source/ARM/STM32F1xx_OPT.s
+      Include file:  RTE_Driver/Config/RTE_Device.h
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>
