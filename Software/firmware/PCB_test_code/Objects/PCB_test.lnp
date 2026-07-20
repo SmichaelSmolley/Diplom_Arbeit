@@ -1,4 +1,5 @@
 --cpu Cortex-M3
+".\objects\ads8681.o"
 ".\objects\main.o"
 ".\objects\spi.o"
 ".\objects\uart.o"
