@@ -40,7 +40,8 @@ uint32_t ADS8681_send_Command_blocking(
 void ADS8681_init()
 {
 	ADC_NRESET = 0;
-	for(volatile int i=0;i<10000;i++);
+	volatile int i;
+	for(i=0;i<10000;i++);
 	ADC_NRESET = 1;
 	ADC_SPI_NCS = 1;
 	

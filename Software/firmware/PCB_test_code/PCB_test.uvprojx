@@ -394,6 +394,11 @@
               <FileType>5</FileType>
               <FilePath>.\ads8681.h</FilePath>
             </File>
+            <File>
+              <FileName>SCPI_COMMANDS.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SCPI_COMMANDS.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -409,6 +414,16 @@
         <Group>
           <GroupName>drivers</GroupName>
           <Files>
+            <File>
+              <FileName>relai.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\relai.c</FilePath>
+            </File>
+            <File>
+              <FileName>relai.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\relai.h</FilePath>
+            </File>
             <File>
               <FileName>SPI.c</FileName>
               <FileType>1</FileType>
@@ -448,6 +463,16 @@
               <FileName>PINs.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\PINs.h</FilePath>
+            </File>
+            <File>
+              <FileName>TIMER.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\TIMER.c</FilePath>
+            </File>
+            <File>
+              <FileName>TIMER.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\TIMER.h</FilePath>
             </File>
           </Files>
         </Group>
