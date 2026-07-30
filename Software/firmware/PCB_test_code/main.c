@@ -8,8 +8,11 @@
 #include "SPI.h"
 #include "UART.h"
 #include "PINs.h"
+#include "TIMER.h"
+
 //==========<device_libs>==========
 #include "ads8681.h"
+#include "AD5689.h"
 
 int main()
 {
@@ -34,6 +37,14 @@ int main()
 	
 	sprintf(buffer, "hallo, DAUMEN, Defektanalyse- und Mess-Einheit mit Nutzerschnittstelle\n\r");
 	uart_put_string(buffer);
+	
+	//==DAC test==
+	
+	AD5689_SEND_COMMAND_BLOCKING(AD5689_COMMAND_POWER_DO_UP_DAC, 0x00, 
+	((AD5689_OP_MODE_NORMAL<<6) | (0xF << 2) | (AD5689_OP_MODE_NORMAL))); //status normal
+	wait_ms(100);
+	AD5689_SEND_COMMAND_BLOCKING(AD5689_COMMAND_WRITE_IN_REGISTER, AD5689_ADRESS_DAC_AB, 0x8000); //set voltage midrange = 1,25V
+	
 /*	testcode range select funktioniert nicht	
 	// Nutzung von uint16_t anstelle von uint32_t
 	uint16_t data = (uint16_t)((ADS8681_RANGE_SEL_UP_1_25_VREF & ADS8681_RANGE_SEL_MASK) << ADS8681_RANGE_SEL_SHIFT);
@@ -72,7 +83,7 @@ int main()
 	ret = spi1_transfer16(ADS868X_SPI_COMMAND_NOP);
 	*/
 	
-	set_range_100k();
+	//set_range_100k();
 	
 	
 /*	ADC_SPI_NCS = 1;
