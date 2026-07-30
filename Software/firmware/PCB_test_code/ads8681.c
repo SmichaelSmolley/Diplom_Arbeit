@@ -5,6 +5,8 @@
 #include "SPI.h"
 #include "PINs.h"
 
+#define VREF 4.096
+
 uint32_t ADS8681_transfer_frame(uint32_t tx_frame)
 {
 	uint16_t rx1;
@@ -58,5 +60,5 @@ void ADS8681_init()
 
 double ADS8681_get_VOLT(uint16_t raw)
 {
-	return (double)((raw/ 65535.0f) * (1.25f * 4.096f)); 
+	return ((double)raw / 65535.0) * (2.0 * 0.625 * VREF) - (0.625 * VREF);
 }
