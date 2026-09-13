@@ -399,6 +399,16 @@
               <FileType>5</FileType>
               <FilePath>.\SCPI_COMMANDS.h</FilePath>
             </File>
+            <File>
+              <FileName>AD5689.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\AD5689.h</FilePath>
+            </File>
+            <File>
+              <FileName>AD5689.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\AD5689.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

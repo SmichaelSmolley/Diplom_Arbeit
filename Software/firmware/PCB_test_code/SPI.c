@@ -33,7 +33,7 @@ void spi1_init()
 	SPI1->CR1 |= (1 << 9);   // SSM = 1
 	SPI1->CR1 |= (1 << 8);   // SSI = 1
 	 
-	SPI1->CR1 |= (1 << 11);  // DFF = 1 (8-bit mode)
+	SPI1->CR1 &= ~SPI_CR1_DFF; // isnd 16 bit !!!! ///to do : ändern und alles auf 8 bit ändern.
 	
 	//SPI1->CR2 |= SPI_CR2_RXDMAEN;   // RX DMA aktivieren
 	
@@ -63,7 +63,7 @@ void spi1_rx_dma(bool setting)
 		: (SPI1->CR2 &= ~SPI_CR2_RXDMAEN);
 }
 
-uint16_t spi1_transfer16(uint16_t tx_data)
+uint8_t spi1_transfer8(uint8_t tx_data)
 {
 	// Warten bis TX-Register leer
 	while (!(SPI1->SR & SPI_SR_TXE));
@@ -72,13 +72,45 @@ uint16_t spi1_transfer16(uint16_t tx_data)
 	SPI1->DR = tx_data;
 
 	// Warten bis Daten empfangen wurden
-	//while (!(SPI1->SR & SPI_SR_RXNE));
+	while (!(SPI1->SR & SPI_SR_RXNE));
 
 	// Empfangene Daten lesen
-	uint16_t rx_data = (uint16_t)SPI1->DR;
+	uint8_t rx_data = (uint8_t)SPI1->DR;
 
 	// Warten bis SPI nicht mehr beschäftigt ist
 	while (SPI1->SR & SPI_SR_BSY);
 
 	return rx_data;
 }
+
+/*
+ * Komfortfunktion für 16 Bit
+ *
+ * SPI bleibt trotzdem im 8-Bit-Modus.
+ *
+ * TX:
+ *
+ *   MSB        LSB
+ *   15 .... 8  7 .... 0
+ *   [ Byte 1 ] [ Byte 2 ]
+ */
+uint16_t spi1_transfer16(uint16_t tx_data)
+{
+    uint16_t rx_data;
+
+    uint8_t rx_high;
+    uint8_t rx_low;
+
+    rx_high = spi1_transfer8(
+        (uint8_t)(tx_data >> 8)
+    );
+
+    rx_low = spi1_transfer8(
+        (uint8_t)(tx_data & 0xFFU)
+    );
+
+    rx_data = ((uint16_t)rx_high << 8) | rx_low;
+
+    return rx_data;
+}
+

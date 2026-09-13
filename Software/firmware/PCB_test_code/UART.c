@@ -22,7 +22,8 @@ void set_up_uart1()
 	USART1->CR2 &= ~0x3000;       // STOP:00 --> 1 Stop bit
 	
   //USART1->BRR = 0x341;        // set Baudrate to 9600 Baud (SysClk 72Mhz)
-  USART1->BRR = 0x341;   // 8 MHz, 9600 Baud
+
+	USART1->BRR = 0x0341; // baud 9600
 	
   USART1->CR1 |= 0x0C;          // enable  Receiver and Transmitter
 	

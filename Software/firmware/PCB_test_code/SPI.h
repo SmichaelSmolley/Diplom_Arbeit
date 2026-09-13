@@ -10,6 +10,8 @@ void spi1_set_baud(uint8_t baut);
 
 void spi1_rx_dma(bool setting);
 
+uint8_t spi1_transfer8(uint8_t tx_data);
+
 uint16_t spi1_transfer16(uint16_t tx_data);
 
 #endif
