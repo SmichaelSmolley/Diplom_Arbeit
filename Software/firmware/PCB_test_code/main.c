@@ -46,6 +46,8 @@ int main()
 	
 	AD5689_send_command(0x3, AD5689_ADDR_DAC_AB, 0xFFFF);
 	
+		//TO-DO: test dac
+		
 	/*
 	char buffer[64];
 	while(1){
