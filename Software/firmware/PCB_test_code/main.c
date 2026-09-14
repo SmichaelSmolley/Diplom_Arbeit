@@ -25,11 +25,14 @@ int main()
 	cal_Select_set = 0;
 	Range_Select_Reset = 0;
 	Range_Select_set = 0;
-	uint16_t i;
+	
+	
 	DAC_SPI_NCS = 1;
 	ADC_SPI_NCS = 1;
-	
-	for( i = 0; i < 10000; i++){}
+	{
+		uint16_t i;
+		for( i = 0; i < 10000; i++);
+	}
 	spi1_set_baud(7);
 	
 	uart1_set_baud(9600);
@@ -58,8 +61,21 @@ int main()
 		uart_put_char(raw >> 8);
 		uart_put_char(raw & 0x00ff);
 	}
+	/*
+	uint8_t ADC_SPI1_BUFF [100];
+	uint8_t ADC_SPI1_DUMMY = 0x00;
 	
+	spi1_tx_dma_init(&ADC_SPI1_DUMMY, 100);
+	spi1_rx_dma_init(ADC_SPI1_BUFF, 100);
 	
+	uint8_t i = 0;
+	for(i = 0; i < 100; i++)
+	{
+		uart_put_char(ADC_SPI1_BUFF[i]);
+	}
+	
+	uart_put_string("EOS");
+	*/
 	/*
 	char buffer[64];
 	while(1){

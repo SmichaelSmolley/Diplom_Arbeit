@@ -56,6 +56,88 @@ void spi1_set_baud(uint8_t baut)
 	SPI1->CR1 |= (1 << 6);     // SPE = 1
 }
 
+void spi1_rx_dma_init(uint8_t* buffer, uint16_t buffer_size)
+{
+	// DMA1 Clock aktivieren
+	RCC->AHBENR |= RCC_AHBENR_DMA1EN;
+
+	// DMA Channel 2 deaktivieren
+	DMA1_Channel2->CCR &= ~DMA_CCR1_EN;
+
+	// Warten bis DMA wirklich deaktiviert ist
+	while (DMA1_Channel2->CCR & DMA_CCR1_EN);
+
+	// Alte Konfiguration löschen
+	DMA1_Channel2->CCR = 0;
+	
+	// Anzahl der Transfers
+	DMA1_Channel2->CNDTR = buffer_size;
+
+	// Peripherieadresse = SPI1 Datenregister
+	DMA1_Channel2->CPAR = (uint32_t)&SPI1->DR;
+
+	// Speicheradresse = Buffer
+	DMA1_Channel2->CMAR = (uint32_t)buffer;
+	
+	/*
+	 * Konfiguration:
+	 *
+	 * DIR  = 0  -> Peripheral -> Memory
+	 * CIRC = 0  -> kein Circular Mode
+	 * PINC = 0  -> SPI1->DR Adresse bleibt gleich
+	 * MINC = 1  -> Buffer-Adresse wird erhöht
+	 *
+	 * PSIZE = 00 -> 8 Bit Peripheral
+	 * MSIZE = 00 -> 8 Bit Memory
+	 *
+	 * TCIE = 0 -> zunächst kein Transfer-Complete-Interrupt
+	 */
+	DMA1_Channel2->CCR |= DMA_CCR1_MINC;
+
+	// DMA aktivieren
+	DMA1_Channel2->CCR |= DMA_CCR1_EN;
+
+	// SPI1 soll DMA-Requests für RX erzeugen
+	SPI1->CR2 |= SPI_CR2_RXDMAEN;
+}
+
+void spi1_tx_dma_init(uint8_t* buffer, uint16_t buffer_size)
+{
+	// DMA1 Clock aktivieren
+	RCC->AHBENR |= RCC_AHBENR_DMA1EN;
+
+	// DMA Channel 2 deaktivieren
+	DMA1_Channel3->CCR &= ~DMA_CCR1_EN;
+
+	// Warten bis DMA wirklich deaktiviert ist
+	while (DMA1_Channel3->CCR & DMA_CCR1_EN);
+
+	// Alte Konfiguration löschen
+	DMA1_Channel3->CCR = 0;
+	
+	// Anzahl der Transfers
+	DMA1_Channel3->CNDTR = buffer_size;
+
+	// Peripherieadresse = SPI1 Datenregister
+	DMA1_Channel3->CPAR = (uint32_t)&SPI1->DR;
+
+	// Speicheradresse = Buffer
+	DMA1_Channel2->CMAR = (uint32_t)buffer;
+	
+	// Peripheral -> Memory? NEIN
+	// DIR = 1 bedeutet Memory -> Peripheral
+	DMA1_Channel3->CCR |= DMA_CCR1_DIR;
+	
+	// MINC bleibt 0!
+	// Dadurch wird data nicht erhöht.
+
+	// DMA aktivieren
+	DMA1_Channel3->CCR |= DMA_CCR1_EN;
+
+	// SPI1 soll DMA-Requests für RX erzeugen
+	SPI1->CR2 |= SPI_CR2_TXDMAEN;
+}
+
 void spi1_rx_dma(bool setting)
 {
 	setting

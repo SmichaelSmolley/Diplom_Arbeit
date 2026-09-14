@@ -14,4 +14,7 @@ uint8_t spi1_transfer8(uint8_t tx_data);
 
 uint16_t spi1_transfer16(uint16_t tx_data);
 
+void spi1_tx_dma_init(uint8_t* buffer, uint16_t buffer_size);
+void spi1_rx_dma_init(uint8_t* buffer, uint16_t buffer_size);
+
 #endif
