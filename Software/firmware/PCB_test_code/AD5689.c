@@ -47,9 +47,6 @@ void AD5689_set_Voltage(float Volt, AD5689_addr address)
 
 		data = (uint16_t)((Volt / 2.5f) * 65535.0f);
 	}
-
-    
-
     AD5689_send_command(
         AD5689_CMD_WRITE_DAC,
         address,

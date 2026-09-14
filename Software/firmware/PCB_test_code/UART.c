@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "UART.h"
+#include "sys_hard_settings.h"
 
 void set_up_uart1()
 {
@@ -48,4 +49,13 @@ void uart_put_string(char *string)
   while (*string)  {
     uart_put_char (*string++);
   }
+}
+
+void uart1_set_baud(uint32_t baud)
+{
+    uint32_t pclk = SystemCoreClock;
+
+    uint32_t usartdiv = (pclk + (8UL * baud)) / (16UL * baud);
+
+    USART1->BRR = usartdiv;
 }

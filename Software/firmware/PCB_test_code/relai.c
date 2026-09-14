@@ -16,3 +16,17 @@ void set_range_100k()
 	wait_ms(100);
 	Range_Select_Reset = 0;
 }
+
+void set_GND_Relai(bool sate)
+{
+	cal_Select_set = 1;
+	wait_ms(100);
+	cal_Select_set = 0;
+}
+
+void reset_GND_Relai(bool sate)
+{
+	cal_Select_Reset = 1;
+	wait_ms(100);
+	cal_Select_Reset = 0;
+}

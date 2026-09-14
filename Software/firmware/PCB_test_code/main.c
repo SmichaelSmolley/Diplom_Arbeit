@@ -32,6 +32,8 @@ int main()
 	for( i = 0; i < 10000; i++){}
 	spi1_set_baud(7);
 	
+	uart1_set_baud(9600);
+		
 	DAC_GAIN=0;
 	
 	// Nutzung von uint16_t anstelle von uint32_t
@@ -40,14 +42,24 @@ int main()
 	// Befehl und Adresse direkt in einen uint16_t Wert kombinieren (statt uint8_t bytes[2])
 	//uint16_t cmd = (uint16_t)(((ADS868X_SPI_COMMAND_WRITE_FULL << 1) | ((ADS868X_REGISTER_ADDRESS_RANGE_SEL >> 8) & 0x01)) << 8) 
 	//             | (ADS868X_REGISTER_ADDRESS_RANGE_SEL & 0xFF);
-		
-	AD5689_init();
+	
+				//AD5689_init();
 	//AD5689_set_Voltage(3, AD5689_ADDR_DAC_AB);
 	
-	AD5689_send_command(0x3, AD5689_ADDR_DAC_AB, 0xFFFF);
+				//AD5689_send_command(0x3, AD5689_ADDR_DAC_AB, 0xFFFF);
 	
-		//TO-DO: test dac
-		
+	//TO-DO: test dac
+	
+	/**/
+	spi1_transfer16(0x0000);// das kein befehl mer in wait ist;
+	while(1)
+	{
+		uint16_t raw = spi1_transfer16(0x0000);
+		uart_put_char(raw >> 8);
+		uart_put_char(raw & 0x00ff);
+	}
+	
+	
 	/*
 	char buffer[64];
 	while(1){
@@ -59,4 +71,5 @@ int main()
 	uart_put_string(buffer);
 	}
 	*/
+	
 }
