@@ -5,7 +5,7 @@
 <h2>Tool Versions:</h2>
 IDE-Version: µVision V5.38.0.0
 Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Michael Watzek, HTL Hollabrunn, LIC=----
+License Information: Peter Traube, HTL Hollabrunn, LIC=----
  
 Tool Versions:
 Toolchain:       MDK-Lite  Version: 5.38.0.0
@@ -21,25 +21,26 @@ Target DLL:      CMSIS_AGDI.dll V1.33.15.0
 Dialog DLL:      TARMSTM.DLL V1.67.1.0
  
 <h2>Project:</h2>
-C:\Users\micha\Documents\Messung_von_Quanteneffecten_in_MOSFETs\Diplom_Arbeit\Software\firmware\PCB_test_code\PCB_test.uvprojx
-Project File Date:  07/30/2026
+C:\Users\traub\Documents\DIP_A\Diplomarbeit\Diplom_Arbeit\Software\firmware\PCB_test_code\PCB_test.uvprojx
+Project File Date:  09/16/2026
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'PCB_test'
-compiling SPI.c...
+compiling main.c...
 compiling UART.c...
+compiling NVIC.c...
+compiling system_stm32f10x.c...
+compiling AD5689.c...
 compiling ads8681.c...
 compiling TIMER.c...
-compiling main.c...
 assembling startup_stm32f10x_md.s...
-compiling NVIC.c...
-compiling PINs.c...
-compiling AD5689.c...
-compiling system_stm32f10x.c...
 compiling relai.c...
+compiling SPI.c...
+compiling PINs.c...
+compiling SCPI_COMMANDS.c...
 linking...
-Program Size: Code=8492 RO-data=880 RW-data=0 ZI-data=1632  
+Program Size: Code=3754 RO-data=442 RW-data=0 ZI-data=1632  
 ".\Objects\PCB_test.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
@@ -59,17 +60,17 @@ Package Vendor: Keil
 <h2>Collection of Component include folders:</h2>
   ./RTE/Device/STM32F103RB
   ./RTE/_PCB_test
-  C:/Users/micha/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
-  C:/Users/micha/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include
+  C:/Users/traub/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  C:/Users/traub/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include
 
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.6.0
 
    * Component: Keil::Device:Startup:1.0.0
-      Source file:   Device/Source/system_stm32f10x.c
       Source file:   Device/Source/ARM/STM32F1xx_OPT.s
       Include file:  RTE_Driver/Config/RTE_Device.h
+      Source file:   Device/Source/system_stm32f10x.c
       Source file:   Device/Source/ARM/startup_stm32f10x_md.s
 Build Time Elapsed:  00:00:00
 </pre>

@@ -1,5 +1,6 @@
 --cpu Cortex-M3
 ".\objects\ads8681.o"
+".\objects\scpi_commands.o"
 ".\objects\ad5689.o"
 ".\objects\main.o"
 ".\objects\relai.o"

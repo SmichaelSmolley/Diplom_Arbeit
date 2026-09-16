@@ -395,6 +395,11 @@
               <FilePath>.\ads8681.h</FilePath>
             </File>
             <File>
+              <FileName>SCPI_COMMANDS.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SCPI_COMMANDS.c</FilePath>
+            </File>
+            <File>
               <FileName>SCPI_COMMANDS.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\SCPI_COMMANDS.h</FilePath>
