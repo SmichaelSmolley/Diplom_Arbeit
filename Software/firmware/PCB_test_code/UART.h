@@ -10,5 +10,6 @@ void set_up_uart1();
 void uart1_Rx_Interupt(bool setting);
 void uart_put_char(char zeichen);
 void uart_put_string(char *string);
+void uart1_set_baud(uint32_t baud);
 
 #endif

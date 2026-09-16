@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "UART.h"
+#include "sys_hard_settings.h"
 
 void set_up_uart1()
 {
@@ -22,7 +23,8 @@ void set_up_uart1()
 	USART1->CR2 &= ~0x3000;       // STOP:00 --> 1 Stop bit
 	
   //USART1->BRR = 0x341;        // set Baudrate to 9600 Baud (SysClk 72Mhz)
-  USART1->BRR = 0x341;   // 8 MHz, 9600 Baud
+
+	USART1->BRR = 0x0341; // baud 9600
 	
   USART1->CR1 |= 0x0C;          // enable  Receiver and Transmitter
 	
@@ -47,4 +49,13 @@ void uart_put_string(char *string)
   while (*string)  {
     uart_put_char (*string++);
   }
+}
+
+void uart1_set_baud(uint32_t baud)
+{
+    uint32_t pclk = SystemCoreClock;
+
+    uint32_t usartdiv = (pclk + (8UL * baud)) / (16UL * baud);
+
+    USART1->BRR = usartdiv;
 }
