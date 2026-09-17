@@ -65,22 +65,13 @@ void spi1_rx_dma(bool setting)
 
 uint16_t spi1_transfer16(uint16_t tx_data)
 {
-	// Warten bis TX-Register leer
-	while (!(SPI1->SR & SPI_SR_TXE));
+    uint8_t tx_high = (uint8_t)(tx_data >> 8);
+    uint8_t tx_low  = (uint8_t)(tx_data);
 
-	// Daten senden
-	SPI1->DR = tx_data;
+    uint8_t rx_high = spi1_transfer8(tx_high);
+    uint8_t rx_low  = spi1_transfer8(tx_low);
 
-	// Warten bis Daten empfangen wurden
-	while (!(SPI1->SR & SPI_SR_RXNE));
-
-	// Empfangene Daten lesen
-	uint16_t rx_data = (uint16_t)SPI1->DR;
-
-	// Warten bis SPI nicht mehr beschäftigt ist
-	while (SPI1->SR & SPI_SR_BSY);
-
-	return rx_data;
+    return ((uint16_t)rx_high << 8) | rx_low;
 }
 
 uint8_t spi1_transfer8(uint8_t tx_data)
@@ -101,24 +92,4 @@ uint8_t spi1_transfer8(uint8_t tx_data)
 	while (SPI1->SR & SPI_SR_BSY);
 
 	return rx_data;
-}
-
-void spi1_set_8bit(void)
-{
-    while (SPI1->SR & SPI_SR_BSY);
-    SPI1->CR1 &= ~SPI_CR1_SPE;
-
-    SPI1->CR1 &= ~SPI_CR1_DFF;   // 8 Bit
-
-    SPI1->CR1 |= SPI_CR1_SPE;
-}
-
-void spi1_set_16bit(void)
-{
-    while (SPI1->SR & SPI_SR_BSY);
-    SPI1->CR1 &= ~SPI_CR1_SPE;
-
-    SPI1->CR1 |= SPI_CR1_DFF;    // 16 Bit
-
-    SPI1->CR1 |= SPI_CR1_SPE;
 }

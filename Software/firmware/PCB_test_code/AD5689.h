@@ -5,35 +5,31 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-enum ad5689_address
+typedef enum
 {
-	AD5689_ADRESS_DAC_A = 									0b0001,
-	AD5689_ADRESS_DAC_B = 									0b1000,
-	AD5689_ADRESS_DAC_AB = 									0b1001
-};
+    AD5689_CMD_NOP             = 0x00,
+    AD5689_CMD_WRITE_INPUT     = 0x01,
+    AD5689_CMD_UPDATE_DAC      = 0x02,
+    AD5689_CMD_WRITE_DAC       = 0x03,
+    AD5689_CMD_POWER_DOWN      = 0x04,
+    AD5689_CMD_LDAC_MASK       = 0x05,
+    AD5689_CMD_SOFTWARE_RESET  = 0x06,
+    AD5689_CMD_DCEN            = 0x08,
+    AD5689_CMD_READBACK        = 0x09,
+    AD5689_CMD_NOP_DAISY       = 0x0F,
 
-enum ad5689_command
+} AD5689_cmd;
+
+typedef enum
 {
-	AD5689_COMMAND_NOP = 										0b0000,
-	AD5689_COMMAND_WRITE_IN_REGISTER =			0b0001,
-	AD5689_COMMAND_UPDATE_DAC_IN_REGISTER = 0b0010,
-	AD5689_COMMAND_WRITE_UPDATE_DAC	=			  0b0011,
-	AD5689_COMMAND_POWER_DO_UP_DAC =				0b0100,
-	AD5689_COMMAND_HARDWARE_NLDAC =					0b0101,
-	AD5689_COMMAND_SOFT_RESET =							0b0110,
-	AD5689_COMMAND_DC_EN =  								0b1000,
-	AD5689_COMMAND_READBACK_EN =						0b1001
-};
+    AD5689_ADDR_DAC_A   = 0b0001,  // DAC B=0, Address=001 -> DAC A
+    AD5689_ADDR_DAC_B   = 0b1000,  // DAC B=1, Address=000 -> DAC B
+    AD5689_ADDR_DAC_AB  = 0b1001,  // DAC B=1, Address=001 -> DAC A and DAC B
 
-#define AD5689_OP_MODE_NORMAL 								0b00
-#define AD5689_OP_MODE_1K_GND 								0b01
-#define AD5689_OP_MODE_100K_GND 							0b10
-#define AD5689_OP_MODE_TRISTATE 							0b11
+} AD5689_addr;
 
-uint32_t AD5689_SEND_COMMAND_BLOCKING (	
-	enum ad5689_command command,
-	enum ad5689_address reg,
-	uint16_t data);
-	
-uint32_t AD5689_transfer_frame(uint32_t tx_frame);
+void AD5689_init();
+void AD5689_send_command(AD5689_cmd command, AD5689_addr address, uint16_t);
+void AD5689_set_Voltage(float Volt, AD5689_addr address);
+
 #endif

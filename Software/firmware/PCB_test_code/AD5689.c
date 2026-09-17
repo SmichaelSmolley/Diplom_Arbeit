@@ -5,49 +5,51 @@
 #include "SPI.h"
 #include "PINs.h"
 
-uint32_t AD5689_SEND_COMMAND_BLOCKING (	
-	enum ad5689_command command,
-	enum ad5689_address reg,
-	uint16_t data)
+bool AD5689_DAC_OUTPUT_GAIN = 0;
+
+void AD5689_init()
 {
-	spi1_set_8bit();
-	uint8_t tx_data[3];
-	tx_data[0] = (uint8_t)(command << 4) | (reg);
-	tx_data[1] = (uint8_t)(data >> 8);
-	tx_data[2] = (uint8_t)(data);
+	DAC_NRESET = 0;
+	wait_ms(100);
+	DAC_NRESET = 1;
+	wait_ms(100);
 	
-	DAC_SPI_NCS = 0;
+	DAC_GAIN = 0;
 	
-	spi1_transfer8(tx_data[0]);
-	spi1_transfer8(tx_data[1]);
-  spi1_transfer8(tx_data[2]);
+	AD5689_send_command(0x4, AD5689_ADDR_DAC_AB, 0xFF3C);
 	
-	DAC_SPI_NCS = 1;
+	AD5689_send_command(AD5689_CMD_WRITE_DAC, AD5689_ADDR_DAC_AB, 0x0000);
 	
-	uint32_t rx_data = 0;
-	
-	DAC_SPI_NCS = 0;
-	
-	rx_data = AD5689_transfer_frame(0x0000);
-	
-	DAC_SPI_NCS = 1;
-	
-	spi1_set_16bit();
-	
-	return rx_data;
 }
 
-uint32_t AD5689_transfer_frame(uint32_t tx_frame)
+void AD5689_send_command(AD5689_cmd command,
+                         AD5689_addr address,
+                         uint16_t data)
 {
-	uint8_t tx_data[3];
-	tx_data[0] = (uint8_t)(tx_frame >> 16);
-	tx_data[1] = (uint8_t)(tx_frame >> 8);
-	tx_data[2] = (uint8_t)(tx_frame);
-	
-	uint8_t rx_data[3];
-	rx_data[0] = spi1_transfer8(tx_data[0]);
-	rx_data[1] = spi1_transfer8(tx_data[1]);
-	rx_data[2] = spi1_transfer8(tx_data[2]);
-	
-	return (uint32_t)(rx_data[0] << 16) | (rx_data[1] << 8) | (rx_data[2] << 0);
+    DAC_SPI_NCS = 0;
+
+    spi1_transfer8((uint8_t)((command << 4) | address));
+    spi1_transfer8((uint8_t)(data >> 8));
+    spi1_transfer8((uint8_t)data);
+
+    DAC_SPI_NCS = 1;
+}
+
+void AD5689_set_Voltage(float Volt, AD5689_addr address)
+{
+	int16_t data;
+	{
+		if (Volt < 0.0f)
+			Volt = 0.0f;
+
+    if (Volt > 2.5f)
+			Volt = 2.5f;
+
+		data = (uint16_t)((Volt / 2.5f) * 65535.0f);
+	}
+    AD5689_send_command(
+        AD5689_CMD_WRITE_DAC,
+        address,
+        data
+    );
 }

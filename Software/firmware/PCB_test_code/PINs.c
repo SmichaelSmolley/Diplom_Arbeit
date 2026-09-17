@@ -10,7 +10,7 @@ void PIN_init()
 	//PA1, PA2, PA4 = Output PushPull 50MHz (0x3)
 	temp = GPIOA->CRL;
 	temp &= 0xFFF0F00F;
-	temp |= 0x00030300;
+	temp |= 0x00030330;
 	GPIOA->CRL = temp;
 	
 	temp = GPIOA->CRL;
