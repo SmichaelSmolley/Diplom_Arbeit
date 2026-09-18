@@ -38,7 +38,7 @@ int main()
 		uint16_t i;
 		for( i = 0; i < 10000; i++);
 	}
-	spi1_set_baud(7);
+	spi1_set_baud(2);
 	
 	uart1_set_baud(9600);
 		
@@ -51,14 +51,20 @@ int main()
 	//uint16_t cmd = (uint16_t)(((ADS868X_SPI_COMMAND_WRITE_FULL << 1) | ((ADS868X_REGISTER_ADDRESS_RANGE_SEL >> 8) & 0x01)) << 8) 
 	//             | (ADS868X_REGISTER_ADDRESS_RANGE_SEL & 0xFF);
 	
-				AD5689_init();
+	
+	//AD5689_init();
 	//AD5689_set_Voltage(3, AD5689_ADDR_DAC_AB);
 	
-				AD5689_send_command(AD5689_CMD_WRITE_DAC, AD5689_ADDR_DAC_AB, 0x8000);
+	//AD5689_send_command(AD5689_CMD_WRITE_DAC, AD5689_ADDR_DAC_AB, 0xFFFF);
+
+
+	reset_GND_Relai();
 	
-	wait_ms(5000);
+	//set_range_100k();
+	wait_ms(1000);
+	//set_range_10meg();
 	
-	AD5689_set_Voltage(2, AD5689_ADDR_DAC_AB);
+	
 	//TO-DO: test dac
 	
 	/*

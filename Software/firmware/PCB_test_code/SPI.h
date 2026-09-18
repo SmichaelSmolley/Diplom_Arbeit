@@ -14,8 +14,4 @@ uint16_t spi1_transfer16(uint16_t tx_data);
 
 uint8_t spi1_transfer8(uint8_t tx_data);
 
-void spi1_set_8bit(void);
-
-void spi1_set_16bit(void);
-
 #endif

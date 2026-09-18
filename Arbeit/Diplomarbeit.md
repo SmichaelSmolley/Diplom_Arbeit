@@ -103,3 +103,11 @@ Defekte im Isolator sind stabiler und können Ladungsträger über längere Zeit
 Degradation bedeutet, dass Defekte im MOSFET ihren Zustand ändern, dadurch, dass sie Ladungsträger aufnehmen. Durch das Abgeben und Aufnehmen von Ladungsträgern können Defekte aktiviert, verändert oder erzeugt werden.
 
 Die relevantesten Eigenschaften, die sich durch die Degradation verändern, sind unter anderem die Ladungsträgermobilität im Leitungskanal und damit der RDS. Bei den in dieser Arbeit hauptsächlich behandelten N-Kanal-MOSFETs kann eine zunehmende Anzahl von Defekten und eingefangenen Ladungsträgern zu einer Verringerung der Ladungsträgermobilität führen. Dadurch kann der RDS zunehmen.
+
+# Technische Grundlagen
+
+## elektrische Messgrößen
+
+Die relevanten Messgrößen die notwendig sind um auf defekt aktivität zu schleisen lassen sich auf 2 Spannungen und 1 strom herunter brechen. die beiden spannungen wären die Gate und Drain spannung des MOSFET, die relevanteste messgröße ist der Source strom den dieser ändert sich mit der zuhname der degradation. 
+
+Der Source strom ändert sich in binären in ~10nA schritten.
