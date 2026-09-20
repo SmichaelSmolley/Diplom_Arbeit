@@ -56,13 +56,6 @@ void spi1_set_baud(uint8_t baut)
 	SPI1->CR1 |= (1 << 6);     // SPE = 1
 }
 
-void spi1_rx_dma(bool setting)
-{
-	setting
-		? (SPI1->CR2 |= SPI_CR2_RXDMAEN)
-		: (SPI1->CR2 &= ~SPI_CR2_RXDMAEN);
-}
-
 uint16_t spi1_transfer16(uint16_t tx_data)
 {
     uint8_t tx_high = (uint8_t)(tx_data >> 8);

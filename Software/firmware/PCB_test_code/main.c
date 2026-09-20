@@ -9,6 +9,8 @@
 #include "UART.h"
 #include "PINs.h"
 #include "TIMER.h"
+#include "dma.h"
+#include "clock.h"
 
 //==========<device_libs>==========
 #include "ads8681.h"
@@ -31,9 +33,10 @@ int main()
 	Range_Select_Reset = 0;
 	Range_Select_set = 0;
 	
-	
+	DAC_GAIN=0;
 	DAC_SPI_NCS = 1;
 	ADC_SPI_NCS = 1;
+
 	{
 		uint16_t i;
 		for( i = 0; i < 10000; i++);
@@ -42,7 +45,20 @@ int main()
 	
 	uart1_set_baud(9600);
 		
-	DAC_GAIN=0;
+	
+	init_tim2(1,79); //uint8_t clk_div, uint16_t period_ticks
+	
+	spi1_rx_dma_init();
+	
+	uint8_t Adc_data_buffer [1000];
+	
+	spi1_rx_dma(Adc_data_buffer,1000);
+	
+	spi1_tx_dma_init();
+	
+	tim2_enable();
+	
+/*	
 	
 	// Nutzung von uint16_t anstelle von uint32_t
 	//uint16_t data = (uint16_t)((ADS8681_RANGE_SEL_UP_1_25_VREF & ADS8681_RANGE_SEL_MASK) << ADS8681_RANGE_SEL_SHIFT);
@@ -67,15 +83,15 @@ int main()
 	
 	//TO-DO: test dac
 	
-	/*
+	
 	spi1_transfer16(0x0000);// das kein befehl mer in wait ist;
 	while(1)
 	{
 		uint16_t raw = spi1_transfer16(0x0000);
 		uart_put_char(raw >> 8);
 		uart_put_char(raw & 0x00ff);
-	}*/
-	/*
+	}
+	
 	uint8_t ADC_SPI1_BUFF [100];
 	uint8_t ADC_SPI1_DUMMY = 0x00;
 	
@@ -89,8 +105,8 @@ int main()
 	}
 	
 	uart_put_string("EOS");
-	*/
-	/*
+	
+	
 	char buffer[64];
 	while(1){
 	ADC_SPI_NCS = 0;
