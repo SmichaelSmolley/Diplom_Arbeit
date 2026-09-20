@@ -27,6 +27,7 @@ int main()
 	
 	PER_33V_PSU_EN = 1;
 	ANALOG_5V_PSU_EN = 1;
+	OPV_PSU_EN = 1;
 	
 	cal_Select_Reset = 0;
 	cal_Select_set = 0;
@@ -41,7 +42,9 @@ int main()
 		uint16_t i;
 		for( i = 0; i < 10000; i++);
 	}
-	spi1_set_baud(2);
+	
+	set_range_100k();
+/*	spi1_set_baud(2);
 	
 	uart1_set_baud(9600);
 		
@@ -57,7 +60,7 @@ int main()
 	spi1_tx_dma_init();
 	
 	tim2_enable();
-	
+*/
 /*	
 	
 	// Nutzung von uint16_t anstelle von uint32_t
