@@ -38,12 +38,102 @@ int main()
 	DAC_SPI_NCS = 1;
 	ADC_SPI_NCS = 1;
 
+	uart1_set_baud(9600);
+	
 	{
 		uint16_t i;
 		for( i = 0; i < 10000; i++);
 	}
 	
-	set_range_100k();
+	spi1_set_baud(7);
+	
+	uart_put_string("UART TEST\r\n");
+
+	set_range_10meg();
+	reset_GND_Relai();
+	AD5689_set_Voltage(0,AD5689_ADDR_DAC_AB);
+	
+	wait_ms(1000);
+	
+	static double buffer[1000];
+
+	AD5689_set_Voltage(1.0, AD5689_ADDR_DAC_AB);
+char uart_buffer[64];
+	wait_ms(1000);
+	int i;
+for ( i = 0; i < 20; i++)
+{
+    /* Frame 1: Ergebnis verwerfen */
+    ADC_SPI_NCS = 0;
+    spi1_transfer16(0x0000);
+    ADC_SPI_NCS = 1;
+
+    for (volatile int j = 0; j < 1000; j++);
+
+    /* Frame 2: Ergebnis verwenden */
+    ADC_SPI_NCS = 0;
+    uint16_t raw = spi1_transfer16(0x0000);
+    ADC_SPI_NCS = 1;
+
+    sprintf(
+        uart_buffer,
+        "%d,0x%04X,%.9f\r\n",
+        i,
+        raw,
+        ADS8681_get_VOLT(raw)
+    );
+
+    uart_put_string(uart_buffer);
+}
+
+	
+	/*int i = 0;
+
+	for(i = 0; i < 100; i++)
+	{
+		int j;
+
+		for(j = 0; j < 10; j++)
+		{
+			ADC_SPI_NCS = 0;
+
+			uint16_t raw = spi1_transfer16(0x0000);
+			double volt = ADS8681_get_VOLT(raw);
+
+			buffer[(i * 10) + j] = volt;
+
+			ADC_SPI_NCS = 1;
+		}
+
+		DAC_SPI_NCS = 0;
+
+		AD5689_set_Voltage(
+			((double)(i + 1) / 100.0),
+			AD5689_ADDR_DAC_AB
+		);
+		wait_ms(100);
+		DAC_SPI_NCS = 1;
+	}
+	*
+	char uart_buffer[64];
+
+	for(i = 0; i < 1000; i++)
+	{
+		sprintf(
+			uart_buffer,
+			"%d,%.9f\r\n",
+			i,
+			buffer[i]
+		);
+
+		uart_put_string(uart_buffer);
+	}
+
+
+	while(1)
+	{
+	}
+	
 /*	spi1_set_baud(2);
 	
 	uart1_set_baud(9600);

@@ -49,11 +49,13 @@ void ADS8681_init()
 	
 	ADC_SPI_NCS = 0;
 	uint32_t range_sel_reg = 0;
+	/*
 	range_sel_reg |= (uint32_t)
 			ADS8681_RANGE_SEL_UP_1_25_VREF
 			& ADS8681_RANGE_SEL_MASK
 			<< ADS8681_RANGE_SEL_SHIFT;
 	ADS8681_send_Command_blocking(ADS868X_SPI_COMMAND_WRITE_FULL, ADS868X_REGISTER_ADDRESS_RANGE_SEL, range_sel_reg);
+	*/
 	spi1_transfer16(ADS868X_SPI_COMMAND_NOP);
 	ADC_SPI_NCS = 1;
 }

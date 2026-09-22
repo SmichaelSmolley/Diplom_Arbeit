@@ -53,9 +53,9 @@ void uart_put_string(char *string)
 
 void uart1_set_baud(uint32_t baud)
 {
-    uint32_t pclk = SystemCoreClock;
+	uint32_t usartdiv;
 
-    uint32_t usartdiv = (pclk + (8UL * baud)) / (16UL * baud);
+	usartdiv = (SystemCoreClock + (baud / 2)) / baud;
 
-    USART1->BRR = usartdiv;
+	USART1->BRR = usartdiv;
 }
