@@ -62,5 +62,6 @@ void ADS8681_init()
 
 double ADS8681_get_VOLT(uint16_t raw)
 {
-	return ((double)raw / 65535.0) * (2.0 * 0.625 * VREF) - (0.625 * VREF);
+    return ((double)raw / 65535.0) * (2.0 * 3.0 * VREF)
+           - (3.0 * VREF);
 }

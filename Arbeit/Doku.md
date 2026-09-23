@@ -79,3 +79,86 @@ Im `ADS8681.c` wird der ADS8681 ADC über SPI angesteuert.
 `ADS8681_init()` setzt den ADC zuerst über `ADC_NRESET` zurück. Danach wird über das Range-Select-Register der Eingangsbereich eingestellt. Im Code wird `ADS8681_RANGE_SEL_UP_1_25_VREF` verwendet.
 
 `ADS8681_get_VOLT()` wandelt den 16-Bit Rohwert des ADC in eine Spannung um. Dabei wird `VREF = 4,096 V` verwendet. Durch die eingestellte bipolare Eingangsspannung ergibt sich ein Messbereich von ungefähr `-2,56 V bis +2,56 V`.
+
+# Messung am 22.09.2026
+
+Messaufbau mit platiene von Drain 1V über 2*8,5Meg Ohm wiederstände an den Source anschluss.
+ergebniss sollten:
+
+Ir = 1V/ 17Meg OHM = 58.8nA
+dann am TIA:
+Uout = Ir * Rf = 58.8nA * 10Meg = 0,588V
+
+nach dem Dämpfer:
+Ud = Utia * (10/33) = 0,178V
+
+bei einer messung mit mustimeter kamm richtige spannung bei der adc auswertung kammen die falschen daten, anschluss messung mit oszi nach dem dämper eins mit DC 0,178V überlagertes 400mV pp 50 Hz signal. vermutung aufgrund des widerstands aufbeu und einstrahlung da, denn diese einstarhlung ~10meg verstärkt wird ist es sehr groß. _Abschirmung notwendig_ .
+
+code für die testung:
+
+`int main()
+{
+	PIN_init();
+	set_up_uart1();
+	spi1_init();
+	
+PER_33V_PSU_EN = 1;
+ANALOG_5V_PSU_EN = 1;
+OPV_PSU_EN = 1;
+
+cal_Select_Reset = 0;
+cal_Select_set = 0;
+Range_Select_Reset = 0;
+Range_Select_set = 0;
+
+DAC_GAIN=0;
+DAC_SPI_NCS = 1;
+ADC_SPI_NCS = 1;
+
+uart1_set_baud(9600);
+
+{
+uint16_t i;
+for( i = 0; i < 10000; i++);
+}
+
+spi1_set_baud(7);
+
+uart_put_string("UART TEST\r\n");
+
+set_range_10meg();
+reset_GND_Relai();
+AD5689_set_Voltage(0,AD5689_ADDR_DAC_AB);
+
+wait_ms(1000);
+
+static double buffer[1000];
+
+AD5689_set_Voltage(1.0, AD5689_ADDR_DAC_AB);
+char uart_buffer[64];
+	wait_ms(1000);
+	int i;
+for ( i = 0; i < 20; i++)
+{
+    /* Frame 1: Ergebnis verwerfen */
+    ADC_SPI_NCS = 0;
+    spi1_transfer16(0x0000);
+    ADC_SPI_NCS = 1;
+
+for (volatile int j = 0; j < 1000; j++);
+
+/* Frame 2: Ergebnis verwenden */
+ADC_SPI_NCS = 0;
+uint16_t raw = spi1_transfer16(0x0000);
+ADC_SPI_NCS = 1;
+
+sprintf(
+    uart_buffer,
+    "%d,0x%04X,%.9f\r\n",
+    i,
+    raw,
+    ADS8681_get_VOLT(raw)
+);
+
+uart_put_string(uart_buffer);
+}`
