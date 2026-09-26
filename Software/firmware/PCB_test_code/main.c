@@ -49,7 +49,7 @@ int main()
 	
 	uart_put_string("UART TEST\r\n");
 
-	set_range_10meg();
+	set_range_100k();
 	reset_GND_Relai();
 	AD5689_set_Voltage(0,AD5689_ADDR_DAC_AB);
 	
@@ -89,7 +89,7 @@ int main()
 		
 	}
 	
-
+LED_GREEN = 1;
 
 for(i = 0; i < 1000; i++) 
 	{
@@ -102,7 +102,11 @@ for(i = 0; i < 1000; i++)
 		uart_put_string(uart_buffer);
 	}
 
-
+	LED_GREEN = 0;
+	LED_RED = 0;
+	
+	AD5689_set_Voltage(0,AD5689_ADDR_DAC_AB);
+	
 	while(1)
 	{
 	}

@@ -162,3 +162,24 @@ sprintf(
 
 uart_put_string(uart_buffer);
 }`
+
+# Messung am 23.09.2026
+
+beid er messung im DIC raum wurde mit den giwnsteck die netzspannugnen der pcb eingestellt:
+
+psu1: Ch1: +9V Ch2 -9V
+psu2: Ch1: 5V Ch2 6,5V
+
+dnach wurde mit bnc to banana kabeln wurden zuerst mit einem 10Meg weiderstand verbunden zwischen Drain und source anschlussen auf der PCB.
+
+![c3071ff8a5bb6f94542d847e141e4469.png](./c3071ff8a5bb6f94542d847e141e4469.png)
+
+bei jedem messpunkt wird die spannung des Drain ausgangs geändert, zusehen ist das ein ~50Hz raushcen über dem signal liegt, müsste bei transienten messungen rausgemittelt werden oder versuchen mit dem case zu arbeiten. um es zu minimieren, es wurde versucht bei der IDVG messung mittels 10messwerte pro punkt.
+
+![8afca2e6e7c77c3c6fdfb736f2915a3b.png](./8afca2e6e7c77c3c6fdfb736f2915a3b.png)
+
+Die idvg ab 1,5V gate spannung bis zu~1,7V ist die daten dichte punkte ziemlich gering.
+
+
+
+
