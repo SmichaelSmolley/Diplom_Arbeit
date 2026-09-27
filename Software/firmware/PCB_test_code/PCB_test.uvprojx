@@ -512,6 +512,31 @@
           </Files>
         </Group>
         <Group>
+          <GroupName>firmware</GroupName>
+          <Files>
+            <File>
+              <FileName>COMMAND_DECODE.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\COMMAND_DECODE.h</FilePath>
+            </File>
+            <File>
+              <FileName>COMMAND_DECODE.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\COMMAND_DECODE.c</FilePath>
+            </File>
+            <File>
+              <FileName>measure.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\measure.h</FilePath>
+            </File>
+            <File>
+              <FileName>measure.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\measure.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
           <GroupName>::CMSIS</GroupName>
         </Group>
         <Group>

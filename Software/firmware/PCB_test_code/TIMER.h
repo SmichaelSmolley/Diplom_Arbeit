@@ -10,7 +10,7 @@ void TIM2_IRQHandler(void);
 
 void wait_ms(int ms);
 
-void init_tim2(uint8_t clk_div, uint16_t period_ticks);
+void init_tim2(uint16_t freq);
 
 void tim2_enable();
 void tim2_disable();

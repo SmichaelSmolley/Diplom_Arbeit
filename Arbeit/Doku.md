@@ -180,6 +180,156 @@ bei jedem messpunkt wird die spannung des Drain ausgangs geändert, zusehen ist 
 
 Die idvg ab 1,5V gate spannung bis zu~1,7V ist die daten dichte punkte ziemlich gering.
 
+# code 27.09
+uint16_t Sps = 1000;
+	
+	static uint8_t buffer[2000];
+	
+	init_tim2(Sps);
+	
+	spi1_tx_dma_init();
+	
+	spi1_rx_dma_init();
+	
+	spi1_rx_dma(buffer, 2000);
+	
+	tim2_enable();
+	
+	/*static double buffer[1000];
+	char uart_buffer[64];
+	AD5689_set_Voltage(1.0, AD5689_ADDR_DAC_A);
+	wait_ms(2000);
+	LED_RED = 1;
+	int i = 0;
+
+	for(i = 0; i < 100; i++)
+	{
+		int j;
+
+		for(j = 0; j < 10; j++)
+		{
+			ADC_SPI_NCS = 0;
+
+			uint16_t raw = spi1_transfer16(0x0000);
+			double volt = ADS8681_get_VOLT(raw);
+
+			buffer[(i * 10) + j] = volt;
+
+			ADC_SPI_NCS = 1;
+		}
+
+		DAC_SPI_NCS = 0;
+
+		AD5689_set_Voltage(
+			(i*0.02),
+			AD5689_ADDR_DAC_B
+		);
+		wait_ms(100);
+		DAC_SPI_NCS = 1;
+		
+	}
+	
+LED_GREEN = 1;
+
+for(i = 0; i < 1000; i++) 
+	{
+		sprintf( 
+		uart_buffer, 
+		"%i,%.9f\r\n", 
+		i, 
+		buffer[i] 
+		);
+		uart_put_string(uart_buffer);
+	}
+
+	LED_GREEN = 0;
+	LED_RED = 0;
+	
+	AD5689_set_Voltage(0,AD5689_ADDR_DAC_AB);
+	
+	while(1)
+	{
+	}
+	
+	*/
+	/*
+	spi1_set_baud(2);
+	
+	uart1_set_baud(9600);
+		
+	
+	init_tim2(1,79); //uint8_t clk_div, uint16_t period_ticks
+	
+	spi1_rx_dma_init();
+	
+	uint8_t Adc_data_buffer [1000];
+	
+	spi1_rx_dma(Adc_data_buffer,1000);
+	
+	spi1_tx_dma_init();
+	
+	tim2_enable();
+*/
+/*	
+	
+	// Nutzung von uint16_t anstelle von uint32_t
+	//uint16_t data = (uint16_t)((ADS8681_RANGE_SEL_UP_1_25_VREF & ADS8681_RANGE_SEL_MASK) << ADS8681_RANGE_SEL_SHIFT);
+		
+	// Befehl und Adresse direkt in einen uint16_t Wert kombinieren (statt uint8_t bytes[2])
+	//uint16_t cmd = (uint16_t)(((ADS868X_SPI_COMMAND_WRITE_FULL << 1) | ((ADS868X_REGISTER_ADDRESS_RANGE_SEL >> 8) & 0x01)) << 8) 
+	//             | (ADS868X_REGISTER_ADDRESS_RANGE_SEL & 0xFF);
+	
+	
+	//AD5689_init();
+	//AD5689_set_Voltage(3, AD5689_ADDR_DAC_AB);
+	
+	//AD5689_send_command(AD5689_CMD_WRITE_DAC, AD5689_ADDR_DAC_AB, 0xFFFF);
+
+
+	reset_GND_Relai();
+	
+	//set_range_100k();
+	wait_ms(1000);
+	//set_range_10meg();
+	
+	
+	//TO-DO: test dac
+	
+	
+	spi1_transfer16(0x0000);// das kein befehl mer in wait ist;
+	while(1)
+	{
+		uint16_t raw = spi1_transfer16(0x0000);
+		uart_put_char(raw >> 8);
+		uart_put_char(raw & 0x00ff);
+	}
+	
+	uint8_t ADC_SPI1_BUFF [100];
+	uint8_t ADC_SPI1_DUMMY = 0x00;
+	
+	spi1_tx_dma_init(&ADC_SPI1_DUMMY, 100);
+	spi1_rx_dma_init(ADC_SPI1_BUFF, 100);
+	
+	uint8_t i = 0;
+	for(i = 0; i < 100; i++)
+	{
+		uart_put_char(ADC_SPI1_BUFF[i]);
+	}
+	
+	uart_put_string("EOS");
+	
+	
+	char buffer[64];
+	while(1){
+	ADC_SPI_NCS = 0;
+	uint16_t raw = spi1_transfer16(0x0000);
+	double volt = ADS8681_get_VOLT(raw);
+	ADC_SPI_NCS = 1;
+	sprintf(buffer, "%.3f\r\n", volt);
+	uart_put_string(buffer);
+	}
+	*/
+	
 
 
 
