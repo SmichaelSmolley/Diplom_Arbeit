@@ -35,7 +35,7 @@ void spi1_init()
 	 
 	SPI1->CR1 &= ~(1 << 11);   // DFF = 0 ? 8 Bit
 	
-	//SPI1->CR2 |= SPI_CR2_RXDMAEN;   // RX DMA aktivieren
+	SPI1->CR2 |= SPI_CR2_RXDMAEN;   // RX DMA aktivieren
 	
 	SPI1->CR1 |= (1 << 6);   // SPE = SPI enable
 }

@@ -1,21 +1,22 @@
 #include "TIMER.h"
 #include <stdint.h>
 #include <stm32f10x.h>
-
-uint8_t spi_dummy = 0x00;
+#include "PINs.h"
+#include <stdbool.h>
+uint8_t spi_dummy[2] = {0x00, 0x00};
 
 void TIM2_IRQHandler(void)
 {
-    // Update Event?
     if (TIM2->SR & TIM_SR_UIF)
     {
-        // Update Flag löschen
         TIM2->SR &= ~TIM_SR_UIF;
-
-        // 0x00 über SPI1 senden
-        spi1_tx_dma(&spi_dummy, 2);
+				
+				static bool status = 0;
+        LED_GREEN = status;
+				status =! status;
     }
 }
+
 
 void wait_ms(int ms)
 {
@@ -23,42 +24,45 @@ void wait_ms(int ms)
 	for(j = 0; j < 7987*ms; j++){}
 } 
 
-void init_tim2(uint16_t freq)
+void init_tim2(uint32_t freq)
 {
-	// Timer 2 Clock einschalten
-	RCC->APB1ENR |= RCC_APB1ENR_TIM2EN;
+    if (freq == 0) return; // Schutz vor Division durch Null
 
-	// Timer stoppen
-	TIM2->CR1 &= ~TIM_CR1_CEN;
+    // 1. Takt für TIM2 aktivieren
+    RCC->APB1ENR |= RCC_APB1ENR_TIM2EN;
 
-	// Counter zurücksetzen
-	TIM2->CNT = 0;
+    // 2. Timer stoppen & Zähler zurücksetzen
+    TIM2->CR1 &= ~TIM_CR1_CEN;
+    TIM2->CNT = 0;
 
-	// Clock Division CKD[1:0]
-	TIM2->CR1 &= ~(3 << 8);
+    // 3. Nötigen Gesamtteiler berechnen: Total_Divider = SystemCoreClock / freq
+    uint32_t total_divider = SystemCoreClock / freq;
 
-	// Upcounter
-	TIM2->CR1 &= ~TIM_CR1_DIR;
+    // 4. Prescaler (PSC) so berechnen, dass ARR in das 16-Bit-Register passt (<= 65536)
+    uint32_t psc = (total_divider / 65536);
+    
+    // ARR berechnen basierend auf dem gewählten Prescaler
+    uint32_t arr = (total_divider / (psc + 1)) - 1;
 
-	// Edge-aligned
-	TIM2->CR1 &= ~TIM_CR1_CMS;
+    // Grenzen auf 16 Bit absichern (max 65535)
+    if (psc > 65535) psc = 65535;
+    if (arr > 65535) arr = 65535;
 
-	// Auto-reload preload enable
-	TIM2->CR1 |= TIM_CR1_ARPE;
+    // 5. Hardware-Register beschreiben
+    TIM2->PSC = (uint16_t)psc;
+    TIM2->ARR = (uint16_t)arr;
 
-	// Prescaler
-	TIM2->PSC = 0;
+    // 6. Update-Event erzeugen, um PSC & ARR in die Shadow-Register zu übernehmen
+    TIM2->EGR |= TIM_EGR_UG;
+    
+    // 7. Das durch EGR_UG ungewollt gesetzte UIF-Flag sofort wieder löschen!
+    TIM2->SR &= ~TIM_SR_UIF;
 
-	// Periodendauer
-	TIM2->ARR = (SystemCoreClock / freq) - 1;
-	
-	// TIM2 Interrupt im NVIC aktivieren
-	NVIC_init(TIM2_IRQn, 1);
-
-	// Update Interrupt aktivieren
-	TIM2->DIER |= TIM_DIER_UIE;
+    // 8. Interrupt im Timer & NVIC aktivieren
+    TIM2->DIER |= TIM_DIER_UIE;
+    NVIC_SetPriority(TIM2_IRQn, 1);
+    NVIC_EnableIRQ(TIM2_IRQn);
 }
-
 void tim2_enable()
 {
 	// Counter starten

@@ -20,6 +20,8 @@
 #include "scpi_commands.h"
 #include "COMMAND_DECODE.h"
 
+uint8_t dummy_buffer[2] = {0x00,0x00};
+
 int main()
 {
 	PIN_init();
@@ -46,9 +48,9 @@ int main()
 		for( i = 0; i < 10000; i++);
 	}
 	
-	spi1_set_baud(2);
+	spi1_set_baud(5);
 
-	set_range_100k();
+	set_range_10meg();
 	reset_GND_Relai();
 	
 	AD5689_set_Voltage(0,AD5689_ADDR_DAC_AB);
@@ -56,11 +58,36 @@ int main()
 	wait_ms(1000);
 	
 	uart_put_string("SAFDAT READY\r\n");
+	static uint8_t buffer[4000];
 	
+	init_tim2(10);
+	
+	spi1_rx_dma_init();
+	
+	spi1_rx_dma(buffer, 4000);
+	
+	spi1_tx_dma_init();
+	LED_GREEN = 1;
+	tim2_enable();
+	
+	while(!(DMA1->ISR & DMA_ISR_TCIF2))
+	{
+	}
+	tim2_disable();
+	LED_RED = 1;
+	LED_GREEN = 0;
+	uint16_t i;
+	for(i = 0; i < 4000; i++)
+	{
+		char text[16];
+
+		sprintf(text, "%02X,", buffer[i]);
+		uart_put_string(text);
+	}
 	/* ==========================================
 	 STANDARDWERTE
 	 ========================================== */
-	Measure_Param measure;
+	/*Measure_Param measure;
 	
 	memset(&measure, 0, sizeof(measure));
 
@@ -101,12 +128,12 @@ int main()
 	measure.sense_average = 100;
 
 	measure.sense_measurement = false;
-
+*/
 
 	/* ==========================================
 	   HAUPTSCHLEIFE
 	   ========================================== */
-	
+/*	
 	while(1)
 	{
 		if(uart_string_received())
@@ -117,5 +144,5 @@ int main()
 		{
 			//die messung starten;
 		}
-	}
+	}*/
 }
