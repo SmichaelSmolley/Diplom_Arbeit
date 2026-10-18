@@ -331,5 +331,69 @@ for(i = 0; i < 1000; i++)
 	*/
 	
 
+# Warum pcb
+## digital
+### usb isolator
+es wird ein usb isolator mit einem getrennten GND verwendet um Ground loops zu verhindern die möglicherweise eine messergrebniss verfälschung auslösen können, denn wenn ein PC angeschlussen wird würde dieser einen zwieten Ground pfad ermöglichen
 
+### MCU
+es wiord der Cortex wie beim Schulinternen MDDsa system verwednet da der code des FETCH systems erstellt und erprobt wurde und zum debuggen und zum flashen.
 
+### SPI kommunikation
+es wird spi für die diaten kommunikation zwischen MCU und der Analog platine verwendet denn spi liefert eine hochgenuge daten rate, um die übermittelung über die bakplane zu ermöglichen ohne großartig emv schwirigkeiten zuverursachen nehmen wir eine übertragung mittels diff paar. dafür wird auf analog und digital platine der reciver SN65MLVD048RGZR verwednet. und für das empfangen wird der SN65MLVD047AD verwednet. 
+
+### backplane stecker
+es wird ein DIN norm stecker verwednet da diese häufig bei solchen systemen verwednet wird als referenz dafür wurde das 8 ½ digit systems des cern verwendet.
+
+### presence pins
+auf jeder pcb werden die fremden presence pins gepullt upt und dan auf der richtigen pcb auf gnd gelegt das bedeutet wenn die pcb eingesteckt ist ist der pinn LOW
+
+### anzeige leds
+die anzeige leds können verwednet werden um den zusatnd des messsystems anzuzeigen um z.b. amstäken oder ausbauen zu verhindern wärend einer messung.
+
+### temp sense
+der connector U5 wird für den temp sensor verwendet denn die möglichkeit die temp zu sensen ist relativ wichtig eine temp sensotist auf der analogplaine vorhanden und auch um einen seperaten gibt es bei dem DUT
+
+## Backplane
+### Verpolungs schutz
+der verpolungs sutz mit sicherung wird auf der backplane eingebaut, um einen schutz vor überstrom und verpolung einzubauen denn die versorgung wird mit batterien realisiert da muss vor überstrom geschützt sein
+
+### LVDSTTL
+die 100 ohm abschluss widerstände um auch bei nur instlliertem digital plaitne auch abgeschlussen ist das ist bei multi driver bussen relevant.
+
+## Analog
+### Spannungsversorgung
+die versorgung wird mit LDOs (LT3042, LT3094, TLV767) erzeugt da diese sehr rauscharm sind und kein schaltrauschen wie ein schaltregler erzeugen. das ist wichtig da im nA bereich gemessen wird und jedes rauschen das messergebnis verfälscht. es gibt +5V, ±7,87V für die OPVs und 3,3V für die logik.
+
+### Referenzen
+es werden zwei präzisions referenzen verwendet (ADR4550 5V und ADR4525 2,5V) denn die genauigkeit der ausgangsspannungen und der ADC messung hängt direkt von der referenz ab.
+
+### DAC
+der AD5689R ist ein 16 bit DAC mit zwei kanälen, ein kanal für die drain spannung und einer für die gate spannung des DUT. nach dem einschalten sind beide ausgänge auf 0V damit das DUT nicht beschädigt wird.
+
+### Gate ansteuerung
+die gate spannung wird über einen OPV mit offset (OUT_GATE = 5V - 2*VB) erzeugt damit man mit dem DAC einen bereich von 5V bis 0V bzw. bis -5V einstellen kann. drain und gate haben ein RC filter damit das rauschen des DACs gefiltert wird.
+
+### TIA
+der transimpedanzverstärker mit dem OPA928 wandelt den strom vom DUT in eine spannung um (U = -I * Rf). der OPA928 wurde gewählt da er einen extrem kleinen eingangsstrom (max 20 fA) hat. um den eingang ist ein guard ring damit keine leckströme über die platine fließen.
+
+### Messbereichs umschaltung
+mit einem latch relais kann zwischen 10 MOhm und 100 kOhm umgeschaltet werden für einen nA und einen µA messbereich. es werden latch relais verwendet da diese nur einen kurzen puls zum schalten brauchen und danach keinen strom verbrauchen und keine wärme erzeugen.
+
+### Kalibrier relais
+mit dem zweiten relais kann der eingang auf GND gelegt werden um den offset zu messen und den eingang beim umstecken des DUT zu schützen.
+
+### ADC treiber
+der OPV vor dem ADC passt die TIA spannung an den ADC bereich (0 bis 2,5V) an und hat einen kleinen offset von 66,7 mV damit auch kleine negative ströme gemessen werden können und der OPV nicht an seine grenze kommt.
+
+### ADC
+es wird ein 16 bit ADC (ADS8866) verwendet. die referenz kondensatoren sitzen direkt am REF pin damit die messung genau bleibt.
+
+### SPI kommunikation
+die analogplatine empfängt CLK, MOSI und SYNC über den SN65MLVD048 und sendet die ADC daten (MISO) über den SN65MLVD047 zurück zur digitalplatine.
+
+### Temp sense
+auf der analogplatine ist ein DS18B20 temperatursensor damit die temperatur der messelektronik mitgespeichert werden kann, da diese die messung beeinflusst.
+
+### BNC anschlüsse
+gate, drain und TIA eingang werden über BNC buchsen angeschlossen da diese geschirmt sind und so störungen von außen abgeschirmt werden.
