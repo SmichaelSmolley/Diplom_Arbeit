@@ -1,39 +1,3 @@
----
-title: "Analyse von Degradationseffekten bei Feldeffekttransistoren"
-author: "Watzek, Traube, Siedersleben, Pernerstorfer"
-toc: false
-toc-title: Inhaltsverzeichnis
-toc-depth: 3
-shift-heading-level-by: 1
-
-header-includes:
-  # header and footer
-  - \usepackage{fancyhdr, titling, lastpage}
-  - \pagestyle{fancy}
-  - \fancyhf{}
-  - \fancyhead[L]{27.01.2026}
-  - \fancyhead[R]{Analyse von Degradationseffekten bei Feldeffekttransistore}
-  - \fancyfoot[L]{\hspace{0.5cm}HTBL – Hollabrunn}
-  - \fancyfoot[C]{Watzek, Traube, Siedersleben, Pernerstorfer}
-  - \fancyfoot[R]{\thepage~/~\pageref{LastPage}\hspace{0.5cm}}
-  - \renewcommand{\headrulewidth}{0pt}               # header line remove
-  - \renewcommand{\footrulewidth}{0.4pt}             # footer line add
-
-  # higher title
-  - \usepackage{titling}
-  - \setlength{\droptitle}{-8em}
-
-  # margin
-  - \usepackage[left=3cm,right=3cm,top=2cm,bottom=2cm]{geometry}
-  - \setlength{\headwidth}{\textwidth}
----
-
-\input{titlepage.tex}
-\pagebreak
-\renewcommand{\contentsname}{Inhaltsverzeichnis}
-\tableofcontents
-\pagebreak
-
 # Begriffsdefinition
 
 **ADC** – Analog-to-Digital Converter
@@ -84,7 +48,7 @@ header-includes:
 
 # Ausgangslage
 
-Heutzutage werden in der Elektronik Schalter meist mit Feldeffekttransistoren realisiert. Diese sind geeignet für hohe Schaltfrequenzen, können kleiner hergestellt und zuverlässiger designt werden. Diese nutzen das Prinzip der elektrischen Felder. Durch das Anlegen einer Spannung am Gate des Transistors wird die Breite des leitfähigen Kanals zwischen den Drain- und Source-Anschlüssen moduliert. Durch diese Gegebenheit sind die Feldeffekttransistoren geeignet, als elektrische Schalter verwendet zu werden.
+In der modernen Elektronik werden Schalter meist mit Feldeffekttransistoren realisiert. Diese sind geeignet für hohe Schaltfrequenzen, können kleiner hergestellt und zuverlässiger designt werden. Diese nutzen das Prinzip der elektrischen Felder. Durch das Anlegen einer Spannung am Gate des Transistors wird die Breite des leitfähigen Kanals zwischen den Drain- und Source-Anschlüssen moduliert. Durch diese Gegebenheit sind die Feldeffekttransistoren geeignet, als elektrische Schalter verwendet zu werden.
 
 Doch auch rein elektrische Schalter wie MOSFETs können mit der Verwendung immer unzuverlässlicher werden, allerdings können sich auch die Eigenschaften wie der RDS mit der Alterung der Bauteile ändern. Ursache für diese Änderung mit dem Alter können Defekte in der Kristallstruktur des Bauteiles sein.
 
@@ -109,5 +73,4 @@ Die relevantesten Eigenschaften, die sich durch die Degradation verändern, sind
 ## elektrische Messgrößen
 
 Die relevanten Messgrößen die notwendig sind um auf defekt aktivität zu schleisen lassen sich auf 2 Spannungen und 1 strom herunter brechen. die beiden spannungen wären die Gate und Drain spannung des MOSFET, die relevanteste messgröße ist der Source strom den dieser ändert sich mit der zuhname der degradation. 
-
-Der Source strom ändert sich in binären in ~10nA schritten.
+Der So
