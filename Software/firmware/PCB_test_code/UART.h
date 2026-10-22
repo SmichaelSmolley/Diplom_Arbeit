@@ -8,6 +8,8 @@
 
 #define UART_RX_BUFFER_SIZE 128
 
+extern volatile bool abort_requested;
+
 void set_up_uart1();
 void uart1_Rx_Interupt(bool setting);
 void uart_put_char(char zeichen);

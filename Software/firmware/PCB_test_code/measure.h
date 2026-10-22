@@ -10,7 +10,9 @@
 #include "COMMAND_DECODE.h"
 
 void start_measure(Measure_Param *param);
-void transient_measure(Measure_Param *param);
-void IDVG_measure(Measure_Param *param);
+void transient(Measure_Param *param);
+void IDVG(Measure_Param *param);
+void stress(Measure_Param *param);
+void wait_temp_equi(Measure_Param *param);
 
 #endif	

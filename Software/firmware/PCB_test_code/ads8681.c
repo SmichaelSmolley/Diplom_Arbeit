@@ -5,7 +5,15 @@
 #include "SPI.h"
 #include "PINs.h"
 
-#define VREF 4.096
+#include "relai.h"
+
+#define VREF        4.096
+#define RF_100N     10.0e6      // Rf im 100-nA-Bereich (Relais "100n")
+#define RF_10U      100.0e3     // Rf im 10-µA-Bereich
+#define STAGE_GAIN  (10.0/30.0) // Betrag der Stufe nach dem TIA (-10k/30k)
+
+// muss zum Wert im RANGE_SEL-Register passen! (Reset-Default: ±3·VREF)
+#define ADC_FSR_HALF (3.0 * VREF)   // ±12.288 V
 
 uint32_t ADS8681_transfer_frame(uint32_t tx_frame)
 {
@@ -60,8 +68,17 @@ void ADS8681_init()
 	ADC_SPI_NCS = 1;
 }
 
-double ADS8681_get_VOLT(uint16_t raw)
+double ADS8681_get_voltage(uint16_t raw)
 {
-    return ((double)raw / 65535.0) * (2.0 * 3.0 * VREF)
-           - (3.0 * VREF);
+    // Straight-Binary: 0x0000 = -FS, 0x8000 = 0 V, 0xFFFF = +FS - 1 LSB
+    return ((double)raw - 32768.0) * (2.0 * ADC_FSR_HALF / 65536.0);
+}
+
+double ADS8681_get_current(uint16_t raw)   // Rückgabe in µA
+{
+    double u_adc = ADS8681_get_voltage(raw);
+    double rf    = range_100n ? RF_100N : RF_10U;
+
+    // U_TIA = -I·Rf ;  U_ADC = -U_TIA·(10/30) = I·Rf/3   ->   I = U_ADC·3/Rf
+    return (u_adc / (STAGE_GAIN * rf)) * 1.0e6;
 }

@@ -20,6 +20,9 @@
 #include "scpi_commands.h"
 #include "COMMAND_DECODE.h"
 
+//==========<firmware>==========
+#include "measure.h"
+
 uint8_t dummy_buffer[2] = {0x00,0x00};
 
 int main()
@@ -50,44 +53,19 @@ int main()
 	
 	spi1_set_baud(5);
 
-	set_range_10meg();
-	reset_GND_Relai();
+	 set_range_100k();
+	set_GND_Relai();
 	
 	AD5689_set_Voltage(0,AD5689_ADDR_DAC_AB);
 	
 	wait_ms(1000);
 	
 	uart_put_string("SAFDAT READY\r\n");
-	static uint8_t buffer[4000];
 	
-	init_tim2(10);
-	
-	spi1_rx_dma_init();
-	
-	spi1_rx_dma(buffer, 4000);
-	
-	spi1_tx_dma_init();
-	LED_GREEN = 1;
-	tim2_enable();
-	
-	while(!(DMA1->ISR & DMA_ISR_TCIF2))
-	{
-	}
-	tim2_disable();
-	LED_RED = 1;
-	LED_GREEN = 0;
-	uint16_t i;
-	for(i = 0; i < 4000; i++)
-	{
-		char text[16];
-
-		sprintf(text, "%02X,", buffer[i]);
-		uart_put_string(text);
-	}
 	/* ==========================================
 	 STANDARDWERTE
 	 ========================================== */
-	/*Measure_Param measure;
+	Measure_Param measure;
 	
 	memset(&measure, 0, sizeof(measure));
 
@@ -128,21 +106,50 @@ int main()
 	measure.sense_average = 100;
 
 	measure.sense_measurement = false;
-*/
+	measure.sense_mode_idvg = false;
+	measure.sense_mode_transient = false;
+
+
+	measure.stress_type = STRESS_BTI;
+	measure.stress_mode = STRESS_STATIC;
+	measure.stress_voltage = 0.0f;
+	measure.stress_drain_voltage = 0.0f;
+	measure.stress_on_time = 0;
+	measure.stress_off_time = 0;
+	measure.stress_time = 0;
+	measure.stress_cycles = 0;
+	measure.stress_output = false;
+	measure.stress_after_idvg = false;
+	measure.stress_after_transient = false;
+
+	measure.temp_equilibrium_wait = false;
+
 
 	/* ==========================================
 	   HAUPTSCHLEIFE
 	   ========================================== */
-/*	
+	
 	while(1)
 	{
 		if(uart_string_received())
 		{
 			get_Decode_Parameter(uart_get_string(), &measure);
 		}
-		if(measure.sense_measurement == true)
+		if(measure.sense_mode_idvg == true)
 		{
-			//die messung starten;
+			IDVG(&measure);
 		}
-	}*/
+		if(measure.sense_mode_transient == true)
+		{
+			transient(&measure);
+		}
+		if(measure.stress_output == true)
+		{
+			stress(&measure);
+		}
+		if(measure.temp_equilibrium_wait == true)
+		{
+			wait_temp_equi(&measure);
+		}
+	}
 }

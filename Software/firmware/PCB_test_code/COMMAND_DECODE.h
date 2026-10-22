@@ -48,6 +48,26 @@ typedef struct
 
     bool sense_measurement;
 
+    bool sense_mode_idvg;         // true = Messung ist eine IDVG
+    bool sense_mode_transient;    // true = Messung ist ein Transient
+
+
+    /* STRESS */
+    STRESS_TypeTyp stress_type;       // BTI oder HCD
+    STRESS_ModeTyp stress_mode;       // STATIC oder DYNAMIC
+    float    stress_voltage;          // Gate-Stressspannung [V]
+    float    stress_drain_voltage;    // Drain-Stressspannung [V], nur HCD
+    uint32_t stress_on_time;          // [ms] Stress pro Puls (DYNAMIC)
+    uint32_t stress_off_time;         // [ms] Pause pro Puls (DYNAMIC)
+    uint32_t stress_time;             // [ms] Gesamtdauer (STATIC)
+    uint32_t stress_cycles;           // Anzahl Pulse (DYNAMIC)
+    bool     stress_output;           // Stress ausfuehren ja/nein
+    bool     stress_after_idvg;       // nach dem Stressen IDVG starten
+    bool     stress_after_transient;  // nach dem Stressen Transienten starten
+
+    /* TEMP */
+    bool     temp_equilibrium_wait;   // true = vor der Messung auf thermisches Gleichgewicht warten
+
 } Measure_Param;
 
 void get_Decode_Parameter(char* command, Measure_Param* Parameter);

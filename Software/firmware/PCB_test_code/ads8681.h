@@ -136,6 +136,8 @@ void ADS8681_setRange(uint32_t range);
 	
 void ADS8681_init();
 	
-double ADS8681_get_VOLT(uint16_t raw);
+
+double ADS8681_get_voltage(uint16_t raw);
+double ADS8681_get_current(uint16_t raw);
 	
 #endif

@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 #include "UART.h"
 #include "sys_hard_settings.h"
 
@@ -9,13 +10,36 @@ static volatile char uart_rx_buffer[UART_RX_BUFFER_SIZE];
 static volatile uint8_t uart_rx_index = 0;
 static volatile bool uart_rx_complete = false;
 
+volatile bool abort_requested = false;
+
 void USART1_IRQHandler()
 {
-	if (USART1->SR & 0x20)     // RXNE
+	if (USART1->SR & USART_SR_RXNE)     // RXNE
 	{
 		char zeichen;
 
 		zeichen = USART1->DR;
+
+		/* ABORT-Erkennung: unabhaengig vom Empfangspuffer, damit sie auch
+		   waehrend einer laufenden Messung funktioniert ("ABOR" und "ABORT") */
+		{
+			static uint8_t abort_match = 0;
+			static const char abort_key[] = "ABOR";
+
+			if (zeichen == abort_key[abort_match])
+			{
+				abort_match++;
+				if (abort_match == 4)
+				{
+					abort_requested = true;
+					abort_match = 0;
+				}
+			}
+			else
+			{
+				abort_match = (zeichen == 'A') ? 1 : 0;
+			}
+		}
 
 		if (!uart_rx_complete)
 		{
@@ -37,6 +61,7 @@ void USART1_IRQHandler()
 				{
 					// Buffer voll -> String abschlieﬂen
 					uart_rx_buffer[UART_RX_BUFFER_SIZE - 1] = '\0';
+
 					uart_rx_index = 0;
 
 					uart_rx_complete = true;

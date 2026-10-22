@@ -2,12 +2,16 @@
 #include <stdbool.h>
 #include "PINs.h"
 #include "TIMER.h"
+#include "relai.h"
+
+bool range_100n = false;
 
 void set_range_10meg()
 {
 	Range_Select_set = 1;
 	wait_ms(100);
 	Range_Select_set = 0;
+	range_100n = true;
 }
 
 void set_range_100k()
@@ -15,6 +19,7 @@ void set_range_100k()
 	Range_Select_Reset = 1;
 	wait_ms(100);
 	Range_Select_Reset = 0;
+	range_100n = false;
 }
 
 void set_GND_Relai()

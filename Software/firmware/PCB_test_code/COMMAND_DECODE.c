@@ -213,4 +213,110 @@ void get_Decode_Parameter(char *command, Measure_Param *param)
 		else if (strcmp(command + 24, "STOP") == 0)
 			param->sense_measurement = false;
 	}
+
+	else if (strncmp(command, "SENSE_MODE_IDVG= ", 17) == 0)
+	{
+		if (strcmp(command + 17, "TRUE") == 0)
+			param->sense_mode_idvg = true;
+
+		else if (strcmp(command + 17, "FALSE") == 0)
+			param->sense_mode_idvg = false;
+	}
+
+	else if (strncmp(command, "SENSE_MODE_TRANSIENT= ", 22) == 0)
+	{
+		if (strcmp(command + 22, "TRUE") == 0)
+			param->sense_mode_transient = true;
+
+		else if (strcmp(command + 22, "FALSE") == 0)
+			param->sense_mode_transient = false;
+	}
+
+	/* ================= STRESS ================= */
+
+	else if (strncmp(command, "STRESS_TYPE= ", 13) == 0)
+	{
+		if (strcmp(command + 13, "BTI") == 0)
+			param->stress_type = STRESS_BTI;
+
+		else if (strcmp(command + 13, "HCD") == 0)
+			param->stress_type = STRESS_HCD;
+	}
+
+	else if (strncmp(command, "STRESS_MODE= ", 13) == 0)
+	{
+		if (strcmp(command + 13, "STATIC") == 0)
+			param->stress_mode = STRESS_STATIC;
+
+		else if (strcmp(command + 13, "DYNAMIC") == 0)
+			param->stress_mode = STRESS_DYNAMIC;
+	}
+
+	else if (strncmp(command, "STRESS_VOLTage= ", 16) == 0)
+	{
+		param->stress_voltage = (float)atof(command + 16);
+	}
+
+	else if (strncmp(command, "STRESS_DRAIN_VOLTage= ", 22) == 0)
+	{
+		param->stress_drain_voltage = (float)atof(command + 22);
+	}
+
+	else if (strncmp(command, "STRESS_ON_TIME= ", 16) == 0)
+	{
+		param->stress_on_time = (uint32_t)strtoul(command + 16, NULL, 10);
+	}
+
+	else if (strncmp(command, "STRESS_OFF_TIME= ", 17) == 0)
+	{
+		param->stress_off_time = (uint32_t)strtoul(command + 17, NULL, 10);
+	}
+
+	else if (strncmp(command, "STRESS_TIME= ", 13) == 0)
+	{
+		param->stress_time = (uint32_t)strtoul(command + 13, NULL, 10);
+	}
+
+	else if (strncmp(command, "STRESS_CYCLES= ", 15) == 0)
+	{
+		param->stress_cycles = (uint32_t)strtoul(command + 15, NULL, 10);
+	}
+
+	else if (strncmp(command, "STRESS_OUTput= ", 15) == 0)
+	{
+		if (strcmp(command + 15, "ON") == 0)
+			param->stress_output = true;
+
+		else if (strcmp(command + 15, "OFF") == 0)
+			param->stress_output = false;
+	}
+
+	else if (strncmp(command, "STRESS_AFTER_IDVG= ", 19) == 0)
+	{
+		if (strcmp(command + 19, "TRUE") == 0)
+			param->stress_after_idvg = true;
+
+		else if (strcmp(command + 19, "FALSE") == 0)
+			param->stress_after_idvg = false;
+	}
+
+	else if (strncmp(command, "STRESS_AFTER_TRANSIENT= ", 24) == 0)
+	{
+		if (strcmp(command + 24, "TRUE") == 0)
+			param->stress_after_transient = true;
+
+		else if (strcmp(command + 24, "FALSE") == 0)
+			param->stress_after_transient = false;
+	}
+
+	/* ================= TEMP ================= */
+
+	else if (strncmp(command, "Temp_equilibrium_wait= ", 23) == 0)
+	{
+		if (strcmp(command + 23, "TRUE") == 0)
+			param->temp_equilibrium_wait = true;
+
+		else if (strcmp(command + 23, "FALSE") == 0)
+			param->temp_equilibrium_wait = false;
+	}
 }

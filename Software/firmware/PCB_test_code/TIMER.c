@@ -3,18 +3,20 @@
 #include <stm32f10x.h>
 #include "PINs.h"
 #include <stdbool.h>
+
+#include "UART.h"
+
 uint8_t spi_dummy[2] = {0x00, 0x00};
 
 void TIM2_IRQHandler(void)
 {
     if (TIM2->SR & TIM_SR_UIF)
     {
-        TIM2->SR &= ~TIM_SR_UIF;
-				
-				static bool status = 0;
-        LED_GREEN = status;
-				status =! status;
-    }
+      TIM2->SR &= ~TIM_SR_UIF;
+			ADC_SPI_NCS = 0;
+		  spi1_tx_dma(spi_dummy, 2);
+			ADC_SPI_NCS = 1;
+		}
 }
 
 
@@ -23,6 +25,15 @@ void wait_ms(int ms)
 	int j;
 	for(j = 0; j < 7987*ms; j++){}
 } 
+
+bool delay_ms_abortable(uint32_t ms)      // true = abgebrochen
+{
+    while (ms--) {
+        if (abort_requested) return true;
+        wait_ms(1);
+    }
+    return false;
+}
 
 void init_tim2(uint32_t freq)
 {

@@ -36,6 +36,25 @@
 :SENSE<n>:MODE:AVERAGE?
 
 :SENSE<n>:MESSURMENT {START/STOP}
+:SENSE<n>:MODE:IDVG {TRUE/FALSE}
+:SENSE<n>:MODE:TRANSIENT {TRUE/FALSE}
+
+:STRESS:TYPE {BTI/HCD}
+:STRESS:MODE {STATIC/DYNAMIC}
+:STRESS:VOLTage <value>
+:STRESS:DRAIN:VOLTage <value>
+:STRESS:ON_TIME <value ms>
+:STRESS:OFF_TIME <value ms>
+:STRESS:TIME <value ms>
+:STRESS:CYCLES <value>
+:STRESS:OUTput {ON/OFF}
+
+:STRESS:AFTER:IDVG {TRUE/FALSE}
+:STRESS:AFTER:TRANSIENT {TRUE/FALSE}
+
+:TEMP:EQUILIBRIUM:WAIT {TRUE/FALSE}
+
+:ABORt
 
 :STATUS:?
 :STATUS:SYSTEM?
@@ -121,6 +140,35 @@ typedef enum {
 #define SENSE_MODE_AVERAGE(value)                 "SENSE_MODE_AVERAGE= " #value            //Werte mitteln <value> der zumittelnden Werten
 #define SENSE_MODE_AVERAGE_STATE()                "SENSE_MODE_AVERAGE_STATE?"              //Werte abfragen
 #define SENSE_MODE_MEASUREMENT(START_STOP)        "SENSE_MODE_MEASUREMENT= " #START_STOP   //Messwertaufnahme starten
+#define SENSE_MODE_IDVG(TRUE_FALSE)               "SENSE_MODE_IDVG= " #TRUE_FALSE          //Messart IDVG (TRUE/FALSE)
+#define SENSE_MODE_TRANSIENT(TRUE_FALSE)          "SENSE_MODE_TRANSIENT= " #TRUE_FALSE     //Messart Transient (TRUE/FALSE)
+
+/*----- STRESS Define-Section -----*/
+#define STRESS_TYPE(type_enum)                    "STRESS_TYPE= " #type_enum               //BTI (Drain = 0 V) oder HCD (Drain unter Spannung)
+typedef enum {
+    STRESS_BTI,                                   //Bias Temperature Instability: nur Gate gestresst, VD = 0 V
+    STRESS_HCD                                    //Hot Carrier Degradation: Gate + Drain gestresst
+} STRESS_TypeTyp;
+#define STRESS_MODE(mode_enum)                    "STRESS_MODE= " #mode_enum               //STATIC (DC) oder DYNAMIC (gepulst/AC)
+typedef enum {
+    STRESS_STATIC,                                //Gate dauerhaft auf Stressspannung
+    STRESS_DYNAMIC                                //Pulse: on_time Stress / off_time Erholung
+} STRESS_ModeTyp;
+#define STRESS_VOLTage(value)                     "STRESS_VOLTage= " #value                //Gate-Stressspannung [V]
+#define STRESS_DRAIN_VOLTage(value)               "STRESS_DRAIN_VOLTage= " #value          //Drain-Stressspannung [V] (nur HCD, bei BTI ignoriert -> 0 V)
+#define STRESS_ON_TIME(value)                     "STRESS_ON_TIME= " #value                //Stressdauer pro Puls [ms] (DYNAMIC)
+#define STRESS_OFF_TIME(value)                    "STRESS_OFF_TIME= " #value               //Pause/Erholung pro Puls [ms] (DYNAMIC)
+#define STRESS_TIME(value)                        "STRESS_TIME= " #value                   //Gesamtstressdauer [ms] (STATIC)
+#define STRESS_CYCLES(value)                      "STRESS_CYCLES= " #value                 //Anzahl Pulse (DYNAMIC)
+#define STRESS_OUTput(ON_OFF)                     "STRESS_OUTput= " #ON_OFF                //Stress bei Messstart ausfuehren ja/nein
+#define STRESS_AFTER_IDVG(TRUE_FALSE)             "STRESS_AFTER_IDVG= " #TRUE_FALSE        //nach dem Stressen IDVG starten (TRUE/FALSE)
+#define STRESS_AFTER_TRANSIENT(TRUE_FALSE)        "STRESS_AFTER_TRANSIENT= " #TRUE_FALSE   //nach dem Stressen Transienten starten (TRUE/FALSE)
+
+/*----- TEMP Define-Section -----*/
+#define Temp_equilibrium_wait(TRUE_FALSE)         "Temp_equilibrium_wait= " #TRUE_FALSE    //vor Messstart warten bis DUT/Platine im thermischen Gleichgewicht sind (TRUE/FALSE)
+
+/*----- ABORT Define-Section -----*/
+#define ABORt()                                   "ABORT"                                  //laufende Messung/Stress/Temp-Wartezeit abbrechen (wird direkt im UART-Interrupt erkannt)
 
 /*----- STATUS Define-Section -----*/
 #define STATUS_STATE()                            "STATUS_STATE?"                          //Gesamt Status abfragen
