@@ -9,6 +9,8 @@
 
 #include "COMMAND_DECODE.h"
 
+#define std_room_temp 25
+
 void start_measure(Measure_Param *param);
 void transient(Measure_Param *param);
 void IDVG(Measure_Param *param);

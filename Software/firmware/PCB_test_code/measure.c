@@ -6,6 +6,7 @@
 #include "AD5689.h"
 #include "TIMER.h"
 #include "dma.h"
+#include "temp.h"
 
 void start_measure(Measure_Param *param)
 {
@@ -32,7 +33,7 @@ void transient(Measure_Param *param)
 
 void wait_temp_equi(Measure_Param *param)
 {
-	(void)param;
+
 }
 
 void stress(Measure_Param *param)

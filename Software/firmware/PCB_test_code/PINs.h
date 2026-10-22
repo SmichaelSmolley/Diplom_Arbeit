@@ -32,7 +32,10 @@
 	
 #define LED_GREEN *((volatile unsigned long *)(BITBAND_PERI(GPIOB_ODR,9)))
 #define LED_RED *((volatile unsigned long *)(BITBAND_PERI(GPIOB_ODR,8)))
-	
+
+#define Temp_intern_out *((volatile unsigned long *)(BITBAND_PERI(GPIOC_ODR,5)))
+#define Temp_intern_in *((volatile unsigned long *)(BITBAND_PERI(GPIOC_IDR,5)))
+
 void PIN_init();
 
 #endif

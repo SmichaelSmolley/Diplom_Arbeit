@@ -12,6 +12,8 @@ void TIM2_IRQHandler(void);
 void wait_ms(int ms);
 bool delay_ms_abortable(uint32_t ms);
 
+void delay_us(uint32_t us);
+
 void init_tim2(uint32_t freq);
 
 void tim2_enable();

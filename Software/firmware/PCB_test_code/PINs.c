@@ -33,10 +33,10 @@ void PIN_init()
 	temp |= 0x00003033;
 	GPIOB->CRH = temp;
 	
-	//PC0, PC1, PC2, PC3 = Output PushPull 50MHz (0x3)
+	//PC0, PC1, PC2, PC3 = Output PushPull 50MHz (0x3) PC5 = Open Drain für OW Master
 	temp = GPIOC->CRL;
-	temp &= 0xFFFF0000;
-	temp |= 0x00003333;
+	temp &= 0xFF0F0000;
+	temp |= 0x00703333;
 	GPIOC->CRL = temp;
 	
 	//PC12 = Input Pull-Up (0x8)
@@ -46,6 +46,6 @@ void PIN_init()
 	temp |= 0x00380000;
 	GPIOC->CRH = temp;
 	
-	GPIOC->BSRR = 0x300F;    // PC13, PC12, PC3..PC0 High
+	GPIOC->BSRR = 0x302F;    // PC13, PC12, PC3..PC0 High
 	GPIOB->BSRR = 0x0082;    // PB7 und PB1 High
 }

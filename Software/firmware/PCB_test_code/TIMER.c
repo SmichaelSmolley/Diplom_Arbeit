@@ -35,6 +35,11 @@ bool delay_ms_abortable(uint32_t ms)      // true = abgebrochen
     return false;
 }
 
+void delay_us(uint32_t us)
+{
+	int j;
+	for(j = 0; j < 7*us; j++){}
+} 
 void init_tim2(uint32_t freq)
 {
     if (freq == 0) return; // Schutz vor Division durch Null
