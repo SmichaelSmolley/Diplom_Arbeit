@@ -50,6 +50,10 @@ typedef struct
 
     bool sense_mode_idvg;         // true = Messung ist eine IDVG
     bool sense_mode_transient;    // true = Messung ist ein Transient
+		
+		uint32_t sense_measure_time;  //Variable Measuretime einsetzen
+		uint32_t sense_sample_rate;
+		uint32_t sense_points;
 
 
     /* STRESS */

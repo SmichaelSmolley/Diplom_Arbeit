@@ -28,7 +28,7 @@ void IDVG(Measure_Param *param)
 
 void transient(Measure_Param *param)
 {
-	(void)param;
+	
 }
 
 void wait_temp_equi(Measure_Param *param)

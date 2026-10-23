@@ -1,3 +1,4 @@
+//Blockdiagramm vom CODE herstellen
 //==========<std_libs>==========
 #include <stm32f10x.h>
 #include <string.h>
@@ -44,7 +45,7 @@ int main()
 	DAC_SPI_NCS = 1;
 	ADC_SPI_NCS = 1;
 
-	uart1_set_baud(9600);
+	uart1_set_baud(115200);
 	
 	{
 		uint16_t i;
@@ -60,7 +61,9 @@ int main()
 	
 	wait_ms(1000);
 	
-	uart_put_string("SAFDAT READY\r\n");
+	uart_put_string("FETCH READY\r\n");
+	
+	uart1_Rx_Interupt(true); //Vergessen für ersten Test der Kommunikation
 	
 	/* ==========================================
 	 STANDARDWERTE
@@ -108,7 +111,9 @@ int main()
 	measure.sense_measurement = false;
 	measure.sense_mode_idvg = false;
 	measure.sense_mode_transient = false;
-
+	measure.sense_measure_time = 10;
+	measure.sense_sample_rate = 1000;
+	measure.sense_points = 10000;
 
 	measure.stress_type = STRESS_BTI;
 	measure.stress_mode = STRESS_STATIC;
@@ -138,18 +143,28 @@ int main()
 		if(measure.sense_mode_idvg == true)
 		{
 			IDVG(&measure);
+			uart_put_string("IDVG\r\n");
 		}
 		if(measure.sense_mode_transient == true)
 		{
 			transient(&measure);
+			uart_put_string("Transient\r\n");
+			measure.sense_mode_transient = false;
 		}
 		if(measure.stress_output == true)
 		{
 			stress(&measure);
+			uart_put_string("Stress\r\n");
 		}
 		if(measure.temp_equilibrium_wait == true)
 		{
 			wait_temp_equi(&measure);
+			uart_put_string("Tempmeasure\r\n");
+		}
+		if(measure.sense_sample_rate == 12)
+		{
+			uart_put_string("SHESAIDSHEWAS12\r\n");
+			return 0;
 		}
 	}
-}
+}//SENSE start noch in funktion schreiben

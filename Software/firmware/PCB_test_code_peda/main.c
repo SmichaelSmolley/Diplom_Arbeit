@@ -108,7 +108,7 @@ int main()
     set_up_uart1();
 
     wait_ms(100);
-
+		
     // Testnachricht senden
     uart_put_string("=== SCPI Command Test Start ===\r\n");
 
