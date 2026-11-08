@@ -26,6 +26,7 @@ void AD5689_send_command(AD5689_cmd command,
                          AD5689_addr address,
                          uint16_t data)
 {
+		spi1_mode(SPI_DEV_DAC);
     DAC_SPI_NCS = 0;
 
     spi1_transfer8((uint8_t)((command << 4) | address));

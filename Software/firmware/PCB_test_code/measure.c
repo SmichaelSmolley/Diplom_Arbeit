@@ -6,19 +6,6 @@
 #include "AD5689.h"
 #include "TIMER.h"
 #include "dma.h"
-#include "temp.h"
-
-void start_measure(Measure_Param *param)
-{
-	if(param->source2_sweep_step != 0 || param->source1_sweep_step != 0)
-	{
-		IDVG(param);
-	}
-	if(param->source2_sweep_step == 0 || param->source1_sweep_step == 0)
-	{
-		transient(param);
-	}
-}
 
 /* TODO: selbst implementieren (leere Funktionen nur, damit der Linker durchlaeuft) */
 void IDVG(Measure_Param *param)
@@ -28,15 +15,20 @@ void IDVG(Measure_Param *param)
 
 void transient(Measure_Param *param)
 {
-	
+	(void)param;
 }
 
 void wait_temp_equi(Measure_Param *param)
 {
-
+	(void)param;
 }
 
 void stress(Measure_Param *param)
+{
+	(void)param;
+}
+
+void MSM(Measure_Param *param)
 {
 	(void)param;
 }

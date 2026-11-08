@@ -3,49 +3,36 @@
 
 void PIN_init()
 {
-	 int temp;
+	int temp;
 
 	RCC->APB2ENR |= 0x1C; // GPIOA, GPIOB, GPIOC
 
-	//PA1, PA2, PA4 = Output PushPull 50MHz (0x3)
 	temp = GPIOA->CRL;
-	temp &= 0xFFF0F00F;
-	temp |= 0x00030330;
+	temp &= 0x0000000F;
+	temp |= 0xB4B33330;
 	GPIOA->CRL = temp;
 	
-	temp = GPIOA->CRL;
-	temp &= ~(0xFFF << 20);   // PA5-PA7 löschen
-	temp |=  (0xB << 20);     // PA5 AF PP 50MHz
-	temp |=  (0x4 << 24);     // PA6 Input Floating
-	temp |=  (0xB << 28);     // PA7 AF PP 50MHz
-	GPIOA->CRL = temp;
-
-	//PB1, PB4, PB7 = Output PushPull 50MHz (0x3)
-	//PB0 = Output OpenDrain 50MHz (0x7)
 	temp = GPIOB->CRL;
-	temp &= 0x0FF0FF00;
-	temp |= 0x30030037;
+	temp &= 0xFF0FFFFF;
+	temp |= 0x00300000;
 	GPIOB->CRL = temp;
 	
-	//PB8, PB9, PB11 = Output PushPull 50MHz (0x3)
 	temp = GPIOB->CRH;
-	temp &= 0xFFFF0F00;
-	temp |= 0x00003033;
+	temp &= 0x00F0FF0F;
+	temp |= 0x44030070;
 	GPIOB->CRH = temp;
 	
-	//PC0, PC1, PC2, PC3 = Output PushPull 50MHz (0x3) PC5 = Open Drain für OW Master
 	temp = GPIOC->CRL;
 	temp &= 0xFF0F0000;
 	temp |= 0x00703333;
 	GPIOC->CRL = temp;
 	
-	//PC12 = Input Pull-Up (0x8)
-  //PC13 = Output PushPull (0x3)
 	temp = GPIOC->CRH;
-	temp &= 0xFF00FFFF;
-	temp |= 0x00380000;
+	temp &= 0xFFFF0000;
+	temp |= 0x00003333;
 	GPIOC->CRH = temp;
 	
-	GPIOC->BSRR = 0x302F;    // PC13, PC12, PC3..PC0 High
-	GPIOB->BSRR = 0x0082;    // PB7 und PB1 High
+	GPIOA->BSRR = 0x000C0012;    // PA1, PA4 High (CS inaktiv); PA2, PA3 Low
+	GPIOB->BSRR = 0x10000220;    // PB5, PB9 High; PB12 Low
+	GPIOC->BSRR = 0x0F0F0020;    // PC5 High; PC0-PC3, PC8-PC11 Low
 }

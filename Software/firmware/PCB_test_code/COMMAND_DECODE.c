@@ -44,9 +44,9 @@ void get_Decode_Parameter(char *command, Measure_Param *param)
 		param->source1_sweep_time = value;
 	}
 
-	else if (strncmp(command, "SOURce1_PROT= ", 15) == 0)
+	else if (strncmp(command, "SOURce1_PROT= ", 14) == 0)
 	{
-		value = (float)atof(command + 15);
+		value = (float)atof(command + 14);
 		param->source1_prot = value;
 	}
 
@@ -112,9 +112,9 @@ void get_Decode_Parameter(char *command, Measure_Param *param)
 		param->source2_sweep_time = value;
 	}
 
-	else if (strncmp(command, "SOURce2_PROT= ", 15) == 0)
+	else if (strncmp(command, "SOURce2_PROT= ", 14) == 0)
 	{
-		value = (float)atof(command + 15);
+		value = (float)atof(command + 14);
 		param->source2_prot = value;
 	}
 
@@ -231,21 +231,6 @@ void get_Decode_Parameter(char *command, Measure_Param *param)
 		else if (strcmp(command + 22, "FALSE") == 0)
 			param->sense_mode_transient = false;
 	}
-	
-	else if (strncmp (command, "SENSE_MEASURE_TIME= ", 19) == 0)
-	{
-		param->sense_measure_time = (uint32_t)strtoul(command + 19, NULL, 10);
-	}
-	
-	else if (strncmp (command, "SENSE_SAMPLE_RATE= ", 18) == 0)
-	{
-		param->sense_sample_rate = (uint32_t)strtoul(command + 18, NULL, 10);
-	}
-	
-	else if (strncmp (command, "SENSE_POINTS= ", 13) == 0)
-	{
-		param->sense_points = (uint32_t)strtoul(command + 13, NULL, 10);
-	}
 
 	/* ================= STRESS ================= */
 
@@ -333,5 +318,76 @@ void get_Decode_Parameter(char *command, Measure_Param *param)
 
 		else if (strcmp(command + 23, "FALSE") == 0)
 			param->temp_equilibrium_wait = false;
+	}
+
+	/* ================= MSM ================= */
+
+	else if (strncmp(command, "SENSE_MODE_MSM= ", 16) == 0)
+	{
+		if (strcmp(command + 16, "TRUE") == 0)
+			param->sense_mode_msm = true;
+
+		else if (strcmp(command + 16, "FALSE") == 0)
+			param->sense_mode_msm = false;
+	}
+
+	else if (strncmp(command, "MSM_CYCLES= ", 12) == 0)
+	{
+		param->msm_cycles = (uint32_t)strtoul(command + 12, NULL, 10);
+	}
+
+	else if (strncmp(command, "MSM_START_TIME= ", 16) == 0)
+	{
+		param->msm_start_time = (uint32_t)strtoul(command + 16, NULL, 10);
+	}
+
+	else if (strncmp(command, "MSM_TIME_FACTOR= ", 17) == 0)
+	{
+		param->msm_time_factor = (float)atof(command + 17);
+	}
+
+	else if (strncmp(command, "MSM_MEAS_TYPE= ", 15) == 0)
+	{
+		if (strcmp(command + 15, "SPOT") == 0)
+			param->msm_meas_type = MSM_SPOT;
+
+		else if (strcmp(command + 15, "IDVG") == 0)
+			param->msm_meas_type = MSM_IDVG;
+
+		else if (strcmp(command + 15, "TRANSIENT") == 0)
+			param->msm_meas_type = MSM_TRANSIENT;
+	}
+
+	else if (strncmp(command, "MSM_MEAS_DELAY= ", 16) == 0)
+	{
+		param->msm_meas_delay = (uint32_t)strtoul(command + 16, NULL, 10);
+	}
+
+	else if (strncmp(command, "MSM_RECOVERY_STRESS_TIME= ", 26) == 0)
+	{
+		if (strcmp(command + 26, "TRUE") == 0)
+			param->msm_recovery_stress_time = true;
+
+		else if (strcmp(command + 26, "FALSE") == 0)
+			param->msm_recovery_stress_time = false;
+	}
+
+	else if (strncmp(command, "MSM_RECOVERY_TIME= ", 19) == 0)
+	{
+		param->msm_recovery_time = (uint32_t)strtoul(command + 19, NULL, 10);
+	}
+
+	else if (strncmp(command, "MSM_INITIAL_MEASURE= ", 21) == 0)
+	{
+		if (strcmp(command + 21, "TRUE") == 0)
+			param->msm_initial_measure = true;
+
+		else if (strcmp(command + 21, "FALSE") == 0)
+			param->msm_initial_measure = false;
+	}
+
+	else if (strncmp(command, "MSM_MAX_POINTS= ", 16) == 0)
+	{
+		param->msm_max_points = (uint32_t)strtoul(command + 16, NULL, 10);
 	}
 }

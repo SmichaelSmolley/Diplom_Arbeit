@@ -50,10 +50,6 @@ typedef struct
 
     bool sense_mode_idvg;         // true = Messung ist eine IDVG
     bool sense_mode_transient;    // true = Messung ist ein Transient
-		
-		uint32_t sense_measure_time;  //Variable Measuretime einsetzen
-		uint32_t sense_sample_rate;
-		uint32_t sense_points;
 
 
     /* STRESS */
@@ -72,6 +68,18 @@ typedef struct
     /* TEMP */
     bool     temp_equilibrium_wait;   // true = vor der Messung auf thermisches Gleichgewicht warten
 
+
+    /* MSM */
+    bool            sense_mode_msm;            // true = MSM-Messung ausfuehren
+    uint32_t        msm_cycles;                // Anzahl Zyklen
+    uint32_t        msm_start_time;            // [ms] erste Stressdauer
+    float           msm_time_factor;           // Stresszeit-Faktor pro Zyklus
+    MSM_MeasTypeTyp msm_meas_type;             // SPOT / IDVG / TRANSIENT
+    uint32_t        msm_meas_delay;            // [ms] Stress aus -> erster Messwert
+    bool            msm_recovery_stress_time;  // true = Recovery-Zeit = Stresszeit
+    uint32_t        msm_recovery_time;         // [ms] feste Recovery-Zeit (nur wenn obiges false)
+    bool            msm_initial_measure;       // Referenzmessung vor erstem Stress
+    uint32_t        msm_max_points;            // max. Messpunkte pro Messung
 } Measure_Param;
 
 void get_Decode_Parameter(char* command, Measure_Param* Parameter);

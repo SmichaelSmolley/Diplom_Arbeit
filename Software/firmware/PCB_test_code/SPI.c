@@ -39,7 +39,26 @@ void spi1_init()
 	
 	SPI1->CR1 |= (1 << 6);   // SPE = SPI enable
 }
-  
+
+void spi1_mode(spi_dev SPI_device)
+{
+	while (!(SPI1->SR & SPI_SR_TXE));
+	while (SPI1->SR & SPI_SR_BSY);
+	
+	SPI1->CR1 &= ~SPI_CR1_SPE; 
+	
+	if (SPI_device == SPI_DEV_ADC)
+	{
+		SPI1->CR1 &= ~SPI_CR1_CPHA;     // Mode 0
+	}
+	else if (SPI_device == SPI_DEV_DAC)
+	{
+		SPI1->CR1 |= SPI_CR1_CPHA;      // Mode 1
+	}
+	
+	SPI1->CR1 |= SPI_CR1_SPE;
+}
+
 void spi1_set_baud(uint8_t baut)
 {
 	// 1. SPI deaktivieren

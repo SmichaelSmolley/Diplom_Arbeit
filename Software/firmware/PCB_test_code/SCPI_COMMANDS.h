@@ -54,6 +54,17 @@
 
 :TEMP:EQUILIBRIUM:WAIT {TRUE/FALSE}
 
+:SENSE<n>:MODE:MSM {TRUE/FALSE}
+:MSM:CYCLES <value>
+:MSM:START_TIME <value ms>
+:MSM:TIME_FACTOR <value>
+:MSM:MEAS_TYPE {SPOT/IDVG/TRANSIENT}
+:MSM:MEAS_DELAY <value ms>
+:MSM:RECOVERY_STRESS_TIME {TRUE/FALSE}
+:MSM:RECOVERY_TIME <value ms>
+:MSM:INITIAL_MEASURE {TRUE/FALSE}
+:MSM:MAX_POINTS <value>
+
 :ABORt
 
 :STATUS:?
@@ -166,6 +177,27 @@ typedef enum {
 
 /*----- TEMP Define-Section -----*/
 #define Temp_equilibrium_wait(TRUE_FALSE)         "Temp_equilibrium_wait= " #TRUE_FALSE    //vor Messstart warten bis DUT/Platine im thermischen Gleichgewicht sind (TRUE/FALSE)
+
+/*----- MSM Define-Section (Measure-Stress-Measure) -----*/
+/* Stressspannungen kommen aus STRESS_VOLTage / STRESS_DRAIN_VOLTage,
+   Lesespannungen aus SOURce1/2_VOLTage.
+   RECOVERY_* wird nur bei MSM_MEAS_TYPE= TRANSIENT verwendet;
+   bei SPOT/IDVG startet der naechste Stress direkt nach der Messung. */
+#define SENSE_MODE_MSM(TRUE_FALSE)                "SENSE_MODE_MSM= " #TRUE_FALSE           //MSM-Messung starten (TRUE/FALSE)
+#define MSM_CYCLES(value)                         "MSM_CYCLES= " #value                    //Anzahl Stress->Mess-Zyklen
+#define MSM_START_TIME(value)                     "MSM_START_TIME= " #value                //erste Stressdauer [ms]
+#define MSM_TIME_FACTOR(value)                    "MSM_TIME_FACTOR= " #value               //Stresszeit pro Zyklus * Faktor
+#define MSM_MEAS_TYPE(type)                       "MSM_MEAS_TYPE= " #type                  //SPOT / IDVG / TRANSIENT
+typedef enum {
+    MSM_SPOT,                                     //1 Messpunkt nach meas_delay
+    MSM_IDVG,                                     //ein ID-VG-Sweep
+    MSM_TRANSIENT                                 //Recovery-Kurve, max_points log verteilt
+} MSM_MeasTypeTyp;
+#define MSM_MEAS_DELAY(value)                     "MSM_MEAS_DELAY= " #value                //Stress aus -> erster Messwert [ms]
+#define MSM_RECOVERY_STRESS_TIME(TRUE_FALSE)      "MSM_RECOVERY_STRESS_TIME= " #TRUE_FALSE //TRUE: Recovery-Zeit = Stresszeit des Zyklus
+#define MSM_RECOVERY_TIME(value)                  "MSM_RECOVERY_TIME= " #value             //feste Recovery-Zeit [ms], nur bei RECOVERY_STRESS_TIME= FALSE
+#define MSM_INITIAL_MEASURE(TRUE_FALSE)           "MSM_INITIAL_MEASURE= " #TRUE_FALSE      //Referenzmessung vor erstem Stress
+#define MSM_MAX_POINTS(value)                     "MSM_MAX_POINTS= " #value                //max. Messpunkte pro Messung
 
 /*----- ABORT Define-Section -----*/
 #define ABORt()                                   "ABORT"                                  //laufende Messung/Stress/Temp-Wartezeit abbrechen (wird direkt im UART-Interrupt erkannt)

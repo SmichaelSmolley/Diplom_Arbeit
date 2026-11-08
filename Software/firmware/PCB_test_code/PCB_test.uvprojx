@@ -385,16 +385,6 @@
           <GroupName>libs</GroupName>
           <Files>
             <File>
-              <FileName>ads8681.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\ads8681.c</FilePath>
-            </File>
-            <File>
-              <FileName>ads8681.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\ads8681.h</FilePath>
-            </File>
-            <File>
               <FileName>SCPI_COMMANDS.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\SCPI_COMMANDS.c</FilePath>
@@ -405,14 +395,24 @@
               <FilePath>.\SCPI_COMMANDS.h</FilePath>
             </File>
             <File>
+              <FileName>AD5689.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\AD5689.c</FilePath>
+            </File>
+            <File>
               <FileName>AD5689.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\AD5689.h</FilePath>
             </File>
             <File>
-              <FileName>AD5689.c</FileName>
+              <FileName>ADS8866.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\AD5689.c</FilePath>
+              <FilePath>.\ADS8866.c</FilePath>
+            </File>
+            <File>
+              <FileName>ADS8866.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\ADS8866.h</FilePath>
             </File>
           </Files>
         </Group>

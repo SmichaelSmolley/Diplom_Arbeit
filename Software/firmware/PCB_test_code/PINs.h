@@ -13,28 +13,29 @@
 
 #define ADC_SPI_NCS *((volatile unsigned long *)(BITBAND_PERI(GPIOA_ODR,4)))
 #define DAC_SPI_NCS *((volatile unsigned long *)(BITBAND_PERI(GPIOA_ODR,1)))
-#define OW_BUS_MASTER_OUT *((volatile unsigned long *)(BITBAND_PERI(GPIOB_ODR,0)))
-#define OW_BUS_MASTER_IN *((volatile unsigned long *)(BITBAND_PERI(GPIOB_IDR,0)))
+#define SPI_EN_SEND *((volatile unsigned long *)(BITBAND_PERI(GPIOA_ODR,3)))
+#define SPI_ANALOG_EN *((volatile unsigned long *)(BITBAND_PERI(GPIOB_ODR,12)))
 
-#define PER_33V_PSU_EN *((volatile unsigned long *)(BITBAND_PERI(GPIOB_ODR,11)))
-#define OPV_PSU_EN *((volatile unsigned long *)(BITBAND_PERI(GPIOB_ODR,7)))
-#define ANALOG_5V_PSU_EN *((volatile unsigned long *)(BITBAND_PERI(GPIOB_ODR,1)))
+#define OW_DIGITAL_BM_OUT *((volatile unsigned long *)(BITBAND_PERI(GPIOB_ODR,9)))
+#define OW_DIGITAL_BM_IN *((volatile unsigned long *)(BITBAND_PERI(GPIOB_IDR,9)))
+#define OW_ANALOG_BM_OUT *((volatile unsigned long *)(BITBAND_PERI(GPIOC_ODR,5)))
+#define OW_ANALOG_BM_IN *((volatile unsigned long *)(BITBAND_PERI(GPIOC_IDR,5)))
 
-#define cal_Select_set *((volatile unsigned long *)(BITBAND_PERI(GPIOC_ODR,0)))
-#define cal_Select_Reset *((volatile unsigned long *)(BITBAND_PERI(GPIOC_ODR,1)))
-#define Range_Select_set *((volatile unsigned long *)(BITBAND_PERI(GPIOC_ODR,2)))
-#define Range_Select_Reset *((volatile unsigned long *)(BITBAND_PERI(GPIOC_ODR,3)))
-	
+#define cal_Select_set *((volatile unsigned long *)(BITBAND_PERI(GPIOC_ODR,2)))
+#define cal_Select_Reset *((volatile unsigned long *)(BITBAND_PERI(GPIOC_ODR,0)))
+#define Range_Select_set *((volatile unsigned long *)(BITBAND_PERI(GPIOC_ODR,3)))
+#define Range_Select_Reset *((volatile unsigned long *)(BITBAND_PERI(GPIOC_ODR,1)))
+
+#define PRE_ANALOG_CARD *((volatile unsigned long *)(BITBAND_PERI(GPIOB_IDR,15)))
+#define PRE_KALIB_CARD *((volatile unsigned long *)(BITBAND_PERI(GPIOB_IDR,14)))
+
 #define DAC_GAIN *((volatile unsigned long *)(BITBAND_PERI(GPIOA_ODR,2)))
-#define DAC_NRESET *((volatile unsigned long *)(BITBAND_PERI(GPIOB_ODR,4)))
-#define ADC_NALARM *((volatile unsigned long *)(BITBAND_PERI(GPIOC_IDR,12)))
-#define ADC_NRESET *((volatile unsigned long *)(BITBAND_PERI(GPIOC_ODR,13)))
+#define DAC_NRESET *((volatile unsigned long *)(BITBAND_PERI(GPIOB_ODR,5)))
 	
-#define LED_GREEN *((volatile unsigned long *)(BITBAND_PERI(GPIOB_ODR,9)))
-#define LED_RED *((volatile unsigned long *)(BITBAND_PERI(GPIOB_ODR,8)))
-
-#define Temp_intern_out *((volatile unsigned long *)(BITBAND_PERI(GPIOC_ODR,5)))
-#define Temp_intern_in *((volatile unsigned long *)(BITBAND_PERI(GPIOC_IDR,5)))
+#define LED_STATUS *((volatile unsigned long *)(BITBAND_PERI(GPIOC_ODR,8)))
+#define LED_MEASURE *((volatile unsigned long *)(BITBAND_PERI(GPIOC_ODR,9)))
+#define LED_ERROR *((volatile unsigned long *)(BITBAND_PERI(GPIOC_ODR,10)))
+#define LED_DATA *((volatile unsigned long *)(BITBAND_PERI(GPIOC_ODR,11)))
 
 void PIN_init();
 

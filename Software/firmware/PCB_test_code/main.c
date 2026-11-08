@@ -1,4 +1,3 @@
-//Blockdiagramm vom CODE herstellen
 //==========<std_libs>==========
 #include <stm32f10x.h>
 #include <string.h>
@@ -14,7 +13,7 @@
 #include "clock.h"
 
 //==========<device_libs>==========
-#include "ads8681.h"
+#include "ADS8866.h"
 #include "AD5689.h"
 
 //==========<scpi_lib>==========
@@ -32,18 +31,16 @@ int main()
 	set_up_uart1();
 	spi1_init();
 	
-	PER_33V_PSU_EN = 1;
-	ANALOG_5V_PSU_EN = 1;
-	OPV_PSU_EN = 1;
-	
 	cal_Select_Reset = 0;
 	cal_Select_set = 0;
 	Range_Select_Reset = 0;
 	Range_Select_set = 0;
 	
-	DAC_GAIN=0;
+	DAC_GAIN = 0;
 	DAC_SPI_NCS = 1;
 	ADC_SPI_NCS = 1;
+	SPI_EN_SEND = 1;   
+	SPI_ANALOG_EN = 1;
 
 	uart1_set_baud(115200);
 	
@@ -54,16 +51,16 @@ int main()
 	
 	spi1_set_baud(5);
 
-	 set_range_100k();
+	set_range_100k();
 	set_GND_Relai();
 	
 	AD5689_set_Voltage(0,AD5689_ADDR_DAC_AB);
 	
 	wait_ms(1000);
-	
+		
 	uart_put_string("FETCH READY\r\n");
 	
-	uart1_Rx_Interupt(true); //Vergessen für ersten Test der Kommunikation
+	uart1_Rx_Interupt(true);
 	
 	/* ==========================================
 	 STANDARDWERTE
@@ -111,9 +108,7 @@ int main()
 	measure.sense_measurement = false;
 	measure.sense_mode_idvg = false;
 	measure.sense_mode_transient = false;
-	measure.sense_measure_time = 10;
-	measure.sense_sample_rate = 1000;
-	measure.sense_points = 10000;
+
 
 	measure.stress_type = STRESS_BTI;
 	measure.stress_mode = STRESS_STATIC;
@@ -129,6 +124,17 @@ int main()
 
 	measure.temp_equilibrium_wait = false;
 
+	measure.sense_mode_msm = false;
+	measure.msm_cycles = 5;
+	measure.msm_start_time = 1000;          // 1 s
+	measure.msm_time_factor = 10.0f;
+	measure.msm_meas_type = MSM_SPOT;
+	measure.msm_meas_delay = 1;             // 1 ms
+	measure.msm_recovery_stress_time = true;
+	measure.msm_recovery_time = 0;
+	measure.msm_initial_measure = true;
+	measure.msm_max_points = 5000;
+
 
 	/* ==========================================
 	   HAUPTSCHLEIFE
@@ -143,28 +149,22 @@ int main()
 		if(measure.sense_mode_idvg == true)
 		{
 			IDVG(&measure);
-			uart_put_string("IDVG\r\n");
 		}
 		if(measure.sense_mode_transient == true)
 		{
 			transient(&measure);
-			uart_put_string("Transient\r\n");
-			measure.sense_mode_transient = false;
 		}
 		if(measure.stress_output == true)
 		{
 			stress(&measure);
-			uart_put_string("Stress\r\n");
 		}
 		if(measure.temp_equilibrium_wait == true)
 		{
 			wait_temp_equi(&measure);
-			uart_put_string("Tempmeasure\r\n");
 		}
-		if(measure.sense_sample_rate == 12)
+		if(measure.sense_mode_msm == true)
 		{
-			uart_put_string("SHESAIDSHEWAS12\r\n");
-			return 0;
+			MSM(&measure);
 		}
 	}
-}//SENSE start noch in funktion schreiben
+}
