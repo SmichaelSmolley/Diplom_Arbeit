@@ -1,0 +1,4 @@
+# Direkte Abhaengigkeiten des Projekts
+# (darkdetect und packaging werden von customtkinter automatisch mitinstalliert)
+customtkinter==6.0.0
+pyserial==3.5
