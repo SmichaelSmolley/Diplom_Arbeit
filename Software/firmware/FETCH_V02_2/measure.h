@@ -9,6 +9,8 @@
 
 #include "COMMAND_DECODE.h"
 
+static uint16_t get_adc_average(uint32_t avg);
+
 void transient(Measure_Param *param);
 void IDVG(Measure_Param *param);
 void stress(Measure_Param *param);

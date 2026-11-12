@@ -1,0 +1,8 @@
+.venv/
+build/
+dist/
+*.spec
+__pycache__/
+FETCH_FETCHER.exe
+messungen/
+fetch_einstellungen.json

@@ -38,7 +38,7 @@ void AD5689_send_command(AD5689_cmd command,
 
 void AD5689_set_Voltage(float Volt, AD5689_addr address)
 {
-	int16_t data;
+	uint16_t data;
 	{
 		if (Volt < 0.0f)
 			Volt = 0.0f;

@@ -544,6 +544,26 @@
               <FileType>1</FileType>
               <FilePath>.\measure.c</FilePath>
             </File>
+            <File>
+              <FileName>SEND_DATA.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\SEND_DATA.h</FilePath>
+            </File>
+            <File>
+              <FileName>SEND_DATA.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\SEND_DATA.c</FilePath>
+            </File>
+            <File>
+              <FileName>settings.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\settings.h</FilePath>
+            </File>
+            <File>
+              <FileName>settings.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\settings.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

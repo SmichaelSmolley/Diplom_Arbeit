@@ -10,6 +10,8 @@ import time
 
 import serial
 
+from messdaten import BlockParser
+
 
 class Instrument:
     BAUDRATE = 115200  # main.c sets uart1_set_baud(115200)
@@ -24,6 +26,10 @@ class Instrument:
         self.log_queue = queue.Queue()
         self._reader_stop = threading.Event()
         self._reader_thread = None
+        # Senden: Lock, damit Sequenz-Thread und ABORT nicht gleichzeitig schreiben
+        self._write_lock = threading.Lock()
+        self._sending = False
+        self._cancel = threading.Event()
 
     def connect(self, port):
         """Open the instrument's COM port using the baud rate from main.c."""
@@ -87,10 +93,15 @@ class Instrument:
         self._reader_thread = None
 
     def _receive_loop(self, connection, stop_event):
-        """Read line-based UART messages without blocking the GUI thread."""
+        """UART lesen, ohne die GUI zu blockieren.
+
+        Textzeilen -> ("RX", text). Datenblöcke (#HDR … binär … #END, siehe
+        Datenformat_Rueckgabe.md) -> ("BLOCK", (header, rohwerte)).
+        """
+        parser = BlockParser()
         while not stop_event.is_set():
             try:
-                raw = connection.readline()
+                data = connection.read(connection.in_waiting or 1)
             except (serial.SerialException, OSError) as exc:
                 if not stop_event.is_set():
                     message = f"Serieller Empfang fehlgeschlagen: {exc}"
@@ -98,13 +109,23 @@ class Instrument:
                     self.log_queue.put(("ERROR", message))
                 break
 
-            if not raw:
+            if not data:
                 continue  # read timeout: check stop_event again
 
-            message = raw.decode("ascii", errors="replace").rstrip("\r\n")
-            if message:
-                print(f"RX <-- {message}")
-                self.log_queue.put(("RX", message))
+            for event in parser.feed(data):
+                kind = event[0]
+                if kind == "LINE":
+                    print(f"RX <-- {event[1]}")
+                    self.log_queue.put(("RX", event[1]))
+                elif kind == "BLOCK":
+                    hdr, raw = event[1], event[2]
+                    self.log_queue.put(("RX", f"Datenblock {hdr['TYPE']} N={hdr['N']} "
+                                              f"CYCLE={hdr['CYCLE']} (Prüfsumme OK)"))
+                    self.log_queue.put(("BLOCK", (hdr, raw)))
+                elif kind == "DONE":
+                    self.log_queue.put(("RX", "#DONE"))
+                else:
+                    self.log_queue.put(("ERROR", event[1]))
 
     def send(self, command):
         """Send one newline-terminated command accepted by COMMAND_DECODE.c.
@@ -124,8 +145,9 @@ class Instrument:
 
         try:
             payload = (command + "\r\n").encode("ascii")
-            self.connection.write(payload)
-            self.connection.flush()
+            with self._write_lock:
+                self.connection.write(payload)
+                self.connection.flush()
             print(f"TX --> {command}")
             self.log_queue.put(("TX", command))
             # Give the firmware main loop time to consume one command before
@@ -136,77 +158,45 @@ class Instrument:
             print(f"Senden fehlgeschlagen: {exc}")
             return False
 
-    def send_measurement_parameters(
-        self, sample_rate, measure_time, points, gate_voltage, drain_voltage
-    ):
-        """Send the parameters which the current firmware can actually decode.
+    # ------------------------------------------------------------------
+    # Befehlsfolgen senden (laut Befehlsreferenz_Python_PC.md)
+    # ------------------------------------------------------------------
+    @property
+    def busy(self):
+        return self._sending
 
-        In the provided files, Source 1 is provisionally mapped to Gate and
-        Source 2 to Drain. Confirm this mapping with the firmware developer.
-        Sample rate, measure time and point count are retained for the GUI but
-        are NOT sent because COMMAND_DECODE.c has no commands for them yet.
+    def send_sequence(self, commands, tag=""):
+        """Sendet die Befehle nacheinander in einem Hintergrund-Thread.
+
+        Zwischen den Befehlen wartet send() COMMAND_DELAY_S, damit die
+        Firmware jede Zeile abholen kann (Befehlsreferenz Kap. 2.1).
+        Am Ende kommt ("DONE", (tag, ok, anzahl_gesendet)) in die log_queue.
+        Gibt False zurück, wenn gerade schon gesendet wird.
         """
-        if not self.connected:
-            print("Kein Gerät verbunden!")
+        if self._sending or not self.connected:
             return False
+        self._sending = True
+        self._cancel.clear()
 
-        self.last_parameters = {
-            "sample_rate_hz": sample_rate,
-            "measure_time_s": measure_time,
-            "points": points,
-            "gate_voltage_v": gate_voltage,
-            "drain_voltage_v": drain_voltage,
-       
-        }
+        def worker():
+            sent = 0
+            ok = True
+            for command in commands:
+                if self._cancel.is_set():
+                    ok = False
+                    break
+                if not self.send(command):
+                    ok = False
+                    break
+                sent += 1
+            self._sending = False
+            self.log_queue.put(("DONE", (tag, ok, sent, len(commands))))
 
-        commands = [
-            f"SOURce1_VOLTage= {gate_voltage:.9g}",
-            f"SOURce2_VOLTage= {drain_voltage:.9g}",
-            f"SENSE_SAMPLE_RATE= {sample_rate:.9g}",
-            f"SENSE_MEASURE_TIME= {measure_time:.9g}",
-            f"SENSE_POINTS= {points:.9g}",
-            "SENSE_MODE_TRANSIENT= TRUE",
-        ]
-
-        for command in commands:
-            if not self.send(command):
-                return False
-
-        print(
-            "NICHT übertragen: Sample Rate, Measure Time und Messpunktanzahl. "
-            "Die vorliegenden Firmware-Dateien unterstützen diese Parameter noch nicht."
-        )
+        threading.Thread(target=worker, name="FETCH-sender", daemon=True).start()
         return True
 
-    def start_transient(self):
-        """Set the transient/measurement flags known to the current decoder.
-
-        This sends control flags only. In the supplied measure.c, transient()
-        is currently an empty stub, so this cannot start actual data acquisition yet.
-        """
-        if not self.connected:
-            print("Kein Gerät verbunden!")
-            return False
-
-        # Set the measurement flag before enabling transient mode, because
-        # main.c calls transient() once sense_mode_transient becomes true.
-        if not self.send("SENSE_MODE_MEASUREMENT= START"):
-            return False
-        if not self.send("SENSE_MODE_TRANSIENT= TRUE"):
-            return False
-
-        print(
-            "Start-Flags gesendet. Hinweis: transient() ist in der bereitgestellten "
-            "Firmware noch leer; es werden daher noch keine Messdaten erfasst."
-        )
-        return True
-
-    def stop_transient(self):
-        """Clear the transient and measurement flags supported by the decoder."""
-        if not self.connected:
-            print("Kein Gerät verbunden!")
-            return False
-
-        ok_transient = self.send("SENSE_MODE_TRANSIENT= FALSE")
-        ok_measurement = self.send("SENSE_MODE_MEASUREMENT= STOP")
-        return ok_transient and ok_measurement
+    def abort(self):
+        """ABORT sofort senden (wird in der Firmware direkt im UART-Interrupt
+        erkannt) und eine eventuell laufende Befehlsfolge abbrechen."""
+        self._cancel.set()
+        return self.send("ABORT")

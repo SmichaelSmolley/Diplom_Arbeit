@@ -133,6 +133,27 @@ bool uart_string_received(void)
     return uart_rx_complete;
 }
 
+void uart_put_u32(uint32_t v)
+{
+	char buf[10];
+	int i = 0;
+
+	if (v == 0)
+	{
+		uart_put_char('0');
+		return;
+	}
+	while (v > 0)
+	{
+		buf[i++] = (char)('0' + (v % 10));
+		v /= 10;
+	}
+	while (i > 0)
+	{
+		uart_put_char(buf[--i]);
+	}
+}
+
 /* ============================================================
    String holen
    ============================================================ */

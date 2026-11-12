@@ -1,6 +1,8 @@
 #include <stm32f10x.h>
 #include <stdbool.h>
 #include "SPI.h"
+#include "PINs.h"
+#include "TIMER.h"
 
 void spi1_init()
 {
@@ -35,7 +37,7 @@ void spi1_init()
 	 
 	SPI1->CR1 &= ~(1 << 11);   // DFF = 0 ? 8 Bit
 	
-	SPI1->CR2 |= SPI_CR2_RXDMAEN;   // RX DMA aktivieren
+	//SPI1->CR2 |= SPI_CR2_RXDMAEN;   // RX DMA aktivieren
 	
 	SPI1->CR1 |= (1 << 6);   // SPE = SPI enable
 }
@@ -104,4 +106,22 @@ uint8_t spi1_transfer8(uint8_t tx_data)
 	while (SPI1->SR & SPI_SR_BSY);
 
 	return rx_data;
+}
+
+void spi1_ADC_dma_begin(void)
+{
+    spi1_mode(SPI_DEV_ADC);                          /* ADC: SPI-Mode 0 */
+    SPI1->CR2 |= SPI_CR2_RXDMAEN | SPI_CR2_TXDMAEN;
+}
+
+/* nach der Aufnahme – IMMER, auch bei ABORT */
+void spi1_ADC_dma_end(void)
+{
+    tim2_disable();                                  /* keine neuen Wandlungen */
+    DMA1_Channel2->CCR &= ~DMA_CCR1_EN;              /* RX-Kanal aus */
+    DMA1_Channel3->CCR &= ~DMA_CCR1_EN;              /* TX-Kanal aus */
+    while (SPI1->SR & SPI_SR_BSY);                   /* letztes Byte fertig */
+    SPI1->CR2 &= ~(SPI_CR2_RXDMAEN | SPI_CR2_TXDMAEN);
+    (void)SPI1->DR;                                  /* altes RXNE löschen */
+    ADC_SPI_NCS = 1;
 }

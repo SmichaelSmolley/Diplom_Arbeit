@@ -1,7 +1,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdbool.h>
-#include "ads8681.h"
+#include "ads8866.h"
 #include "SPI.h"
 #include "PINs.h"
 #include "TIMER.h"

@@ -2,3 +2,6 @@
 # (darkdetect und packaging werden von customtkinter automatisch mitinstalliert)
 customtkinter==6.0.0
 pyserial==3.5
+h5py==3.12.1        # Messdateien .h5 (zieht numpy mit)
+matplotlib==3.10.0  # Diagramme im Auswerten-Modus
+scipy               # Tiefpass (Bessel/Butterworth, filtfilt); ohne feste Version, passend zu numpy

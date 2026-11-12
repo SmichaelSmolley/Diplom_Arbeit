@@ -16,6 +16,8 @@ void uart_put_char(char zeichen);
 void uart_put_string(char *string);
 void uart1_set_baud(uint32_t baud);
 
+void uart_put_u32(uint32_t v);
+
 bool uart_string_received(void);
 char* uart_get_string(void);
 

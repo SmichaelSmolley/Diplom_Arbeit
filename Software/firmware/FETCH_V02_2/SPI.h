@@ -16,4 +16,6 @@ uint8_t spi1_transfer8(uint8_t tx_data);
 
 void spi1_mode(spi_dev SPI_device);
 
+void spi1_ADC_dma_begin(void);
+void spi1_ADC_dma_end(void);
 #endif
