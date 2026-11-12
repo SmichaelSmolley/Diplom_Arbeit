@@ -50,6 +50,9 @@ typedef struct
 
     bool sense_mode_idvg;         // true = Messung ist eine IDVG
     bool sense_mode_transient;    // true = Messung ist ein Transient
+    uint32_t transient_dt_us;     // [us] Abstand der Messpunkte (Samplerate = 1/dt)
+    uint32_t transient_points;    // Anzahl Messpunkte
+    uint32_t transient_settle_ms; // [ms] Einschwingen nach Setzen von Gate/Drain
 
 
     /* STRESS */

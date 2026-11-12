@@ -232,6 +232,21 @@ void get_Decode_Parameter(char *command, Measure_Param *param)
 			param->sense_mode_transient = false;
 	}
 
+	else if (strncmp(command, "SENSE_TRANSIENT_DT_US= ", 23) == 0)
+	{
+		param->transient_dt_us = (uint32_t)strtoul(command + 23, NULL, 10);
+	}
+
+	else if (strncmp(command, "SENSE_TRANSIENT_POINTS= ", 24) == 0)
+	{
+		param->transient_points = (uint32_t)strtoul(command + 24, NULL, 10);
+	}
+
+	else if (strncmp(command, "SENSE_TRANSIENT_SETTLE= ", 24) == 0)
+	{
+		param->transient_settle_ms = (uint32_t)strtoul(command + 24, NULL, 10);
+	}
+
 	/* ================= STRESS ================= */
 
 	else if (strncmp(command, "STRESS_TYPE= ", 13) == 0)

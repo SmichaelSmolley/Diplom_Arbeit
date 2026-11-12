@@ -73,6 +73,11 @@ static void set_default_params(Measure_Param *m)
 	m->sense_measurement    = false;
 	m->sense_mode_idvg      = false;
 	m->sense_mode_transient = false;
+	
+	/* ---------- TRAN ----------- */
+	m->transient_dt_us     = 10000;   /* 10 ms -> 100 Hz */
+	m->transient_points    = 1000;    /* 10 s */
+	m->transient_settle_ms = 100;
 
 	/* ---------- STRESS ---------- */
 	m->stress_type            = STRESS_BTI;
@@ -127,6 +132,10 @@ void init_all()
 	LED_ERROR   = 0;
 	LED_DATA    = 0;
 
+	/* ---- 2. Timer ---- */
+	tim3_init();
+	ow_timer_init();
+	
 	/* ---- 3. UART (RX-Interrupt erst ganz am Ende) ---- */
 	set_up_uart1();
 	uart1_set_baud(115200);
@@ -180,22 +189,27 @@ int main()
 		}
 		if(measure.sense_mode_idvg == true)
 		{
+			LED_MEASURE = 1;
 			IDVG(&measure);
 		}
 		if(measure.sense_mode_transient == true)
 		{
+			LED_MEASURE = 1;
 			transient(&measure);
 		}
 		if(measure.stress_output == true)
 		{
+			LED_MEASURE = 1;
 			stress(&measure);
 		}
 		if(measure.temp_equilibrium_wait == true)
 		{
+			LED_MEASURE = 1;
 			wait_temp_equi(&measure);
 		}
 		if(measure.sense_mode_msm == true)
 		{
+			LED_MEASURE = 1;
 			MSM(&measure);
 		}
 	}

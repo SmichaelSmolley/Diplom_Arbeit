@@ -58,12 +58,15 @@ Damit sieht man RTN (Sprünge zwischen zwei/mehreren Stromniveaus durch einzelne
 Traps) und Drift/Recovery nach einem Stress.
 
 Parameter                      Standard   Befehl / Erklärung
-Sample Rate (Hz)               1000       Messpunkte pro Sekunde
-Measure Time (s)               10         Gesamtdauer
-Messpunktanzahl                10000      = Rate × Zeit; die drei Felder rechnen
-                                          sich gegenseitig nach.
-                                          ACHTUNG: noch kein Firmware-Befehl, werden
-                                          nicht gesendet (Befehlsreferenz Kap. 6.2).
+Sample Rate (Hz)               100        SENSE_TRANSIENT_DT_US = 1e6 / Rate [µs].
+                                          Muss langsamer sein als ein gemittelter
+                                          Messpunkt dauert (sonst „WARN: dt zu kurz“).
+Measure Time (s)               10         Gesamtdauer (nur Hilfe, nicht gesendet)
+Messpunktanzahl                1000       SENSE_TRANSIENT_POINTS, max. 5000 (Puffer).
+                                          Rate, Zeit und Punkte rechnen sich gegen-
+                                          seitig nach.
+Einschwingzeit (ms)            100        SENSE_TRANSIENT_SETTLE: Wartezeit nach dem
+                                          Setzen von Gate/Drain, vor dem 1. Punkt.
 Gate-Spannung / Source 1 (V)   0          SOURce1_VOLTage. Für RTN eine Gate-Spannung
                                           nahe Vth wählen (z. B. 1.5 V), bei 0 V
                                           ist der Transistor aus.
@@ -75,7 +78,7 @@ Mittelungen                    100        siehe unten
 Gestartet mit: SENSE_MODE_TRANSIENT= TRUE
 
 Quellen
-  Befehlsreferenz_Python_PC.md Kap. 3.1, 6.2
+  Befehlsreferenz_Python_PC.md Kap. 3.1, 3.2, 6.2
   T. Grasser (Hrsg.), Bias Temperature Instability for Devices and Circuits,
   Springer 2014 (RTN / einzelne Defekte)
 """,

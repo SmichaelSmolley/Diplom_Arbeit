@@ -1,0 +1,24 @@
+#ifndef UART1_COM_H
+#define UART1_COM_H
+
+#include <stm32f10x.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <stdbool.h>
+
+#define UART_RX_BUFFER_SIZE 128
+
+extern volatile bool abort_requested;
+
+void set_up_uart1();
+void uart1_Rx_Interupt(bool setting);
+void uart_put_char(char zeichen);
+void uart_put_string(char *string);
+void uart1_set_baud(uint32_t baud);
+
+static void uart_put_u32(uint32_t v);
+
+bool uart_string_received(void);
+char* uart_get_string(void);
+
+#endif

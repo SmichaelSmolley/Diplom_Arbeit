@@ -1,3 +1,4 @@
+#include "dma.h"
 #include "TIMER.h"
 #include <stdint.h>
 #include <stm32f10x.h>
@@ -90,4 +91,80 @@ void tim2_disable()
 {
 	// Counter stopen
 	TIM2->CR1 &= ~TIM_CR1_CEN;
+}
+
+// ==========TIM3==========
+
+void tim3_init(void)
+{
+	RCC->APB1ENR |= RCC_APB1ENR_TIM3EN;
+	TIM3->CR1  = 0;              /* aus, aufwärts zählen */
+	TIM3->CR2  = 0;
+	TIM3->SMCR = 0;              /* interner Takt */
+	TIM3->DIER = 0;              /* kein Interrupt, kein DMA */
+	TIM3->SR   = 0;
+}
+
+uint32_t tim3_set_period(uint32_t dt_us)
+{
+	uint32_t tick_us, psc;
+
+	if (dt_us < 2u)
+		dt_us = 2u;
+
+	if (dt_us <= 65535u) {            /* bis 65 ms:  1 us Auflösung   */
+		tick_us = 1u;    psc = 71u;
+	} else if (dt_us <= 6553500u) {   /* bis 6,5 s:  100 us Auflösung */
+		tick_us = 100u;  psc = 7199u;
+	} else {                          /* bis 32,7 s: 500 us Auflösung */
+		tick_us = 500u;  psc = 35999u;
+		if (dt_us > 32767500u)
+			dt_us = 32767500u;
+	}
+
+	TIM3->PSC = (uint16_t)psc;
+	TIM3->ARR = (uint16_t)(dt_us / tick_us - 1u);
+
+	return (dt_us / tick_us) * tick_us;
+}
+
+void tim3_start(void)
+{
+	TIM3->CNT  = 0;
+	TIM3->EGR  = TIM_EGR_UG;     /* PSC/ARR übernehmen */
+	TIM3->SR   = 0;              /* von UG gesetztes UIF löschen */
+	TIM3->CR1 |= TIM_CR1_CEN;
+}
+
+void tim3_stop(void)
+{
+	TIM3->CR1 &= ~TIM_CR1_CEN;
+}
+
+bool tim3_wait(void)
+{
+	while (!(TIM3->SR & TIM_SR_UIF))
+	{
+		if (abort_requested)
+			return true;
+	}
+	TIM3->SR = (uint16_t)~TIM_SR_UIF;   /* nur UIF löschen (rc_w0) */
+	return false;
+}
+
+//==========TIM4==========
+
+void ow_timer_init(void)                 /* einmal in init_all() */
+{
+	RCC->APB1ENR |= RCC_APB1ENR_TIM4EN;
+	TIM4->PSC = 71;                      /* 72 MHz / 72 = 1 MHz */
+	TIM4->ARR = 0xFFFF;
+	TIM4->EGR = TIM_EGR_UG;
+	TIM4->CR1 = TIM_CR1_CEN;
+}
+
+void ow_delay_us(uint16_t us)
+{
+	uint16_t t0 = (uint16_t)TIM4->CNT;
+	while ((uint16_t)(TIM4->CNT - t0) < us) { }
 }
