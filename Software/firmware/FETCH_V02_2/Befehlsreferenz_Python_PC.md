@@ -97,6 +97,9 @@ SOURce1 = **Gate**, SOURce2 = **Drain** (DAC A = Gate, DAC B = Drain; laut eigen
 | `SENSE_MODE_MEASUREMENT=` | `START` / `STOP` | wird decodiert, aber in `main.c` derzeit **nicht ausgewertet** |
 | `SENSE_MODE_IDVG=` | `TRUE` / `FALSE` | **startet** eine ID-VG-Messung |
 | `SENSE_MODE_TRANSIENT=` | `TRUE` / `FALSE` | **startet** eine Transient-Messung |
+| `SENSE_TRANSIENT_DT_US=` | ganze Zahl [µs] | Abstand der Messpunkte, Samplerate = 1/dt (Standard 10000) |
+| `SENSE_TRANSIENT_POINTS=` | ganze Zahl | Anzahl Messpunkte, max. 5000 (Standard 1000) |
+| `SENSE_TRANSIENT_SETTLE=` | ganze Zahl [ms] | Einschwingen nach Setzen von Gate/Drain (Standard 100) |
 
 ## 3.3 STRESS
 
@@ -202,10 +205,13 @@ Gate und Drain fix, Strom wird über die Zeit aufgezeichnet.
 [Grund-Block]
 SOURce1_VOLTage= 1.5           # Gate fix
 SOURce2_VOLTage= 0.1           # Drain fix
+SENSE_TRANSIENT_DT_US= 10000   # 10 ms Abstand -> 100 Hz
+SENSE_TRANSIENT_POINTS= 1000   # 1000 Punkte = 10 s
+SENSE_TRANSIENT_SETTLE= 100    # 100 ms einschwingen
 SENSE_MODE_TRANSIENT= TRUE     # Start
 ```
 
-Hinweis: Für Dauer und Abtastrate des Transienten gibt es noch keinen eigenen Befehl.
+Der tatsächliche Abstand steht im Header als `DT_US`. Ist ein gemittelter Messpunkt länger als `DT_US`, meldet die Firmware `WARN: dt zu kurz …`.
 
 # 7 Stress
 
@@ -406,7 +412,6 @@ TR-S = TRANSIENT mit Recovery = Stresszeit · TR-F = TRANSIENT mit fester Recove
 * **Baudrate** ist noch 9600. Für MSM und Transient wird 115200 oder mehr gebraucht; das Limit setzen USB-UART-Chip und Optokoppler.
 * Die Defines in `SCPI_COMMANDS.h` für `SOURce_RANGE`, `SENSE_RANGE`, `STRESS_TYPE` und `STRESS_MODE` erzeugen mit Enum-Namen einen Text, den der Decoder nicht versteht (z. B. `STRESS_BTI` statt `BTI`). Das Python-Programm muss daher **die Werte aus dieser Doku** schicken.
 * Für `SENSE_MODE_ZCORRECT=` gibt es keinen Decode-Zweig. Abfragen mit `?` werden ebenfalls noch nicht beantwortet.
-* Für den Transienten (6.2) gibt es noch keine Befehle für Dauer und Abtastrate.
 
 # 10 Quellen
 

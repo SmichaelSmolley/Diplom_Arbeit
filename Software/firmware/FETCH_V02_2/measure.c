@@ -78,6 +78,64 @@ void IDVG(Measure_Param *param)
 
 void transient(Measure_Param *param)
 {
+	Data_Header hdr;
+	uint32_t n, i, dt;
+	uint16_t late;
+	
+	param->sense_mode_transient = false;
+	if(measure_prepare(param))
+	{
+		
+		n = param->transient_points;
+		if (n == 0)       n = 1;
+		if (n > BUF_MAX)  n = BUF_MAX;
+		
+		AD5689_set_Voltage(param->source2_voltage, AD5689_ADDR_DAC_B);
+		AD5689_set_Voltage(param->source1_voltage, AD5689_ADDR_DAC_A);
+		wait_ms((int)param->transient_settle_ms);
+		
+		dt = tim3_set_period(param->transient_dt_us);
+		tim3_start();                     /* t = 0 */
+		
+		for(i = 0; i < n; i++)
+		{
+			if (i > 0)
+			{
+				/* UIF schon gesetzt -> letzte Messung dauerte länger als dt */
+				if(TIM3->SR & TIM_SR_UIF)
+					late++;
+				if(tim3_wait())          /* ABORT */
+					break;
+			}
+			buffer[i] = get_adc_average(param->sense_average);
+		}
+		tim3_stop();
+		
+		memset(&hdr, 0, sizeof(hdr));    /* nicht benutzte Felder = 0 */
+		hdr.type       = DATA_TRANSIENT;
+		hdr.n          = i;               /* bei ABORT weniger */
+		hdr.range      = (param->sense_range == SENSE_RANGE_100n) ? 0u : 1u;
+		hdr.avg        = param->sense_average;
+		hdr.dt_us      = dt;              /* echter Abstand */
+		hdr.t_start_us = 0;
+
+		send_measure_header(&hdr);
+		send_measure_buffer(&hdr, buffer);
+
+		if (late > 0)                     /* Hinweis erscheint im Python-Log */
+		{
+			uart_put_string("WARN: dt zu kurz, Punkte zu spaet: ");
+			uart_put_u32(late);
+			uart_put_string("\r\n");
+		}
+		
+	}
+	
+	AD5689_set_Voltage(0.0f, AD5689_ADDR_DAC_A);   /* DUT spannungsfrei */
+	AD5689_set_Voltage(0.0f, AD5689_ADDR_DAC_B);
+	abort_requested = false;
+	LED_MEASURE = 0;
+	
 	(void)param;
 }
 

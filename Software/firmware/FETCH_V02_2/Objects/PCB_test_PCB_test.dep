@@ -44,12 +44,12 @@ I (C:\Users\Michael Watzek\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\In
 I (C:\Users\Michael Watzek\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F9F3E)
 I (C:\Users\Michael Watzek\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include\system_stm32f10x.h)(0x61ADCDBE)
 I (PINs.h)(0x6AEA38E8)
-I (TIMER.h)(0x6AF58CF9)
+I (TIMER.h)(0x6AF5A6A5)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x6388AB78)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x6388AB78)
 I (relai.h)(0x6AD9DF93)
 F (.\ADS8866.h)(0x6AEF71D6)()
-F (.\main.c)(0x6AF5955A)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/STM32F103RB-I./RTE/_PCB_test-I"C:/Users/Michael Watzek/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include"-I"C:/Users/Michael Watzek/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/main.o -MD)
+F (.\main.c)(0x6AF5AACA)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/STM32F103RB-I./RTE/_PCB_test-I"C:/Users/Michael Watzek/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include"-I"C:/Users/Michael Watzek/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/main.o -MD)
 I (C:\Users\Michael Watzek\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h)(0x61ADCDBE)
 I (RTE\_PCB_test\RTE_Components.h)(0x6AA79FBC)
 I (C:\Users\Michael Watzek\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm3.h)(0x626F9F3E)
@@ -65,14 +65,14 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6388AB78)
 I (UART.h)(0x6AF4DAD3)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x6388AB78)
 I (PINs.h)(0x6AEA38E8)
-I (TIMER.h)(0x6AF58CF9)
+I (TIMER.h)(0x6AF5A6A5)
 I (dma.h)(0x6AB02F22)
 I (clock.h)(0x6AB02F22)
 I (relai.h)(0x6AD9DF93)
 I (ADS8866.h)(0x6AEF71D6)
 I (AD5689.h)(0x6AAB83E6)
 I (scpi_commands.h)(0x6AF08B64)
-I (COMMAND_DECODE.h)(0x6AF58CF9)
+I (COMMAND_DECODE.h)(0x6AF5AA6A)
 I (measure.h)(0x6AF594F0)
 F (.\relai.c)(0x6AD9DF93)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/STM32F103RB-I./RTE/_PCB_test-I"C:/Users/Michael Watzek/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include"-I"C:/Users/Michael Watzek/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/relai.o -MD)
 I (C:\Users\Michael Watzek\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h)(0x61ADCDBE)
@@ -85,7 +85,7 @@ I (C:\Users\Michael Watzek\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\In
 I (C:\Users\Michael Watzek\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include\system_stm32f10x.h)(0x61ADCDBE)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6388AB78)
 I (PINs.h)(0x6AEA38E8)
-I (TIMER.h)(0x6AF58CF9)
+I (TIMER.h)(0x6AF5A6A5)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x6388AB78)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x6388AB78)
 I (relai.h)(0x6AD9DF93)
@@ -102,7 +102,7 @@ I (C:\Users\Michael Watzek\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Devi
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6388AB78)
 I (SPI.h)(0x6AF4E29A)
 I (PINs.h)(0x6AEA38E8)
-I (TIMER.h)(0x6AF58CF9)
+I (TIMER.h)(0x6AF5A6A5)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x6388AB78)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x6388AB78)
 F (.\SPI.h)(0x6AF4E29A)()
@@ -145,8 +145,8 @@ I (C:\Users\Michael Watzek\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\In
 I (C:\Users\Michael Watzek\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include\system_stm32f10x.h)(0x61ADCDBE)
 I (PINs.h)(0x6AEA38E8)
 F (.\PINs.h)(0x6AEA38E8)()
-F (.\TIMER.c)(0x6AF58CF9)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/STM32F103RB-I./RTE/_PCB_test-I"C:/Users/Michael Watzek/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include"-I"C:/Users/Michael Watzek/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/timer.o -MD)
-I (TIMER.h)(0x6AF58CF9)
+F (.\TIMER.c)(0x6AF5A782)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/STM32F103RB-I./RTE/_PCB_test-I"C:/Users/Michael Watzek/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include"-I"C:/Users/Michael Watzek/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/timer.o -MD)
+I (TIMER.h)(0x6AF5A6A5)
 I (C:\Users\Michael Watzek\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h)(0x61ADCDBE)
 I (RTE\_PCB_test\RTE_Components.h)(0x6AA79FBC)
 I (C:\Users\Michael Watzek\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm3.h)(0x626F9F3E)
@@ -161,7 +161,7 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6388AB78)
 I (PINs.h)(0x6AEA38E8)
 I (UART.h)(0x6AF4DAD3)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x6388AB78)
-F (.\TIMER.h)(0x6AF58CF9)()
+F (.\TIMER.h)(0x6AF5A6A5)()
 F (.\clock.c)(0x6AB02F22)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/STM32F103RB-I./RTE/_PCB_test-I"C:/Users/Michael Watzek/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include"-I"C:/Users/Michael Watzek/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/clock.o -MD)
 I (C:\Users\Michael Watzek\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h)(0x61ADCDBE)
 I (RTE\_PCB_test\RTE_Components.h)(0x6AA79FBC)
@@ -188,8 +188,8 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x6388AB78)
 F (.\dma.h)(0x6AB02F22)()
 F (.\temp.c)(0x6AD9E654)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/STM32F103RB-I./RTE/_PCB_test-I"C:/Users/Michael Watzek/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include"-I"C:/Users/Michael Watzek/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/temp.o -MD)
 F (.\temp.h)(0x6AD9E65A)()
-F (.\COMMAND_DECODE.h)(0x6AF58CF9)()
-F (.\COMMAND_DECODE.c)(0x6AF58CF9)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/STM32F103RB-I./RTE/_PCB_test-I"C:/Users/Michael Watzek/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include"-I"C:/Users/Michael Watzek/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/command_decode.o -MD)
+F (.\COMMAND_DECODE.h)(0x6AF5AA6A)()
+F (.\COMMAND_DECODE.c)(0x6AF5AA6A)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/STM32F103RB-I./RTE/_PCB_test-I"C:/Users/Michael Watzek/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include"-I"C:/Users/Michael Watzek/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/command_decode.o -MD)
 I (C:\Users\Michael Watzek\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include\stm32f10x.h)(0x61ADCDBE)
 I (RTE\_PCB_test\RTE_Components.h)(0x6AA79FBC)
 I (C:\Users\Michael Watzek\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm3.h)(0x626F9F3E)
@@ -203,9 +203,9 @@ I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x6388AB78)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6388AB78)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x6388AB78)
 I (SCPI_COMMANDS.h)(0x6AF08B64)
-I (COMMAND_DECODE.h)(0x6AF58CF9)
+I (COMMAND_DECODE.h)(0x6AF5AA6A)
 F (.\measure.h)(0x6AF594F0)()
-F (.\measure.c)(0x6AF594DD)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/STM32F103RB-I./RTE/_PCB_test-I"C:/Users/Michael Watzek/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include"-I"C:/Users/Michael Watzek/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/measure.o -MD)
+F (.\measure.c)(0x6AF5AB5C)(-xc -std=c90 --target=arm-arm-none-eabi -mcpu=cortex-m3 -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-D__EVAL -gdwarf-4 -O0 -ffunction-sections -Wno-packed -Wno-missing-variable-declarations -Wno-missing-prototypes -Wno-missing-noreturn -Wno-sign-conversion -Wno-nonportable-include-path -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -Wno-reserved-identifier-I./RTE/Device/STM32F103RB-I./RTE/_PCB_test-I"C:/Users/Michael Watzek/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include"-I"C:/Users/Michael Watzek/AppData/Local/Arm/Packs/Keil/STM32F1xx_DFP/2.4.1/Device/Include"-D__UVISION_VERSION="538" -D_RTE_ -DSTM32F10X_MD -D_RTE_-o ./objects/measure.o -MD)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x6388AB78)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x6388AB78)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6388AB78)
@@ -220,11 +220,11 @@ I (C:\Users\Michael Watzek\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\In
 I (C:\Users\Michael Watzek\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626F9F3E)
 I (C:\Users\Michael Watzek\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armclang.h)(0x626F9F3E)
 I (C:\Users\Michael Watzek\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include\system_stm32f10x.h)(0x61ADCDBE)
-I (COMMAND_DECODE.h)(0x6AF58CF9)
+I (COMMAND_DECODE.h)(0x6AF5AA6A)
 I (SCPI_COMMANDS.h)(0x6AF08B64)
 I (ADS8866.h)(0x6AEF71D6)
 I (AD5689.h)(0x6AAB83E6)
-I (TIMER.h)(0x6AF58CF9)
+I (TIMER.h)(0x6AF5A6A5)
 I (UART.h)(0x6AF4DAD3)
 I (PINs.h)(0x6AEA38E8)
 I (settings.h)(0x6AF4D390)
@@ -243,7 +243,7 @@ I (C:\Users\Michael Watzek\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Devi
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x6388AB78)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x6388AB78)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6388AB78)
-I (COMMAND_DECODE.h)(0x6AF58CF9)
+I (COMMAND_DECODE.h)(0x6AF5AA6A)
 I (SCPI_COMMANDS.h)(0x6AF08B64)
 I (SEND_DATA.h)(0x6AF4B8E6)
 I (UART.h)(0x6AF4DAD3)
@@ -261,13 +261,13 @@ I (C:\Users\Michael Watzek\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\In
 I (C:\Users\Michael Watzek\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include\system_stm32f10x.h)(0x61ADCDBE)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdlib.h)(0x6388AB78)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdbool.h)(0x6388AB78)
-I (COMMAND_DECODE.h)(0x6AF58CF9)
+I (COMMAND_DECODE.h)(0x6AF5AA6A)
 I (C:\Keil_v5\ARM\ARMCLANG\include\string.h)(0x6388AB78)
 I (SCPI_COMMANDS.h)(0x6AF08B64)
 I (settings.h)(0x6AF4D390)
 I (relai.h)(0x6AD9DF93)
 I (AD5689.h)(0x6AAB83E6)
-I (TIMER.h)(0x6AF58CF9)
+I (TIMER.h)(0x6AF5A6A5)
 I (PINs.h)(0x6AEA38E8)
 I (UART.h)(0x6AF4DAD3)
 F (RTE/Device/STM32F103RB/RTE_Device.h)(0x6AA79FA2)()
