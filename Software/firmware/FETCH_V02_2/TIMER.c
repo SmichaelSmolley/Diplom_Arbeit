@@ -1,3 +1,4 @@
+#include "dma.h"
 #include "TIMER.h"
 #include <stdint.h>
 #include <stm32f10x.h>
@@ -149,4 +150,21 @@ bool tim3_wait(void)
 	}
 	TIM3->SR = (uint16_t)~TIM_SR_UIF;   /* nur UIF löschen (rc_w0) */
 	return false;
+}
+
+//==========TIM4==========
+
+void ow_timer_init(void)                 /* einmal in init_all() */
+{
+	RCC->APB1ENR |= RCC_APB1ENR_TIM4EN;
+	TIM4->PSC = 71;                      /* 72 MHz / 72 = 1 MHz */
+	TIM4->ARR = 0xFFFF;
+	TIM4->EGR = TIM_EGR_UG;
+	TIM4->CR1 = TIM_CR1_CEN;
+}
+
+void ow_delay_us(uint16_t us)
+{
+	uint16_t t0 = (uint16_t)TIM4->CNT;
+	while ((uint16_t)(TIM4->CNT - t0) < us) { }
 }

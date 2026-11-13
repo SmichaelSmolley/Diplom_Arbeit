@@ -24,9 +24,7 @@ uint16_t ADS8866_GET_CONV()
 	spi1_mode(SPI_DEV_ADC);
 	
 	uint16_t rx1;
-	
-	int i;
-	
+		
 	ADC_SPI_NCS = 0;
 	wait_us(10);
 	ADC_SPI_NCS = 1;

@@ -134,6 +134,7 @@ void init_all()
 
 	/* ---- 2. Timer ---- */
 	tim3_init();
+	ow_timer_init();
 	
 	/* ---- 3. UART (RX-Interrupt erst ganz am Ende) ---- */
 	set_up_uart1();

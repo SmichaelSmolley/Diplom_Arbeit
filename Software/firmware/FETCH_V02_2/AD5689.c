@@ -1,6 +1,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include "TIMER.h"
 #include "AD5689.h"
 #include "SPI.h"
 #include "PINs.h"

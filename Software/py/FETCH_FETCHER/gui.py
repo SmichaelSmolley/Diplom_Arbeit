@@ -1225,13 +1225,13 @@ class App(ctk.CTk):
         params = self._make_param_box(tab, 4)
 
         self.sample_rate_entry = self._add_entry(
-            params, "Sample Rate (Hz)", 0, 0, "1000"
+            params, "Sample Rate (Hz)", 0, 0, "100"
         )
         self.measure_time_entry = self._add_entry(
             params, "Measure Time (s)", 0, 2, "10"
         )
         self.points_entry = self._add_entry(
-            params, "Messpunktanzahl", 1, 0, "10000"
+            params, "Messpunktanzahl", 1, 0, "1000"
         )
         # Provisional mapping: source 1 = Gate and source 2 = Drain. Confirm with firmware developer.
         self.gate_voltage_entry = self._add_entry(
@@ -1248,10 +1248,11 @@ class App(ctk.CTk):
 
         self.transient_range = self._add_option(params, "Strombereich", 2, 2, list(self.SENSE_RANGES))
         self.transient_avg = self._add_entry(params, "Mittelungen", 3, 0, "100")
+        self.transient_settle = self._add_entry(params, "Einschwingzeit (ms)", 3, 2, "100")
         self._add_control_footer(params, 4, 4, "Transient")
         self.tab_status["Transient"].configure(
-            text="Hinweis: Sample Rate, Messzeit und Punktanzahl haben in der Firmware noch keinen "
-                 "Befehl und werden nicht gesendet (Befehlsreferenz Kap. 6.2)."
+            text=f"Hinweis: max. {self.TR_MAX_POINTS} Punkte. Die Samplerate muss langsamer sein als ein "
+                 "gemittelter Messpunkt dauert – sonst meldet die Firmware „WARN: dt zu kurz“."
         )
 
         # Data display placeholder: current provided firmware sends no measurement samples.
@@ -1752,6 +1753,27 @@ class App(ctk.CTk):
             f"SOURce1_Sweep_TIme= {self._num_text(self._val(f['settle'], 'Einschwingzeit', positive=True))}",
         ]
 
+    TR_MAX_POINTS = 5000            # Puffer in der Firmware (BUF_MAX)
+    TR_MAX_DT_US = 32_767_500       # TIM3: max. 32,7 s pro Punkt
+
+    def _transient_timing_commands(self):
+        """Samplerate, Punktanzahl, Einschwingzeit des Transienten (Felder im Reiter Transient)."""
+        rate = self._val(self.sample_rate_entry, "Sample Rate", positive=True, allow_zero=False)
+        dt_us = round(1e6 / rate)
+        if not 2 <= dt_us <= self.TR_MAX_DT_US:
+            raise ValueError(f"„Sample Rate“ muss zwischen {1e6 / self.TR_MAX_DT_US:.3g} Hz "
+                             f"und 500 kHz liegen.")
+        points = self._val(self.points_entry, "Messpunktanzahl", positive=True, integer=True,
+                           allow_zero=False)
+        if points > self.TR_MAX_POINTS:
+            raise ValueError(f"„Messpunktanzahl“ max. {self.TR_MAX_POINTS} (Puffer der Firmware).")
+        settle = self._val(self.transient_settle, "Einschwingzeit", positive=True, integer=True)
+        return [
+            f"SENSE_TRANSIENT_DT_US= {dt_us}",
+            f"SENSE_TRANSIENT_POINTS= {points}",
+            f"SENSE_TRANSIENT_SETTLE= {settle}",
+        ]
+
     def _fixed_bias_commands(self, gate_entry, drain_entry, what):
         """Gate und Drain fix (Transient, Lesespannung bei MSM)."""
         vg = self._val(gate_entry, f"Gate-Spannung ({what})")
@@ -1769,6 +1791,7 @@ class App(ctk.CTk):
         if tab == "Transient":
             cmds = self._base_block(self.transient_range, self.transient_avg)
             cmds += self._fixed_bias_commands(self.gate_voltage_entry, self.drain_voltage_entry, "Transient")
+            cmds += self._transient_timing_commands()
             return cmds, "SENSE_MODE_TRANSIENT= TRUE"
 
         if tab == "Stress":
@@ -1781,6 +1804,8 @@ class App(ctk.CTk):
             if after_transient:
                 cmds += self._fixed_bias_commands(self.stress_bias["vg"], self.stress_bias["vd"],
                                                   "Nachmessung Transient")
+                # Samplerate/Punkte/Einschwingzeit aus dem Reiter "Transient"
+                cmds += self._transient_timing_commands()
             stress_type = self.stress_type.get()
             vd = self._val(f["vd"], "Drain-Stressspannung")
             if stress_type == "BTI":
